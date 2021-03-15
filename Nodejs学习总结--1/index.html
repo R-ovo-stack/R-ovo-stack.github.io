@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"rbin.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="摘要:关于Node.js的点点滴滴">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.js V14.0 学习水滴记录-BASE">
+<meta property="og:url" content="http://rbin.top/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/index.html">
+<meta property="og:site_name" content="如履薄彬">
+<meta property="og:description" content="摘要:关于Node.js的点点滴滴">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://r-ovo-stack.gitee.io/res/res1.png">
+<meta property="article:published_time" content="2021-01-18T01:57:00.000Z">
+<meta property="article:modified_time" content="2021-03-15T13:19:47.692Z">
+<meta property="article:author" content="如履薄彬">
+<meta property="article:tag" content="Node.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://r-ovo-stack.gitee.io/res/res1.png">
+
+<link rel="canonical" href="http://rbin.top/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Node.js V14.0 学习水滴记录-BASE | 如履薄彬</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="/uploads/logo.gif" alt="如履薄彬">
+        </a>
+      </div>
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">如履薄彬</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/R-ovo-stack" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://rbin.top/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avater.jpg">
+      <meta itemprop="name" content="如履薄彬">
+      <meta itemprop="description" content="迟迟钟鼓初长夜，耿耿星河欲曙天">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="如履薄彬">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Node.js V14.0 学习水滴记录-BASE
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-18 09:57:00" itemprop="dateCreated datePublished" datetime="2021-01-18T09:57:00+08:00">2021-01-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-15 21:19:47" itemprop="dateModified" datetime="2021-03-15T21:19:47+08:00">2021-03-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D-%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前/后端</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/" class="post-meta-item leancloud_visitors" data-flag-title="Node.js V14.0 学习水滴记录-BASE" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+<!-- 添加置顶图标 -->
+    
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>3.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>3 分钟</span>
+            </span>
+            <div class="post-description">摘要:关于Node.js的点点滴滴</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <hr>
+<p>本博文以及之后的Node.js-Tags记录了从2021年1月12号到1月17号的node技术总结，虽然只是会了点皮毛，但是个人认为，学习一样新的东西，应该养成良好的笔记习惯，昨天花了几个小时搭建的博客，今天就给他派上用场哈哈</p>
+<hr>
+<h1 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js??"></a>什么是Node.js??</h1><p>学了这么多天，我理解的Nodejs就是一个Js运行框架，它拥有让javascript运行在Web服务器中的能力，就和大三上学期学的Php的思想类似</p>
+<h2 id="V8-引擎"><a href="#V8-引擎" class="headerlink" title="V8 引擎"></a>V8 引擎</h2><hr>
+<p>V8是一个Js引擎，由C++开发而来，使用了内联缓存以提高性能。</p>
+<h2 id="学习Node-js需要掌握哪些知识"><a href="#学习Node-js需要掌握哪些知识" class="headerlink" title="学习Node.js需要掌握哪些知识?"></a>学习Node.js需要掌握哪些知识?</h2><hr>
+<p>我认为在学习这个之前应该至少要会javascript语言，并且html,css要有一定的了解，不然很容易不懂得前后端的配合运作机制，学到后面的http模块以后可能会摸不清楚头脑</p>
+<h1 id="Node-js-–Base"><a href="#Node-js-–Base" class="headerlink" title="Node.js –Base"></a>Node.js –Base</h1><h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><hr>
+<h3 id="filename-注意是两个"><a href="#filename-注意是两个" class="headerlink" title="__filename  (注意是两个)"></a>__<em>filename  (注意是两个</em>)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;该命令输出当前文件名&#x27;</span>,__filename);  <span class="comment">//Node.js和Js一样，尾巴可以不写&quot;;&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;该命令输出当前文件夹&#x27;</span>,__dirname);</span><br></pre></td></tr></table></figure>
+
+<h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><hr>
+<h3 id="console对象"><a href="#console对象" class="headerlink" title="console对象"></a>console对象</h3><h4 id="常见方法"><a href="#常见方法" class="headerlink" title="常见方法"></a>常见方法</h4><table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>log()</td>
+<td align="center">打印—标准输出流</td>
+</tr>
+<tr>
+<td>time()</td>
+<td align="center">输出时间，表示计时开始</td>
+</tr>
+<tr>
+<td>timeEnd()</td>
+<td align="center">结束时间，表示计时结束</td>
+</tr>
+</tbody></table>
+<h4 id="console-log-中的转义符号"><a href="#console-log-中的转义符号" class="headerlink" title="console.log()中的转义符号"></a>console.log()中的转义符号</h4><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%d   输出数字变量</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%d+%d=%d&#x27;</span>,<span class="number">200</span>,<span class="number">200</span>,<span class="number">100</span>+<span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%s   输出字符串变量</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;字符串string %s&#x27;</span>,<span class="string">&#x27;Rulvbobin&#x27;</span>,<span class="string">&#x27;Node.js&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%j   输出Json变量</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;JSON %j&#x27;</span>,&#123;<span class="attr">name</span>:<span class="string">&#x27;node.js&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="process对象-只存在于Node-js中，javascript中没有这个对象"><a href="#process对象-只存在于Node-js中，javascript中没有这个对象" class="headerlink" title="process对象(只存在于Node.js中，javascript中没有这个对象)"></a>process对象(只存在于Node.js中，javascript中没有这个对象)</h3><p>该对象用于描述当前程序的状态,process对象最重要的它的方法,相当于java里面的多线程的概念,但js本身又是单线程的</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>argv</td>
+<td align="center">return 一个数组，由命令行执行脚本时的各参数组成</td>
+</tr>
+<tr>
+<td>env</td>
+<td align="center">return 当前系统环境变量</td>
+</tr>
+<tr>
+<td>version</td>
+<td align="center">return node.js版本</td>
+</tr>
+<tr>
+<td>versions</td>
+<td align="center">return 当前node.js的版本号以及依赖包dependency</td>
+</tr>
+<tr>
+<td>arch</td>
+<td align="center">return 当前CPU架构</td>
+</tr>
+<tr>
+<td>platform</td>
+<td align="center">return  当前程序所在平台系统</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">process.argv.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item, index</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//输出内容,程序结束之前所有的状态</span></span><br><span class="line">    <span class="built_in">console</span>.log(index + <span class="string">&#x27;:&#x27;</span> + <span class="keyword">typeof</span> (item) + <span class="string">&#x27;: &#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (item == <span class="string">&#x27;--exit&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">//获得下一个数组中的参数</span></span><br><span class="line">        <span class="keyword">var</span> exitTime = <span class="built_in">Number</span>(process.argv[index + <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//setTImeout(),指定时长以后结束程序</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            process.exit();</span><br><span class="line">        &#125;, exitTime);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>上述程序执行结果:</p>
+<p><img src="https://r-ovo-stack.gitee.io/res/res1.png"></p>
+<h2 id="全局函数–在任何位置都可以调用"><a href="#全局函数–在任何位置都可以调用" class="headerlink" title="全局函数–在任何位置都可以调用"></a>全局函数–在任何位置都可以调用</h2><p>函数和方法还是有一定的区别的哦</p>
+<hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">全局函数.js</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(cb,ms);   在指定ms后执行指定函数cb,只执行一次</span><br><span class="line"><span class="built_in">clearTimeout</span>(t); 停止一个之前调用<span class="built_in">setTimeout</span>()创建的定时器</span><br><span class="line"><span class="built_in">setInterval</span>(cb,ms); 与<span class="built_in">setTimeout</span>()近乎一致，但其是周期循环执行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Node-js里面的模块化编程-module-exports"><a href="#Node-js里面的模块化编程-module-exports" class="headerlink" title="Node.js里面的模块化编程 module/exports"></a>Node.js里面的模块化编程 module/exports</h1><p>Node.js中的每个模块都是一个.js文件,module.js文件是创建的模块f,在执行.js中调用module.js模块内容的代码</p>
+<h2 id="exports对象创建模块的方法"><a href="#exports对象创建模块的方法" class="headerlink" title="exports对象创建模块的方法"></a>exports对象创建模块的方法</h2><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.js</span><br><span class="line"><span class="comment">//定义一个求和方法add  || 匿名函数</span></span><br><span class="line"><span class="built_in">exports</span>.add=<span class="function"><span class="keyword">function</span> (<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义计算圆周的方法</span></span><br><span class="line"><span class="built_in">exports</span>.circleArea=<span class="function"><span class="keyword">function</span>(<span class="params">R</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> R*R*<span class="built_in">Math</span>.PI;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">main.js</span><br><span class="line"><span class="comment">//加载module.js文件，用require(path)方法，通常使用相对路径</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=<span class="built_in">require</span>(<span class="string">&#x27;./module.js&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.add(<span class="number">1</span>+<span class="number">2</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.circleArea(<span class="number">100</span>));</span><br></pre></td></tr></table></figure>
+
+<h2 id="module对象创建模块的方法"><a href="#module对象创建模块的方法" class="headerlink" title="module对象创建模块的方法"></a>module对象创建模块的方法</h2><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.js</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">class</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name;</span><br><span class="line">    <span class="built_in">this</span>.setName=<span class="function"><span class="keyword">function</span>(<span class="params">tName</span>)</span>&#123;</span><br><span class="line">        name=tName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.sayHello()=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Hello!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">main.js</span><br><span class="line"><span class="keyword">var</span> temp=<span class="built_in">require</span>(<span class="string">&#x27;./module.js&#x27;</span>);</span><br><span class="line">hi=<span class="keyword">new</span> <span class="class"><span class="keyword">class</span>()</span>;</span><br><span class="line">hi.setName(<span class="string">&#x27;haha&#x27;</span>);</span><br><span class="line">hi.sayHello();</span><br></pre></td></tr></table></figure>
+
+<h2 id="常见内置模块"><a href="#常见内置模块" class="headerlink" title="常见内置模块"></a>常见内置模块</h2><hr>
+<h3 id="os模块-const-os-require-‘os’"><a href="#os模块-const-os-require-‘os’" class="headerlink" title="os模块      const os=require(‘os’);"></a>os模块      const os=require(‘os’);</h3><hr>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hostname</td>
+<td align="center">return 主机名</td>
+</tr>
+<tr>
+<td>type()</td>
+<td align="center">return 操作系统名</td>
+</tr>
+<tr>
+<td>platform()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>arch()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>release()</td>
+<td align="center">return 系统发行版本</td>
+</tr>
+<tr>
+<td>uptime()</td>
+<td align="center">return 操作系统运行时间，单位/s</td>
+</tr>
+<tr>
+<td>loadavg()</td>
+<td align="center">return 一个包含1min,5min,15min平均负载的数组</td>
+</tr>
+<tr>
+<td>totalmem()</td>
+<td align="center">return 系统内存总量，单位/字节</td>
+</tr>
+<tr>
+<td>freemem()</td>
+<td align="center">return 系统空闲内存总量，单位/字节</td>
+</tr>
+<tr>
+<td>cpus()</td>
+<td align="center">return 一个对象数组，包含所安装的每个CPU内核的信息</td>
+</tr>
+<tr>
+<td>networkInterfaces()</td>
+<td align="center">获得网路借口列表</td>
+</tr>
+</tbody></table>
+<h3 id="url-模块-const-url-require-‘url’"><a href="#url-模块-const-url-require-‘url’" class="headerlink" title="url 模块    const url=require(‘url’);"></a>url 模块    const url=require(‘url’);</h3><hr>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>parse()</td>
+<td align="center">将url字符串转为url对象</td>
+</tr>
+<tr>
+<td>format(urlObj)</td>
+<td align="center">将url对象转为url字符串</td>
+</tr>
+<tr>
+<td>resolve(from,to)</td>
+<td align="center">组合变数,构造url字符串</td>
+</tr>
+</tbody></table>
+<h3 id="Query-String-模块-const-Query-require-‘-querystring’"><a href="#Query-String-模块-const-Query-require-‘-querystring’" class="headerlink" title="Query String 模块       const Query=require(‘ querystring’);"></a>Query String 模块       const Query=require(‘ querystring’);</h3><hr>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stringify(queryObj)</td>
+<td align="center">将query对象，转换为query字符串</td>
+</tr>
+<tr>
+<td>parse(quetyString)</td>
+<td align="center">将quety字符串转为query对象</td>
+</tr>
+</tbody></table>
+<h3 id="util-模块-const-util-require-‘util’"><a href="#util-模块-const-util-require-‘util’" class="headerlink" title="util 模块    const util=require(‘util’);"></a>util 模块    const util=require(‘util’);</h3><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//util.format()其实就是printf(&quot;&quot;,  );</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> util=<span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="comment">//var util也可以</span></span><br><span class="line"><span class="keyword">var</span> data=util.format(<span class="string">&#x27;%d+%d=%d&#x27;</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>);</span><br><span class="line"><span class="built_in">console</span>.log(data);</span><br></pre></td></tr></table></figure>
+
+<h3 id="crypto-模块-哈希模块-const-crypto-require-‘crypto’"><a href="#crypto-模块-哈希模块-const-crypto-require-‘crypto’" class="headerlink" title="crypto 模块(哈希模块)     const crypto=require(‘crypto’);"></a>crypto 模块(哈希模块)     const crypto=require(‘crypto’);</h3><hr>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cry=<span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>)</span><br><span class="line"><span class="comment">//生成hash</span></span><br><span class="line"><span class="keyword">var</span> temp=cry.createHash(<span class="string">&#x27;sha256&#x27;</span>)</span><br><span class="line">temp.update(<span class="string">&#x27;pwd&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> output=temp.digest(<span class="string">&#x27;hex&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//output</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;pwd&#x27;</span>,output);  <span class="comment">//输出哈希(密码)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>如履薄彬
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://rbin.top/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/" title="Node.js V14.0 学习水滴记录-BASE">http://rbin.top/Nodejs学习总结--1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Node-js/" rel="tag"><i class="fa fa-tag"></i> Node.js</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/WebSocket/" rel="next" title="Socket到底是怎么一回事? -----MIDDLE">
+      Socket到底是怎么一回事? -----MIDDLE <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFNode-js"><span class="nav-text">什么是Node.js??</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#V8-%E5%BC%95%E6%93%8E"><span class="nav-text">V8 引擎</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0Node-js%E9%9C%80%E8%A6%81%E6%8E%8C%E6%8F%A1%E5%93%AA%E4%BA%9B%E7%9F%A5%E8%AF%86"><span class="nav-text">学习Node.js需要掌握哪些知识?</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js-%E2%80%93Base"><span class="nav-text">Node.js –Base</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#filename-%E6%B3%A8%E6%84%8F%E6%98%AF%E4%B8%A4%E4%B8%AA"><span class="nav-text">__filename  (注意是两个)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dirname"><span class="nav-text">__dirname</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="nav-text">全局对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#console%E5%AF%B9%E8%B1%A1"><span class="nav-text">console对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%96%B9%E6%B3%95"><span class="nav-text">常见方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#console-log-%E4%B8%AD%E7%9A%84%E8%BD%AC%E4%B9%89%E7%AC%A6%E5%8F%B7"><span class="nav-text">console.log()中的转义符号</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#process%E5%AF%B9%E8%B1%A1-%E5%8F%AA%E5%AD%98%E5%9C%A8%E4%BA%8ENode-js%E4%B8%AD%EF%BC%8Cjavascript%E4%B8%AD%E6%B2%A1%E6%9C%89%E8%BF%99%E4%B8%AA%E5%AF%B9%E8%B1%A1"><span class="nav-text">process对象(只存在于Node.js中，javascript中没有这个对象)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E5%87%BD%E6%95%B0%E2%80%93%E5%9C%A8%E4%BB%BB%E4%BD%95%E4%BD%8D%E7%BD%AE%E9%83%BD%E5%8F%AF%E4%BB%A5%E8%B0%83%E7%94%A8"><span class="nav-text">全局函数–在任何位置都可以调用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Node-js%E9%87%8C%E9%9D%A2%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96%E7%BC%96%E7%A8%8B-module-exports"><span class="nav-text">Node.js里面的模块化编程 module&#x2F;exports</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#exports%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">exports对象创建模块的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#module%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9D%97%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">module对象创建模块的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97"><span class="nav-text">常见内置模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#os%E6%A8%A1%E5%9D%97-const-os-require-%E2%80%98os%E2%80%99"><span class="nav-text">os模块      const os&#x3D;require(‘os’);</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url-%E6%A8%A1%E5%9D%97-const-url-require-%E2%80%98url%E2%80%99"><span class="nav-text">url 模块    const url&#x3D;require(‘url’);</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Query-String-%E6%A8%A1%E5%9D%97-const-Query-require-%E2%80%98-querystring%E2%80%99"><span class="nav-text">Query String 模块       const Query&#x3D;require(‘ querystring’);</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#util-%E6%A8%A1%E5%9D%97-const-util-require-%E2%80%98util%E2%80%99"><span class="nav-text">util 模块    const util&#x3D;require(‘util’);</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crypto-%E6%A8%A1%E5%9D%97-%E5%93%88%E5%B8%8C%E6%A8%A1%E5%9D%97-const-crypto-require-%E2%80%98crypto%E2%80%99"><span class="nav-text">crypto 模块(哈希模块)     const crypto&#x3D;require(‘crypto’);</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="如履薄彬"
+      src="/images/avater.jpg">
+  <p class="site-author-name" itemprop="name">如履薄彬</p>
+  <div class="site-description" itemprop="description">迟迟钟鼓初长夜，耿耿星河欲曙天</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/R-ovo-stack" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;R-ovo-stack" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://rbin.top/" title="http:&#x2F;&#x2F;rbin.top">WebSite</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tag Cloud</h3>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ajax/" rel="tag">Ajax</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/" rel="tag">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C++</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/" rel="tag">DOM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/" rel="tag">Git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gitee/" rel="tag">Gitee</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/" rel="tag">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/" rel="tag">JS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/" rel="tag">MongoDB</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/" rel="tag">Node.js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-io/" rel="tag">Socket.io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tomcat/" rel="tag">Tomcat</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/XmlHttpRequest/" rel="tag">XmlHttpRequest</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/" rel="tag">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/servelt/" rel="tag">servelt</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socket/" rel="tag">socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%87%91%E5%8F%A5/" rel="tag">金句</a><span class="tag-list-count">1</span></li></ul>
+            </canvas>
+        </div>
+    </div>
+    
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">如履薄彬</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">34k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">31 分钟</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    <!-- 网站运行时间的设置 -->
+    <br>
+    <span id="timeDate">载入天数...</span>
+    <span id="times">载入时分秒...</span>  <br>What really matters is living a life that you respect
+    <script>
+        var now = new Date();
+        function createtime() {
+            var grt= new Date("03/05/2021 00:00:00");//此处修改你的建站时间或者网站上线时间
+            now.setTime(now.getTime()+250);
+            days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+            document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    setInterval("createtime()",250);
+    </script>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"31wRhCCn49z8XyAIPU1lrUFe-gzGzoHsz","app_key":"yc7XymxFTOzU40Y97a5AOhgy","server_url":null,"security":true};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- 页面点击图案 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+
+  
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <script>
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'http://rbin.top/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/',]
+      });
+      });
+  </script>
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '31wRhCCn49z8XyAIPU1lrUFe-gzGzoHsz',
+      appKey     : 'yc7XymxFTOzU40Y97a5AOhgy',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":222,"height":320},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
