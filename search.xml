@@ -892,6 +892,35 @@
       </tags>
   </entry>
   <entry>
+    <title>Mysql常识记录       -----BASE</title>
+    <url>/Mysql/</url>
+    <content><![CDATA[<h2 id="Mysql–简介"><a href="#Mysql–简介" class="headerlink" title="Mysql–简介"></a>Mysql–简介</h2><blockquote>
+</blockquote>
+<h2 id="什么是关系型数据库"><a href="#什么是关系型数据库" class="headerlink" title="什么是关系型数据库"></a>什么是关系型数据库</h2><blockquote>
+</blockquote>
+<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><blockquote>
+</blockquote>
+<h2 id="Mysql基本语句"><a href="#Mysql基本语句" class="headerlink" title="Mysql基本语句"></a>Mysql基本语句</h2><h3 id="创建-使用数据库—use"><a href="#创建-使用数据库—use" class="headerlink" title="创建 | 使用数据库—use"></a>创建 | 使用数据库—use</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">use DbName  <span class="operator">/</span><span class="operator">/</span>创建eb对象</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建表-—"><a href="#创建表-—" class="headerlink" title="创建表 —"></a>创建表 —</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="表中添加数据—"><a href="#表中添加数据—" class="headerlink" title="表中添加数据—"></a>表中添加数据—</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="表的查询—"><a href="#表的查询—" class="headerlink" title="表的查询—"></a>表的查询—</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="表数据的修改-—"><a href="#表数据的修改-—" class="headerlink" title="表数据的修改  —"></a>表数据的修改  —</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="表数据的删除-—"><a href="#表数据的删除-—" class="headerlink" title="表数据的删除  —"></a>表数据的删除  —</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MongoDB-初学       -----BASE</title>
     <url>/MongoDB/</url>
     <content><![CDATA[<p>s</p>
@@ -927,37 +956,65 @@
         <category>后端</category>
       </categories>
       <tags>
-        <tag>MongoDB</tag>
         <tag>SQL</tag>
+        <tag>MongoDB</tag>
       </tags>
   </entry>
   <entry>
-    <title>Mysql常识记录       -----BASE</title>
-    <url>/Mysql/</url>
-    <content><![CDATA[<h2 id="Mysql–简介"><a href="#Mysql–简介" class="headerlink" title="Mysql–简介"></a>Mysql–简介</h2><blockquote>
+    <title>Servelt       -----BASE</title>
+    <url>/Servelt/</url>
+    <content><![CDATA[<h2 id="什么是Servelt"><a href="#什么是Servelt" class="headerlink" title="什么是Servelt?"></a>什么是Servelt?</h2><blockquote>
+<p>Servelt是一个服务端的组件,用来处理response和request的java程序。</p>
 </blockquote>
-<h2 id="什么是关系型数据库"><a href="#什么是关系型数据库" class="headerlink" title="什么是关系型数据库"></a>什么是关系型数据库</h2><blockquote>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
+<p>协议：多方相互约定需要遵守的规则<br>http协议: 客户端和服务器之间通信时发送的数据需要遵守的协议<br>http协议中的数据也叫报文<br>客户端叫请求，服务器叫响应</p>
 </blockquote>
-<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><blockquote>
+<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
+<p>请求方式<br>请求资源路径<br>协议版本号</p>
 </blockquote>
-<h2 id="Mysql基本语句"><a href="#Mysql基本语句" class="headerlink" title="Mysql基本语句"></a>Mysql基本语句</h2><h3 id="创建-使用数据库—use"><a href="#创建-使用数据库—use" class="headerlink" title="创建 | 使用数据库—use"></a>创建 | 使用数据库—use</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">use DbName  <span class="operator">/</span><span class="operator">/</span>创建eb对象</span><br></pre></td></tr></table></figure>
-
-<h3 id="创建表-—"><a href="#创建表-—" class="headerlink" title="创建表 —"></a>创建表 —</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="表中添加数据—"><a href="#表中添加数据—" class="headerlink" title="表中添加数据—"></a>表中添加数据—</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="表的查询—"><a href="#表的查询—" class="headerlink" title="表的查询—"></a>表的查询—</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="表数据的修改-—"><a href="#表数据的修改-—" class="headerlink" title="表数据的修改  —"></a>表数据的修改  —</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="表数据的删除-—"><a href="#表数据的删除-—" class="headerlink" title="表数据的删除  —"></a>表数据的删除  —</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
+<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
+<p>Accept:告诉服务器客户端能够接受的类型<br>User-Agent:浏览器的信息<br>Accept-Encoding:接收的编码<br>Host:表示请求的服务器ip和Port<br>Accept-Language:接受语言类型<br>Connection:告诉服务器链接如何如何处理<br>closet:马上关闭</p>
+</blockquote>
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><h4 id="请求行-1"><a href="#请求行-1" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
+<p>请求方式:post<br>请求资源路径  /工程路径/文件<br>请求协议版本号</p>
+</blockquote>
+<h4 id="请求头-1"><a href="#请求头-1" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
+<p>空行</p>
+</blockquote>
+<h4 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h4><blockquote>
+<p>发送给服务器的数据:action=xxxxx,username=xxxxxx,pwd=xxxxx<br>即表单信息<br>Referer:表示浏览器的地址(请求的发起者)<br>Content-Type:发送数据的类型(1.application/x-www-form-urlencoded:格式为…之后对其进行url编码)(2.multipart/form-data:白哦是多段形式提交数据)<br>Content-Length:发送的数据长度<br>Cache-Control:表示如何控制缓存</p>
+</blockquote>
+<h2 id="有哪些GET请求"><a href="#有哪些GET请求" class="headerlink" title="有哪些GET请求"></a>有哪些GET请求</h2><blockquote>
+<p>form标签method=GET<br><a>标签<br>link标签引入CSS<br>scriopt引入js<br>img引入图片<br>iframe引入html<br>浏览器中输入地址回车</p>
+</blockquote>
+<h2 id="响应的HTTP协议格式"><a href="#响应的HTTP协议格式" class="headerlink" title="响应的HTTP协议格式"></a>响应的HTTP协议格式</h2><h4 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h4><blockquote>
+<p>1.协议版本号<br>2.响应状态码<br>3.响应状态描述符</p>
+</blockquote>
+<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><blockquote>
+<p>key:value   不同的响应头有区别的<br>Date:请求响应的时间(格林时间)<br>空行</p>
+</blockquote>
+<h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><blockquote>
+<p>Cache缓存<br>服务器回传给客户端的数据:比如页面的html文件</p>
+</blockquote>
+<h2 id="MIME类型说明"><a href="#MIME类型说明" class="headerlink" title="MIME类型说明"></a>MIME类型说明</h2><blockquote>
+<p>没啥用</p>
+</blockquote>
+<h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h3><blockquote>
+<p>Tomcat服务器会把请求过来的http协议信息解析好封装到Req对象中,传递到Service方法(doGet和doPost中)给我们使用，通过HttpServletRequest对象获取所有请求信息</p>
+</blockquote>
+<h2 id="请求转发-转发请求–几个Severlt之间转发请求"><a href="#请求转发-转发请求–几个Severlt之间转发请求" class="headerlink" title="请求转发(转发请求–几个Severlt之间转发请求)"></a>请求转发(转发请求–几个Severlt之间转发请求)</h2><blockquote>
+<p>服务器收到请求之后，从一次资源跳转到另一个资源的操作叫请求转发</p>
+</blockquote>
+<h2 id="web中的-不同意义"><a href="#web中的-不同意义" class="headerlink" title="web中的/不同意义"></a>web中的/不同意义</h2><h2 id="Servlet往客户端回传字符串"><a href="#Servlet往客户端回传字符串" class="headerlink" title="Servlet往客户端回传字符串"></a>Servlet往客户端回传字符串</h2><h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><blockquote>
+<p>指的是客户端给服务器发送请求时，然后服务器告诉客户端访问新的地址(之前的地址被废弃的情况需要)</p>
+</blockquote>
+<h2 id="jsp其实就是servelt"><a href="#jsp其实就是servelt" class="headerlink" title="jsp其实就是servelt"></a>jsp其实就是servelt</h2>]]></content>
       <categories>
         <category>后端</category>
       </categories>
       <tags>
-        <tag>SQL</tag>
-        <tag>Mysql</tag>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -1161,63 +1218,6 @@
       </categories>
       <tags>
         <tag>Node.js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/Servelt/</url>
-    <content><![CDATA[<h2 id="什么是Servelt"><a href="#什么是Servelt" class="headerlink" title="什么是Servelt?"></a>什么是Servelt?</h2><blockquote>
-<p>Servelt是一个服务端的组件,用来处理response和request的java程序。</p>
-</blockquote>
-<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
-<p>协议：多方相互约定需要遵守的规则<br>http协议: 客户端和服务器之间通信时发送的数据需要遵守的协议<br>http协议中的数据也叫报文<br>客户端叫请求，服务器叫响应</p>
-</blockquote>
-<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
-<p>请求方式<br>请求资源路径<br>协议版本号</p>
-</blockquote>
-<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
-<p>Accept:告诉服务器客户端能够接受的类型<br>User-Agent:浏览器的信息<br>Accept-Encoding:接收的编码<br>Host:表示请求的服务器ip和Port<br>Accept-Language:接受语言类型<br>Connection:告诉服务器链接如何如何处理<br>closet:马上关闭</p>
-</blockquote>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><h4 id="请求行-1"><a href="#请求行-1" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
-<p>请求方式:post<br>请求资源路径  /工程路径/文件<br>请求协议版本号</p>
-</blockquote>
-<h4 id="请求头-1"><a href="#请求头-1" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
-<p>空行</p>
-</blockquote>
-<h4 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h4><blockquote>
-<p>发送给服务器的数据:action=xxxxx,username=xxxxxx,pwd=xxxxx<br>即表单信息<br>Referer:表示浏览器的地址(请求的发起者)<br>Content-Type:发送数据的类型(1.application/x-www-form-urlencoded:格式为…之后对其进行url编码)(2.multipart/form-data:白哦是多段形式提交数据)<br>Content-Length:发送的数据长度<br>Cache-Control:表示如何控制缓存</p>
-</blockquote>
-<h2 id="有哪些GET请求"><a href="#有哪些GET请求" class="headerlink" title="有哪些GET请求"></a>有哪些GET请求</h2><blockquote>
-<p>form标签method=GET<br><a>标签<br>link标签引入CSS<br>scriopt引入js<br>img引入图片<br>iframe引入html<br>浏览器中输入地址回车</p>
-</blockquote>
-<h2 id="响应的HTTP协议格式"><a href="#响应的HTTP协议格式" class="headerlink" title="响应的HTTP协议格式"></a>响应的HTTP协议格式</h2><h4 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h4><blockquote>
-<p>1.协议版本号<br>2.响应状态码<br>3.响应状态描述符</p>
-</blockquote>
-<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><blockquote>
-<p>key:value   不同的响应头有区别的<br>Date:请求响应的时间(格林时间)<br>空行</p>
-</blockquote>
-<h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><blockquote>
-<p>Cache缓存<br>服务器回传给客户端的数据:比如页面的html文件</p>
-</blockquote>
-<h2 id="MIME类型说明"><a href="#MIME类型说明" class="headerlink" title="MIME类型说明"></a>MIME类型说明</h2><blockquote>
-<p>没啥用</p>
-</blockquote>
-<h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h3><blockquote>
-<p>Tomcat服务器会把请求过来的http协议信息解析好封装到Req对象中,传递到Service方法(doGet和doPost中)给我们使用，通过HttpServletRequest对象获取所有请求信息</p>
-</blockquote>
-<h2 id="请求转发-转发请求–几个Severlt之间转发请求"><a href="#请求转发-转发请求–几个Severlt之间转发请求" class="headerlink" title="请求转发(转发请求–几个Severlt之间转发请求)"></a>请求转发(转发请求–几个Severlt之间转发请求)</h2><blockquote>
-<p>服务器收到请求之后，从一次资源跳转到另一个资源的操作叫请求转发</p>
-</blockquote>
-<h2 id="web中的-不同意义"><a href="#web中的-不同意义" class="headerlink" title="web中的/不同意义"></a>web中的/不同意义</h2><h2 id="Servlet往客户端回传字符串"><a href="#Servlet往客户端回传字符串" class="headerlink" title="Servlet往客户端回传字符串"></a>Servlet往客户端回传字符串</h2><h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><blockquote>
-<p>指的是客户端给服务器发送请求时，然后服务器告诉客户端访问新的地址(之前的地址被废弃的情况需要)</p>
-</blockquote>
-<h2 id="jsp其实就是servelt"><a href="#jsp其实就是servelt" class="headerlink" title="jsp其实就是servelt"></a>jsp其实就是servelt</h2>]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -1613,6 +1613,20 @@
       </tags>
   </entry>
   <entry>
+    <title>锦句</title>
+    <url>/%E9%94%A6/</url>
+    <content><![CDATA[<div class="note green no-icon">
+            <p>一块钱的打火机也能点着1万块的香烟，几万块钱一桌的菜，他还是离不开几块钱一包的盐</p>
+          </div>
+]]></content>
+      <categories>
+        <category>便签</category>
+      </categories>
+      <tags>
+        <tag>金句</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>XmlHttpRequest -----BASE</title>
     <url>/xmlhttprequest/</url>
     <content><![CDATA[<p><em><strong><u>以下简称XmlHttpRequest为XHR</u></strong></em></p>
@@ -1754,20 +1768,6 @@
         <tag>JS</tag>
         <tag>Ajax</tag>
         <tag>XmlHttpRequest</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>锦句</title>
-    <url>/%E9%94%A6/</url>
-    <content><![CDATA[<div class="note green no-icon">
-            <p>一块钱的打火机也能点着1万块的香烟，几万块钱一桌的菜，他还是离不开几块钱一包的盐</p>
-          </div>
-]]></content>
-      <categories>
-        <category>便签</category>
-      </categories>
-      <tags>
-        <tag>金句</tag>
       </tags>
   </entry>
 </search>
