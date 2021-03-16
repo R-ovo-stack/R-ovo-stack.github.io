@@ -133,9 +133,19 @@
     <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">7</span></a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">15</span></a>
+
+  </li>
+        <li class="menu-item menu-item-selftalk">
+
+    <a href="/artitalk/" rel="section"><i class="fas fa-comments fa-fw"></i>自言自语</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -327,8 +337,10 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
@@ -350,11 +362,17 @@
 
   <div class="links-of-blogroll motion-element">
     <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
-      Links
+      联谊屋
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="http://rbin.top/" title="http:&#x2F;&#x2F;rbin.top">WebSite</a>
+          <a href="http://rbin.top/" title="http:&#x2F;&#x2F;rbin.top">NexT</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://r-ovo-stack.gitee.io/" title="https:&#x2F;&#x2F;R-ovo-stack.gitee.io" rel="noopener" target="_blank">ButterFly</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://xiuxin-666.gitee.io/" title="https:&#x2F;&#x2F;xiuxin-666.gitee.io&#x2F;" rel="noopener" target="_blank">修心博客</a>
         </li>
     </ul>
   </div>
@@ -481,9 +499,14 @@
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -510,7 +533,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"31wRhCCn49z8XyAIPU1lrUFe-gzGzoHsz","app_key":"yc7XymxFTOzU40Y97a5AOhgy","server_url":null,"security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"31wRhCCn49z8XyAIPU1lrUFe-gzGzoHsz","app_key":"yc7XymxFTOzU40Y97a5AOhgy","server_url":null,"security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
