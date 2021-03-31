@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Android开发笔记</title>
-    <url>/Android%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<p>Android项目的一般结构:</p>
-<pre class="line-numbers language-none"><code class="language-none">一般项目结构图:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<span id="more"></span>
-
-<p>Android主配置文件 AndroidManifest.xml</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
-    <span class="token attr-name">package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.example.myapplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span>
-        <span class="token attr-name"><span class="token namespace">android:</span>allowBackup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/ic_launcher_background<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>roundIcon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@mipmap/ic_launcher_round<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>supportsRtl</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span>
-            <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>.MainActivity<span class="token punctuation">"</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2.NoActionBar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            <span class="token comment">&lt;!--  绑定程序入口主事件--></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intent-filter</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.MAIN<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.LAUNCHER<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intent-filter</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activity</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>manifest</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>java文件树</p>
-<p>存放java代码(如果该android项目是由java语言编写)<br>android studio 在生成项目时会自动生成相应的包,在java文件目录下,又细分未java程序代码以及相应的测试,使用了junit测试工具测试功能模块是否达到预期效果</p>
-<p>res文件树</p>
-<p>res文件树下又细分为layout,drawable,menu,mipmap,values等等文件夹<br>layout:存放每个activity的界面布局文件<br>drawable:存放项目中图片的在各种不同分辨率下的显示的对应的形式图片,为了保证程序在不同设备之间可以相互兼容<br>menu: 如果你的项目使用了菜单控件,则会通过menu文件夹绑定相应的菜单控件。</p>
-<h3 id="以上：-指的是在app，即android-studio自动生成的一种项目文件形式"><a href="#以上：-指的是在app，即android-studio自动生成的一种项目文件形式" class="headerlink" title="以上： 指的是在app，即android studio自动生成的一种项目文件形式"></a>以上： 指的是在app，即android studio自动生成的一种项目文件形式</h3><h3 id="以下：-是在windows文件资源管理器下的Project结构"><a href="#以下：-是在windows文件资源管理器下的Project结构" class="headerlink" title="以下： 是在windows文件资源管理器下的Project结构"></a>以下： 是在windows文件资源管理器下的Project结构</h3><!-- //插入图片 -->
-
-<p>在该形式下：我们可以明显看出,这个android项目,其实就是一个java se小项目引入了android SDK,以及Gradle工具包,与此同时还有一些其他的External Libraries 工具包</p>
-<p>可以理解就是一个java项目集成了一套android现有的开发框架</p>
-<p>具体一些其他的细节操作，可以在后续内容中得以体现</p>
-<h2 id="一些奇奇怪怪又特别常见的名词"><a href="#一些奇奇怪怪又特别常见的名词" class="headerlink" title="一些奇奇怪怪又特别常见的名词"></a>一些奇奇怪怪又特别常见的名词</h2><p>wrap_content: 使控件恰好可以包住里面的东西，比如文字<br>match_content: 使控件的width或者height和父控件一致</p>
-]]></content>
-      <categories>
-        <category>安卓开发</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DOM编程       -----BASE</title>
     <url>/DOM/</url>
     <content><![CDATA[<h1 id="文档对象模型DOM"><a href="#文档对象模型DOM" class="headerlink" title="文档对象模型DOM"></a>文档对象模型DOM</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><strong>分层结构</strong><br><strong>与平台无关</strong><br><strong>与浏览器无关</strong><br><strong>与语言无关</strong><br><strong>在DOM中，每个对象都可以成为一个节点Node</strong></p>
@@ -206,6 +151,152 @@ document<span class="token punctuation">.</span><span class="token function">get
       <tags>
         <tag>JS</tag>
         <tag>DOM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android开发笔记</title>
+    <url>/Android%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p>Android项目的一般结构:</p>
+<pre class="line-numbers language-none"><code class="language-none">一般项目结构图:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<span id="more"></span>
+
+<p>Android主配置文件 AndroidManifest.xml</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
+    <span class="token attr-name">package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.example.myapplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span>
+        <span class="token attr-name"><span class="token namespace">android:</span>allowBackup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/ic_launcher_background<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>roundIcon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@mipmap/ic_launcher_round<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>supportsRtl</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span>
+            <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>.MainActivity<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2.NoActionBar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token comment">&lt;!--  绑定程序入口主事件--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intent-filter</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.MAIN<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.LAUNCHER<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intent-filter</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activity</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>manifest</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>java文件树</p>
+<p>存放java代码(如果该android项目是由java语言编写)<br>android studio 在生成项目时会自动生成相应的包,在java文件目录下,又细分未java程序代码以及相应的测试,使用了junit测试工具测试功能模块是否达到预期效果</p>
+<p>res文件树</p>
+<p>res文件树下又细分为layout,drawable,menu,mipmap,values等等文件夹<br>layout:存放每个activity的界面布局文件<br>drawable:存放项目中图片的在各种不同分辨率下的显示的对应的形式图片,为了保证程序在不同设备之间可以相互兼容<br>menu: 如果你的项目使用了菜单控件,则会通过menu文件夹绑定相应的菜单控件。</p>
+<h3 id="以上：-指的是在app，即android-studio自动生成的一种项目文件形式"><a href="#以上：-指的是在app，即android-studio自动生成的一种项目文件形式" class="headerlink" title="以上： 指的是在app，即android studio自动生成的一种项目文件形式"></a>以上： 指的是在app，即android studio自动生成的一种项目文件形式</h3><h3 id="以下：-是在windows文件资源管理器下的Project结构"><a href="#以下：-是在windows文件资源管理器下的Project结构" class="headerlink" title="以下： 是在windows文件资源管理器下的Project结构"></a>以下： 是在windows文件资源管理器下的Project结构</h3><!-- //插入图片 -->
+
+<p>在该形式下：我们可以明显看出,这个android项目,其实就是一个java se小项目引入了android SDK,以及Gradle工具包,与此同时还有一些其他的External Libraries 工具包</p>
+<p>可以理解就是一个java项目集成了一套android现有的开发框架</p>
+<p>具体一些其他的细节操作，可以在后续内容中得以体现</p>
+<h2 id="一些奇奇怪怪又特别常见的名词"><a href="#一些奇奇怪怪又特别常见的名词" class="headerlink" title="一些奇奇怪怪又特别常见的名词"></a>一些奇奇怪怪又特别常见的名词</h2><p>wrap_content: 使控件恰好可以包住里面的东西，比如文字<br>match_content: 使控件的width或者height和父控件一致</p>
+]]></content>
+      <categories>
+        <category>安卓开发</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git基本操作 -----BASE</title>
+    <url>/Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="基操"><a href="#基操" class="headerlink" title="基操"></a>基操</h1><p><u><em><strong>一个项目总文件夹就是一个仓库</strong></em></u></p>
+<p><u><em><strong>我的习惯是Github或Gitee创建一个与本地项目总文件夹名字一致的仓库</strong></em></u></p>
+<p><u><em><strong>我喜欢在github和gitee的用户名和个人邮箱都是同一个,看着舒服…</strong></em></u></p>
+<p><u><em><strong>连通本地和远程存储库的一个重要操作是ssh连接,建立了这个连接以后后续很多操作都会变得便捷，包括github pages也需要它</strong></em></u></p>
+<p><u><em><strong>再安装好了git后，设置git 用户名和密码以及联系邮箱</strong></em></u></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name xxxx   //这里我一般和github一致
+
+<span class="token function">git</span> config --global user.email xxx@xxx.com 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="如何建立ssh链接"><a href="#如何建立ssh链接" class="headerlink" title="如何建立ssh链接?"></a>如何建立ssh链接?</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先生成ssh公钥</span>
+ssh-keygen -t rsa -C <span class="token string">"邮箱地址"</span>   //此处的引号不可省略<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><u><em><strong>一直点回车</strong></em></u><br><u><em><strong>点到不能点为止</strong></em></u><br><u><em><strong>公钥自动生成在如下位置</u></strong></em></p>
+<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(5).png"></p>
+<p><u><em><strong>id_rsa.pub里面的内容便是公钥</strong></em></u><br><u><em><strong>进入github或gitee找到ssh输入公钥进行绑定即可</u></strong></em></p>
+<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(3).png"></p>
+<h2 id="基本项目操作"><a href="#基本项目操作" class="headerlink" title="基本项目操作"></a>基本项目操作</h2><p><em><strong><u>首先需要在项目文件夹目录下打开bash (我的项目文件夹是PhotoStack)</u></strong></em></p>
+<hr>
+<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(2).png"></p>
+<h3 id="初始化存储库"><a href="#初始化存储库" class="headerlink" title="初始化存储库"></a>初始化存储库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init  //初始化一个.git隐藏文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="显示当前项目目录和暂存区的状态"><a href="#显示当前项目目录和暂存区的状态" class="headerlink" title="显示当前项目目录和暂存区的状态"></a>显示当前项目目录和暂存区的状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="暂存当前工作区所有更改"><a href="#暂存当前工作区所有更改" class="headerlink" title="暂存当前工作区所有更改"></a>暂存当前工作区所有更改</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>    //相当于git <span class="token function">add</span> -A<span class="token punctuation">(</span>git <span class="token function">add</span> --all<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="将暂存区的代码提交到本地仓库"><a href="#将暂存区的代码提交到本地仓库" class="headerlink" title="将暂存区的代码提交到本地仓库"></a>将暂存区的代码提交到本地仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'注释消息'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="链接远程仓库"><a href="#链接远程仓库" class="headerlink" title="链接远程仓库"></a>链接远程仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin 远程仓库地址   //链接远程仓库，往远程仓库add
+eg: <span class="token function">git</span> remote <span class="token function">add</span> origin https://gitee.com/r-ovo-stack/photo-stack<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="同步本地与远程仓库–sync"><a href="#同步本地与远程仓库–sync" class="headerlink" title="同步本地与远程仓库–sync"></a>同步本地与远程仓库–sync</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master
+强制推送--当github对应仓库为空时可进行
+<span class="token function">git</span> push -u -f origin master  //将master分支安排上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="查看本地git信息"><a href="#查看本地git信息" class="headerlink" title="查看本地git信息"></a>查看本地git信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h1 id="利用Github创建免费图床"><a href="#利用Github创建免费图床" class="headerlink" title="利用Github创建免费图床"></a>利用Github创建免费图床</h1><h2 id="远程建库"><a href="#远程建库" class="headerlink" title="远程建库"></a>远程建库</h2><p><em><strong>直接New一个仓库即可,其他啥文件以后再说</strong></em></p>
+<h2 id="本地创建图床文件夹-最好同名"><a href="#本地创建图床文件夹-最好同名" class="headerlink" title="本地创建图床文件夹(最好同名)"></a>本地创建图床文件夹(最好同名)</h2><p>此处我的图床文件夹为: PhotoStack-2</p>
+<h2 id="利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去"><a href="#利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去" class="headerlink" title="利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去"></a>利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="暂存更改"><a href="#暂存更改" class="headerlink" title="暂存更改"></a>暂存更改</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> add.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="本地提交"><a href="#本地提交" class="headerlink" title="本地提交"></a>本地提交</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'commit-forst'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin https:/github.com/UserName/ReposityName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h3 id="SYNC-push"><a href="#SYNC-push" class="headerlink" title="SYNC-push"></a>SYNC-push</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(4).png"></p>
+<h3 id="远程查看"><a href="#远程查看" class="headerlink" title="远程查看"></a>远程查看</h3><p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(7).png"></p>
+<h3 id="开启page服务–github里面的pages是会自动更新的-这一点gitee需要自己手动更新部署page"><a href="#开启page服务–github里面的pages是会自动更新的-这一点gitee需要自己手动更新部署page" class="headerlink" title="开启page服务–github里面的pages是会自动更新的 || 这一点gitee需要自己手动更新部署page"></a>开启page服务–github里面的pages是会自动更新的 || 这一点gitee需要自己手动更新部署page</h3><p><em><strong>在仓库settings中找到github pages Ji</strong></em><br><em><strong>发现此时没有开启pages服务，点击source的分支，选择一个分支(一般是Master)</strong></em><br><em><strong>save</strong></em></p>
+<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(6).png"></p>
+<h3 id="如果有兴趣的话可以建一个Index-html文件在仓库主界面-这样打开仓库的Page地址就会显示该index-html主页"><a href="#如果有兴趣的话可以建一个Index-html文件在仓库主界面-这样打开仓库的Page地址就会显示该index-html主页" class="headerlink" title="如果有兴趣的话可以建一个Index.html文件在仓库主界面,这样打开仓库的Page地址就会显示该index.html主页"></a>如果有兴趣的话可以建一个Index.html文件在仓库主界面,这样打开仓库的Page地址就会显示该index.html主页</h3><h3 id="图床测试-gt-打开进入地址"><a href="#图床测试-gt-打开进入地址" class="headerlink" title="图床测试-&gt;打开进入地址"></a>图床测试-&gt;打开进入地址</h3><p><a href="https://r-ovo-stack.github.io/PhotoStack-2/colorback/beaut.jpg">https://r-ovo-stack.github.io/PhotoStack-2/colorback/beaut.jpg</a></p>
+<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(1).png"></p>
+<h1 id="常见问题如何解决–持更"><a href="#常见问题如何解决–持更" class="headerlink" title="常见问题如何解决–持更"></a>常见问题如何解决–持更</h1>]]></content>
+      <categories>
+        <category>程序员基本功</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Github</tag>
+        <tag>Gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Servelt       -----BASE</title>
+    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -936,148 +1027,6 @@ demoP <span class="token operator">=</span> document<span class="token punctuati
       </tags>
   </entry>
   <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git基本操作 -----BASE</title>
-    <url>/Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<h1 id="基操"><a href="#基操" class="headerlink" title="基操"></a>基操</h1><p><u><em><strong>一个项目总文件夹就是一个仓库</strong></em></u></p>
-<p><u><em><strong>我的习惯是Github或Gitee创建一个与本地项目总文件夹名字一致的仓库</strong></em></u></p>
-<p><u><em><strong>我喜欢在github和gitee的用户名和个人邮箱都是同一个,看着舒服…</strong></em></u></p>
-<p><u><em><strong>连通本地和远程存储库的一个重要操作是ssh连接,建立了这个连接以后后续很多操作都会变得便捷，包括github pages也需要它</strong></em></u></p>
-<p><u><em><strong>再安装好了git后，设置git 用户名和密码以及联系邮箱</strong></em></u></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name xxxx   //这里我一般和github一致
-
-<span class="token function">git</span> config --global user.email xxx@xxx.com 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="如何建立ssh链接"><a href="#如何建立ssh链接" class="headerlink" title="如何建立ssh链接?"></a>如何建立ssh链接?</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先生成ssh公钥</span>
-ssh-keygen -t rsa -C <span class="token string">"邮箱地址"</span>   //此处的引号不可省略<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><u><em><strong>一直点回车</strong></em></u><br><u><em><strong>点到不能点为止</strong></em></u><br><u><em><strong>公钥自动生成在如下位置</u></strong></em></p>
-<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(5).png"></p>
-<p><u><em><strong>id_rsa.pub里面的内容便是公钥</strong></em></u><br><u><em><strong>进入github或gitee找到ssh输入公钥进行绑定即可</u></strong></em></p>
-<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(3).png"></p>
-<h2 id="基本项目操作"><a href="#基本项目操作" class="headerlink" title="基本项目操作"></a>基本项目操作</h2><p><em><strong><u>首先需要在项目文件夹目录下打开bash (我的项目文件夹是PhotoStack)</u></strong></em></p>
-<hr>
-<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(2).png"></p>
-<h3 id="初始化存储库"><a href="#初始化存储库" class="headerlink" title="初始化存储库"></a>初始化存储库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init  //初始化一个.git隐藏文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="显示当前项目目录和暂存区的状态"><a href="#显示当前项目目录和暂存区的状态" class="headerlink" title="显示当前项目目录和暂存区的状态"></a>显示当前项目目录和暂存区的状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="暂存当前工作区所有更改"><a href="#暂存当前工作区所有更改" class="headerlink" title="暂存当前工作区所有更改"></a>暂存当前工作区所有更改</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>    //相当于git <span class="token function">add</span> -A<span class="token punctuation">(</span>git <span class="token function">add</span> --all<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="将暂存区的代码提交到本地仓库"><a href="#将暂存区的代码提交到本地仓库" class="headerlink" title="将暂存区的代码提交到本地仓库"></a>将暂存区的代码提交到本地仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'注释消息'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="链接远程仓库"><a href="#链接远程仓库" class="headerlink" title="链接远程仓库"></a>链接远程仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin 远程仓库地址   //链接远程仓库，往远程仓库add
-eg: <span class="token function">git</span> remote <span class="token function">add</span> origin https://gitee.com/r-ovo-stack/photo-stack<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="同步本地与远程仓库–sync"><a href="#同步本地与远程仓库–sync" class="headerlink" title="同步本地与远程仓库–sync"></a>同步本地与远程仓库–sync</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master
-强制推送--当github对应仓库为空时可进行
-<span class="token function">git</span> push -u -f origin master  //将master分支安排上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="查看本地git信息"><a href="#查看本地git信息" class="headerlink" title="查看本地git信息"></a>查看本地git信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h1 id="利用Github创建免费图床"><a href="#利用Github创建免费图床" class="headerlink" title="利用Github创建免费图床"></a>利用Github创建免费图床</h1><h2 id="远程建库"><a href="#远程建库" class="headerlink" title="远程建库"></a>远程建库</h2><p><em><strong>直接New一个仓库即可,其他啥文件以后再说</strong></em></p>
-<h2 id="本地创建图床文件夹-最好同名"><a href="#本地创建图床文件夹-最好同名" class="headerlink" title="本地创建图床文件夹(最好同名)"></a>本地创建图床文件夹(最好同名)</h2><p>此处我的图床文件夹为: PhotoStack-2</p>
-<h2 id="利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去"><a href="#利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去" class="headerlink" title="利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去"></a>利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="暂存更改"><a href="#暂存更改" class="headerlink" title="暂存更改"></a>暂存更改</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> add.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="本地提交"><a href="#本地提交" class="headerlink" title="本地提交"></a>本地提交</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'commit-forst'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin https:/github.com/UserName/ReposityName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h3 id="SYNC-push"><a href="#SYNC-push" class="headerlink" title="SYNC-push"></a>SYNC-push</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(4).png"></p>
-<h3 id="远程查看"><a href="#远程查看" class="headerlink" title="远程查看"></a>远程查看</h3><p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(7).png"></p>
-<h3 id="开启page服务–github里面的pages是会自动更新的-这一点gitee需要自己手动更新部署page"><a href="#开启page服务–github里面的pages是会自动更新的-这一点gitee需要自己手动更新部署page" class="headerlink" title="开启page服务–github里面的pages是会自动更新的 || 这一点gitee需要自己手动更新部署page"></a>开启page服务–github里面的pages是会自动更新的 || 这一点gitee需要自己手动更新部署page</h3><p><em><strong>在仓库settings中找到github pages Ji</strong></em><br><em><strong>发现此时没有开启pages服务，点击source的分支，选择一个分支(一般是Master)</strong></em><br><em><strong>save</strong></em></p>
-<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(6).png"></p>
-<h3 id="如果有兴趣的话可以建一个Index-html文件在仓库主界面-这样打开仓库的Page地址就会显示该index-html主页"><a href="#如果有兴趣的话可以建一个Index-html文件在仓库主界面-这样打开仓库的Page地址就会显示该index-html主页" class="headerlink" title="如果有兴趣的话可以建一个Index.html文件在仓库主界面,这样打开仓库的Page地址就会显示该index.html主页"></a>如果有兴趣的话可以建一个Index.html文件在仓库主界面,这样打开仓库的Page地址就会显示该index.html主页</h3><h3 id="图床测试-gt-打开进入地址"><a href="#图床测试-gt-打开进入地址" class="headerlink" title="图床测试-&gt;打开进入地址"></a>图床测试-&gt;打开进入地址</h3><p><a href="https://r-ovo-stack.github.io/PhotoStack-2/colorback/beaut.jpg">https://r-ovo-stack.github.io/PhotoStack-2/colorback/beaut.jpg</a></p>
-<p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(1).png"></p>
-<h1 id="常见问题如何解决–持更"><a href="#常见问题如何解决–持更" class="headerlink" title="常见问题如何解决–持更"></a>常见问题如何解决–持更</h1>]]></content>
-      <categories>
-        <category>程序员基本功</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Github</tag>
-        <tag>Gitee</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MongoDB-初学       -----BASE</title>
-    <url>/MongoDB/</url>
-    <content><![CDATA[<p>s</p>
-<h2 id="MongoDB–简介"><a href="#MongoDB–简介" class="headerlink" title="MongoDB–简介"></a>MongoDB–简介</h2><blockquote>
-<p>MongoDB是使用js管理数据的数据库,使用V8 js引擎</p>
-</blockquote>
-<h2 id="什么是非关系型数据库"><a href="#什么是非关系型数据库" class="headerlink" title="什么是非关系型数据库"></a>什么是非关系型数据库</h2><blockquote>
-<p>非关系型数据库指非关系型的，分布式的，且一般不保证遵循ACID原则的数据存储系统,以键值对存储,结构不固定,每一个元组可以有不一样的字段,每个元组可以根据需要增加一些自己的键值对，不局限与固定结构,可以减少一些时间和空间上的开销</p>
-</blockquote>
-<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><blockquote>
-<p>可以根据需要添加必须字段,为了获取用户不同信息,仅需要根据id即可去除相应value,不必多表关联查询</p>
-</blockquote>
-<blockquote>
-<p>使用与社交网络服务…</p>
-</blockquote>
-<blockquote>
-<p>严格意义上讲,非关系型不是一种数据库，更像是一种数据结构化存储方法的集合</p>
-</blockquote>
-<blockquote>
-<p>只适合存储较为简单的数据,不适合持久存储海量数据</p>
-</blockquote>
-<h2 id="MongoDB基本语句"><a href="#MongoDB基本语句" class="headerlink" title="MongoDB基本语句"></a>MongoDB基本语句</h2><h3 id="创建-使用数据库—use"><a href="#创建-使用数据库—use" class="headerlink" title="创建 | 使用数据库—use"></a>创建 | 使用数据库—use</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> DbName  <span class="token comment">//创建eb对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="创建集合-表—createCollection"><a href="#创建集合-表—createCollection" class="headerlink" title="创建集合 | 表—createCollection()"></a>创建集合 | 表—createCollection()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>createCollection<span class="token punctuation">(</span><span class="token string">"TableName"</span><span class="token punctuation">)</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="集合中添加数据—save"><a href="#集合中添加数据—save" class="headerlink" title="集合中添加数据—save()"></a>集合中添加数据—save()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span><span class="token keyword">save</span><span class="token punctuation">(</span>&#123;name1:<span class="token string">''</span><span class="token punctuation">,</span>name2:<span class="token string">''</span>&#125;<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="集合的查询–find"><a href="#集合的查询–find" class="headerlink" title="集合的查询–find()"></a>集合的查询–find()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//查询表所有数据</span>
-db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span>&#123;&#125;<span class="token punctuation">,</span>&#123;_id:<span class="token boolean">false</span>&#125;<span class="token punctuation">)</span>  <span class="token comment">//不显示id字段</span>
-db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span>&#123;price:<span class="token number">400</span>&#125;<span class="token punctuation">,</span>&#123;_id:<span class="token boolean">false</span>&#125;<span class="token punctuation">)</span> <span class="token comment">// 查询price字段为400的结果集</span>
-db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>findOne<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 仅显示查询结果的第一条记录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="集合数据的修改-删除-—remove"><a href="#集合数据的修改-删除-—remove" class="headerlink" title="集合数据的修改 | 删除  —remove()"></a>集合数据的修改 | 删除  —remove()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">//将name属性值为knife的数据行的price属性修改为700</span>
-var <span class="token keyword">temp</span><span class="token operator">=</span>db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>findONe<span class="token punctuation">(</span>&#123;name:<span class="token string">'knife'</span>&#125;<span class="token punctuation">)</span>  <span class="token comment">//先把查询结果引用给temp</span>
-<span class="token keyword">temp</span><span class="token punctuation">.</span>price<span class="token operator">=</span><span class="token number">700</span> <span class="token comment">//修改</span>
-db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span><span class="token keyword">save</span><span class="token punctuation">(</span><span class="token keyword">temp</span><span class="token punctuation">)</span> <span class="token comment">//存回去</span>
-
-
-<span class="token comment">//删除</span>
-<span class="token comment">#删除name=pro的数据</span>
-db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>&#123;name:<span class="token string">'pro'</span>&#125;<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>MongoDB</tag>
-        <tag>SQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql常识记录       -----BASE</title>
     <url>/Mysql/</url>
     <content><![CDATA[<h2 id="Mysql–简介"><a href="#Mysql–简介" class="headerlink" title="Mysql–简介"></a>Mysql–简介</h2><blockquote>
@@ -1102,8 +1051,8 @@ db<span class="token punctuation">.</span>TableName<span class="token punctuatio
         <category>后端</category>
       </categories>
       <tags>
-        <tag>SQL</tag>
         <tag>Mysql</tag>
+        <tag>SQL</tag>
       </tags>
   </entry>
   <entry>
@@ -1372,6 +1321,57 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </categories>
       <tags>
         <tag>Node.js</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MongoDB-初学       -----BASE</title>
+    <url>/MongoDB/</url>
+    <content><![CDATA[<p>s</p>
+<h2 id="MongoDB–简介"><a href="#MongoDB–简介" class="headerlink" title="MongoDB–简介"></a>MongoDB–简介</h2><blockquote>
+<p>MongoDB是使用js管理数据的数据库,使用V8 js引擎</p>
+</blockquote>
+<h2 id="什么是非关系型数据库"><a href="#什么是非关系型数据库" class="headerlink" title="什么是非关系型数据库"></a>什么是非关系型数据库</h2><blockquote>
+<p>非关系型数据库指非关系型的，分布式的，且一般不保证遵循ACID原则的数据存储系统,以键值对存储,结构不固定,每一个元组可以有不一样的字段,每个元组可以根据需要增加一些自己的键值对，不局限与固定结构,可以减少一些时间和空间上的开销</p>
+</blockquote>
+<h2 id="Advantage"><a href="#Advantage" class="headerlink" title="Advantage"></a>Advantage</h2><blockquote>
+<p>可以根据需要添加必须字段,为了获取用户不同信息,仅需要根据id即可去除相应value,不必多表关联查询</p>
+</blockquote>
+<blockquote>
+<p>使用与社交网络服务…</p>
+</blockquote>
+<blockquote>
+<p>严格意义上讲,非关系型不是一种数据库，更像是一种数据结构化存储方法的集合</p>
+</blockquote>
+<blockquote>
+<p>只适合存储较为简单的数据,不适合持久存储海量数据</p>
+</blockquote>
+<h2 id="MongoDB基本语句"><a href="#MongoDB基本语句" class="headerlink" title="MongoDB基本语句"></a>MongoDB基本语句</h2><h3 id="创建-使用数据库—use"><a href="#创建-使用数据库—use" class="headerlink" title="创建 | 使用数据库—use"></a>创建 | 使用数据库—use</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> DbName  <span class="token comment">//创建eb对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="创建集合-表—createCollection"><a href="#创建集合-表—createCollection" class="headerlink" title="创建集合 | 表—createCollection()"></a>创建集合 | 表—createCollection()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>createCollection<span class="token punctuation">(</span><span class="token string">"TableName"</span><span class="token punctuation">)</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="集合中添加数据—save"><a href="#集合中添加数据—save" class="headerlink" title="集合中添加数据—save()"></a>集合中添加数据—save()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span><span class="token keyword">save</span><span class="token punctuation">(</span>&#123;name1:<span class="token string">''</span><span class="token punctuation">,</span>name2:<span class="token string">''</span>&#125;<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="集合的查询–find"><a href="#集合的查询–find" class="headerlink" title="集合的查询–find()"></a>集合的查询–find()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//查询表所有数据</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span>&#123;&#125;<span class="token punctuation">,</span>&#123;_id:<span class="token boolean">false</span>&#125;<span class="token punctuation">)</span>  <span class="token comment">//不显示id字段</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span>&#123;price:<span class="token number">400</span>&#125;<span class="token punctuation">,</span>&#123;_id:<span class="token boolean">false</span>&#125;<span class="token punctuation">)</span> <span class="token comment">// 查询price字段为400的结果集</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>findOne<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 仅显示查询结果的第一条记录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="集合数据的修改-删除-—remove"><a href="#集合数据的修改-删除-—remove" class="headerlink" title="集合数据的修改 | 删除  —remove()"></a>集合数据的修改 | 删除  —remove()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">//将name属性值为knife的数据行的price属性修改为700</span>
+var <span class="token keyword">temp</span><span class="token operator">=</span>db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>findONe<span class="token punctuation">(</span>&#123;name:<span class="token string">'knife'</span>&#125;<span class="token punctuation">)</span>  <span class="token comment">//先把查询结果引用给temp</span>
+<span class="token keyword">temp</span><span class="token punctuation">.</span>price<span class="token operator">=</span><span class="token number">700</span> <span class="token comment">//修改</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span><span class="token keyword">save</span><span class="token punctuation">(</span><span class="token keyword">temp</span><span class="token punctuation">)</span> <span class="token comment">//存回去</span>
+
+
+<span class="token comment">//删除</span>
+<span class="token comment">#删除name=pro的数据</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>&#123;name:<span class="token string">'pro'</span>&#125;<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>SQL</tag>
+        <tag>MongoDB</tag>
       </tags>
   </entry>
   <entry>
@@ -2821,6 +2821,20 @@ explain<span class="token operator">:</span>给定一个目标状态<span class=
       </tags>
   </entry>
   <entry>
+    <title>锦句</title>
+    <url>/%E9%94%A6/</url>
+    <content><![CDATA[<blockquote>
+<p>一块钱的打火机也能点着1万块的香烟，几万块钱一桌的菜，他还是离不开几块钱一包的盐</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>便签</category>
+      </categories>
+      <tags>
+        <tag>金句</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构与算法</title>
     <url>/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="指针链表"><a href="#指针链表" class="headerlink" title="指针链表"></a>指针链表</h3><h4 id="单链表-java描述"><a href="#单链表-java描述" class="headerlink" title="单链表(java描述)"></a>单链表(java描述)</h4><p>概念: 每个节点之间以一个指针相连,每个节点存储指向下一个节点的地址的指针,尾节点的指针域置空</p>
@@ -3154,20 +3168,6 @@ bool <span class="token class-name">InitStack</span><span class="token punctuati
       <tags>
         <tag>算法</tag>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>锦句</title>
-    <url>/%E9%94%A6/</url>
-    <content><![CDATA[<blockquote>
-<p>一块钱的打火机也能点着1万块的香烟，几万块钱一桌的菜，他还是离不开几块钱一包的盐</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>便签</category>
-      </categories>
-      <tags>
-        <tag>金句</tag>
       </tags>
   </entry>
 </search>
