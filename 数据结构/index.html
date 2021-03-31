@@ -506,6 +506,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -520,9 +523,14 @@
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328124128585.png" alt="image-20210328124128585" style="zoom:50%;" />
 
 <p>节点定义:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span><br><span class="line">	Type data; <span class="comment">//数据域</span></span><br><span class="line">	Node next; <span class="comment">//指针域</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Node</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Type</span> data<span class="token punctuation">;</span> <span class="token comment">//数据域</span>
+	<span class="token class-name">Node</span> next<span class="token punctuation">;</span> <span class="token comment">//指针域</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>单链表定义:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkList</span></span>&#123;</span><br><span class="line">	Node Head=<span class="keyword">null</span>; <span class="comment">//存储头节点地址</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">LinkList</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Node</span> <span class="token class-name">Head</span><span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">//存储头节点地址</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>几项基本操作：</p>
 <blockquote>
 <p>初始化:构建一个空表，创建一个头节点，不存储数据，指针置空</p>
@@ -531,18 +539,44 @@
 
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328124715697.png" alt="image-20210328124715697" style="zoom:50%;" />
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">init</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">	head=<span class="keyword">new</span> Node();</span><br><span class="line">	<span class="keyword">if</span>(! head)  <span class="comment">//直接生成头节点并记录地址</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	head-&gt;next=<span class="keyword">null</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token function">init</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	head<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span> head<span class="token punctuation">)</span>  <span class="token comment">//直接生成头节点并记录地址</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	head<span class="token operator">-></span>next<span class="token operator">=</span><span class="token keyword">null</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>头插法(插入顺序与链表遍历顺序相反):</p>
 </blockquote>
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328125827299.png" alt="image-20210328125827299" style="zoom:67%;" />
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node <span class="title">HeadInsert</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">	Node temp=head;</span><br><span class="line">	S=<span class="keyword">new</span> Node();</span><br><span class="line">	<span class="keyword">if</span>(! S)  </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	S.next=temp;</span><br><span class="line">	head=S;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Node</span> <span class="token class-name">HeadInsert</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Node</span> temp<span class="token operator">=</span>head<span class="token punctuation">;</span>
+	<span class="token class-name">S</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span> <span class="token class-name">S</span><span class="token punctuation">)</span>  
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token class-name">S</span><span class="token punctuation">.</span>next<span class="token operator">=</span>temp<span class="token punctuation">;</span>
+	head<span class="token operator">=</span><span class="token class-name">S</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>尾插法(单次Insert代码)</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Node <span class="title">TailInsert</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">	<span class="comment">//寻找尾巴</span></span><br><span class="line">	Node flag=head;</span><br><span class="line">	<span class="keyword">while</span>(flag-&gt;next)</span><br><span class="line">		flag=flag-&gt;next;</span><br><span class="line">	S=<span class="keyword">new</span> Node();</span><br><span class="line">	<span class="keyword">if</span>(! S)  </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	S.next=<span class="keyword">null</span>;</span><br><span class="line">	flag.next=S;</span><br><span class="line">	<span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token class-name">Node</span> <span class="token class-name">TailInsert</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token comment">//寻找尾巴</span>
+	<span class="token class-name">Node</span> flag<span class="token operator">=</span>head<span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>flag<span class="token operator">-></span>next<span class="token punctuation">)</span>
+		flag<span class="token operator">=</span>flag<span class="token operator">-></span>next<span class="token punctuation">;</span>
+	<span class="token class-name">S</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span> <span class="token class-name">S</span><span class="token punctuation">)</span>  
+		<span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token class-name">S</span><span class="token punctuation">.</span>next<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+	flag<span class="token punctuation">.</span>next<span class="token operator">=</span><span class="token class-name">S</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> head<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>如果是多次尾插，则只需要寻找一次尾巴，每次尾插以后刷新尾巴节点即可</p>
@@ -553,19 +587,53 @@
 <blockquote>
 <p>查找：</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">find</span><span class="params">(Node head,Type data)</span></span>&#123;</span><br><span class="line">	Node flag=head;</span><br><span class="line">	<span class="keyword">while</span>(flag &amp; flag-&gt;data!=data)&#123;</span><br><span class="line">		flag=flag-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(!flag)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token function">find</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">,</span><span class="token class-name">Type</span> data<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Node</span> flag<span class="token operator">=</span>head<span class="token punctuation">;</span>
+	<span class="token keyword">while</span><span class="token punctuation">(</span>flag <span class="token operator">&amp;</span> flag<span class="token operator">-></span>data<span class="token operator">!=</span>data<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		flag<span class="token operator">=</span>flag<span class="token operator">-></span>next<span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>中间插入:</p>
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328131919332.png" alt="image-20210328131919332" style="zoom:50%;" />
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在第i个节点之前插入(包含空头节点的链表,头节点属于第0个节点的情况下)</span></span><br><span class="line"><span class="function">bool <span class="title">MiddleInsert</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">    Node flag=head;</span><br><span class="line">    <span class="keyword">while</span>(i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        i--;</span><br><span class="line">        flag=flag-&gt;next; <span class="comment">//找到第i-1个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    S=<span class="keyword">new</span> Node();</span><br><span class="line">    <span class="keyword">if</span>(! S)  </span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    S-&gt;next=flag-&gt;next;</span><br><span class="line">    flag-&gt;next=S;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//在第i个节点之前插入(包含空头节点的链表,头节点属于第0个节点的情况下)</span>
+bool <span class="token class-name">MiddleInsert</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token class-name">Node</span> flag<span class="token operator">=</span>head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        i<span class="token operator">--</span><span class="token punctuation">;</span>
+        flag<span class="token operator">=</span>flag<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment">//找到第i-1个节点</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token class-name">S</span><span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Node</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span> <span class="token class-name">S</span><span class="token punctuation">)</span>  
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token class-name">S</span><span class="token operator">-></span>next<span class="token operator">=</span>flag<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    flag<span class="token operator">-></span>next<span class="token operator">=</span><span class="token class-name">S</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>删除中间节点</p>
 </blockquote>
 <p><strong><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328133145723.png" alt="image-20210328133145723" style="zoom:50%;" /></strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除第i个节点</span></span><br><span class="line"><span class="function">bool <span class="title">MiddleDel</span><span class="params">(Node head)</span></span>&#123;</span><br><span class="line">	Node flag=head;</span><br><span class="line">    <span class="keyword">while</span>(i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        i--;</span><br><span class="line">        flag=flag-&gt;next; <span class="comment">//找到第i-1个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(!flag)</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    flag-&gt;next=flag-&gt;next-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//如果在C++环境下,需要记录第i个节点: Node temp=flag-&gt;next; delete(temp);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//删除第i个节点</span>
+bool <span class="token class-name">MiddleDel</span><span class="token punctuation">(</span><span class="token class-name">Node</span> head<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Node</span> flag<span class="token operator">=</span>head<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        i<span class="token operator">--</span><span class="token punctuation">;</span>
+        flag<span class="token operator">=</span>flag<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment">//找到第i-1个节点</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>flag<span class="token punctuation">)</span>
+    	<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    flag<span class="token operator">-></span>next<span class="token operator">=</span>flag<span class="token operator">-></span>next<span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token comment">//如果在C++环境下,需要记录第i个节点: Node temp=flag->next; delete(temp);</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -573,51 +641,114 @@
 <p>双向链表的操作基本和单链表一致，以及循环链表，循环双向链表等等</p>
 </blockquote>
 <p>双向链表节点定义:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DoubleNode</span></span>&#123;</span><br><span class="line">	Type data;</span><br><span class="line">	DoubleNode next;</span><br><span class="line">	DoubleNode pre;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">DoubleNode</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Type</span> data<span class="token punctuation">;</span>
+	<span class="token class-name">DoubleNode</span> next<span class="token punctuation">;</span>
+	<span class="token class-name">DoubleNode</span> pre<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="顺序栈（java描述"><a href="#顺序栈（java描述" class="headerlink" title="顺序栈（java描述)"></a>顺序栈（java描述)</h3><p>顺序栈的类定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SqStack</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> data[];</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> base;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> top; </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">SqStack</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> data<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> base<span class="token punctuation">;</span>
+	<span class="token keyword">public</span> <span class="token keyword">int</span> top<span class="token punctuation">;</span> 
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <blockquote>
 <p>初始化</p>
 </blockquote>
 <p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328135659049.png" alt="image-20210328135659049" style="zoom:25%;" /><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328135540636.png" alt="image-20210328135540636" style="zoom:33%;" /></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//top永远指向栈顶，并且top地址不存储元素</span></span><br><span class="line"><span class="function">bool  <span class="title">Init</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">	S.base=<span class="keyword">new</span> <span class="keyword">int</span> [maxsize]; <span class="comment">//分配一个Maxsize容量的数组</span></span><br><span class="line">	<span class="keyword">if</span>(!S.base)&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	S.top=S.base; <span class="comment">//Base同时存储了数组的首地址也是第一个数组元素的地址</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//top永远指向栈顶，并且top地址不存储元素</span>
+bool  <span class="token class-name">Init</span><span class="token punctuation">(</span><span class="token class-name">SqStack</span> <span class="token class-name">S</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">S</span><span class="token punctuation">.</span>base<span class="token operator">=</span><span class="token keyword">new</span> <span class="token keyword">int</span> <span class="token punctuation">[</span>maxsize<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//分配一个Maxsize容量的数组</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">S</span><span class="token punctuation">.</span>base<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	<span class="token punctuation">&#125;</span>
+	<span class="token class-name">S</span><span class="token punctuation">.</span>top<span class="token operator">=</span><span class="token class-name">S</span><span class="token punctuation">.</span>base<span class="token punctuation">;</span> <span class="token comment">//Base同时存储了数组的首地址也是第一个数组元素的地址</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>入栈</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">push</span><span class="params">(SqStack S,<span class="keyword">int</span> e)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.top-S.base==Maxsize) <span class="comment">//栈满,栈满也可以表示为 S.top==Maxsize</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    S.data[S.top++]=e;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">SqStack</span> <span class="token class-name">S</span><span class="token punctuation">,</span><span class="token keyword">int</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">S</span><span class="token punctuation">.</span>top<span class="token operator">-</span><span class="token class-name">S</span><span class="token punctuation">.</span>base<span class="token operator">==</span><span class="token class-name">Maxsize</span><span class="token punctuation">)</span> <span class="token comment">//栈满,栈满也可以表示为 S.top==Maxsize</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token class-name">S</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token class-name">S</span><span class="token punctuation">.</span>top<span class="token operator">++</span><span class="token punctuation">]</span><span class="token operator">=</span>e<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p>出栈</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">pop</span><span class="params">(SqStack S)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(S.base==S.top) <span class="comment">//栈空</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">	top--;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	<span class="comment">//此处有需要的话也可以设置一个变量记录刚刚出栈的栈顶的值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token function">pop</span><span class="token punctuation">(</span><span class="token class-name">SqStack</span> <span class="token class-name">S</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">S</span><span class="token punctuation">.</span>base<span class="token operator">==</span><span class="token class-name">S</span><span class="token punctuation">.</span>top<span class="token punctuation">)</span> <span class="token comment">//栈空</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+	top<span class="token operator">--</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+	<span class="token comment">//此处有需要的话也可以设置一个变量记录刚刚出栈的栈顶的值</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="链栈-java描述"><a href="#链栈-java描述" class="headerlink" title="链栈(java描述)"></a>链栈(java描述)</h3><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328142057306.png" alt="image-20210328142057306" style="zoom:33%;" />
 
 <p>链栈类定义</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Snode</span></span>&#123;</span><br><span class="line">	Type data;</span><br><span class="line">	Snode next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkStack</span></span>&#123;</span><br><span class="line">	Snode S;  <span class="comment">//存储栈顶</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Snode</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Type</span> data<span class="token punctuation">;</span>
+	<span class="token class-name">Snode</span> next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">LinkStack</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Snode</span> <span class="token class-name">S</span><span class="token punctuation">;</span>  <span class="token comment">//存储栈顶</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>初始化</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">bool <span class="title">InitStack</span><span class="params">(LinkStack S)</span></span>&#123;</span><br><span class="line">	S=<span class="keyword">null</span>; <span class="comment">//记录栈顶</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">
+bool <span class="token class-name">InitStack</span><span class="token punctuation">(</span><span class="token class-name">LinkStack</span> <span class="token class-name">S</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">S</span><span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span> <span class="token comment">//记录栈顶</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>入栈</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">push</span><span class="params">(LinkStack S,<span class="keyword">int</span> e)</span></span>&#123;</span><br><span class="line">	LinkStack p;</span><br><span class="line">	p=<span class="keyword">new</span> Snode; <span class="comment">//生成新的节点</span></span><br><span class="line">	p-&gt;data=e;</span><br><span class="line">	p-&gt;next=S;  <span class="comment">//将新节点的next指针指向S,S的地址赋值给新节点的指针域</span></span><br><span class="line">	S=p;  <span class="comment">//修改栈顶</span></span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token function">push</span><span class="token punctuation">(</span><span class="token class-name">LinkStack</span> <span class="token class-name">S</span><span class="token punctuation">,</span><span class="token keyword">int</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">LinkStack</span> p<span class="token punctuation">;</span>
+	p<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Snode</span><span class="token punctuation">;</span> <span class="token comment">//生成新的节点</span>
+	p<span class="token operator">-></span>data<span class="token operator">=</span>e<span class="token punctuation">;</span>
+	p<span class="token operator">-></span>next<span class="token operator">=</span><span class="token class-name">S</span><span class="token punctuation">;</span>  <span class="token comment">//将新节点的next指针指向S,S的地址赋值给新节点的指针域</span>
+	<span class="token class-name">S</span><span class="token operator">=</span>p<span class="token punctuation">;</span>  <span class="token comment">//修改栈顶</span>
+	<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>出栈</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">pop</span><span class="params">(LinkStack S)</span></span>&#123;</span><br><span class="line">	LinkStack p;</span><br><span class="line">    <span class="keyword">if</span>(!S)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;  <span class="comment">//栈空</span></span><br><span class="line">    S=S-&gt;next;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//如果在C++环境中，则需要使用p记录原来的栈顶S,并delete(p);</span></span><br><span class="line">            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token function">pop</span><span class="token punctuation">(</span><span class="token class-name">LinkStack</span> <span class="token class-name">S</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">LinkStack</span> p<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token class-name">S</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>  <span class="token comment">//栈空</span>
+    <span class="token class-name">S</span><span class="token operator">=</span><span class="token class-name">S</span><span class="token operator">-></span>next<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token comment">//如果在C++环境中，则需要使用p记录原来的栈顶S,并delete(p);</span>
+            
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <h2 id="队列-FIFO-–First-In-First-Out"><a href="#队列-FIFO-–First-In-First-Out" class="headerlink" title="队列(FIFO)–First In First Out"></a>队列(FIFO)–First In First Out</h2><h3 id="顺序队列"><a href="#顺序队列" class="headerlink" title="顺序队列"></a>顺序队列</h3><p>定义：采用一段连续的空间存储数据元素,并用两个整型变量记录队头和队尾元素的下标</p>
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328143159629.png" alt="image-20210328143159629" style="zoom:50%;" />
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//队空:Q.front=Q.rear,尾索引永远指向空区域</span></span><br><span class="line"><span class="comment">//队满: </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SqQueue</span></span>&#123;</span><br><span class="line">	Type data[]; <span class="comment">//定义数组存储数据</span></span><br><span class="line">	<span class="keyword">int</span> front,rear;  <span class="comment">//记录队头队尾</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//队空:Q.front=Q.rear,尾索引永远指向空区域</span>
+<span class="token comment">//队满: </span>
+<span class="token keyword">class</span> <span class="token class-name">SqQueue</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Type</span> data<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//定义数组存储数据</span>
+	<span class="token keyword">int</span> front<span class="token punctuation">,</span>rear<span class="token punctuation">;</span>  <span class="token comment">//记录队头队尾</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>入队:</p>
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328144940455.png" alt="image-20210328144940455" style="zoom:50%;" />
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//front不变,rear-front=队列当前有效元素数量(有效长度),rear++</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//front不变,rear-front=队列当前有效元素数量(有效长度),rear++</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>出队:</p>
 <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328144913427.png" alt="image-20210328144913427" style="zoom:50%;" />
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//rear不变,front++,rear-front=队列当前有效元素数量(有效长度)</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token comment">//rear不变,front++,rear-front=队列当前有效元素数量(有效长度)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <blockquote>
 <p>假溢出问题: 当队尾指针已经指向了队尾，此时无法进行入队操作（由于front只增不减，rear只增不减），倘若前面有多余的空间会造成空间浪费(假溢出),此时Q.rear+1=MaxSize</p>
@@ -640,22 +771,67 @@
 <p>Q.data[Q.rear]=x;  //将x丢入Q.rear所指向的空间<br>Q.rear=(Q.rear+1)%Maxsize; //Q.rear后移</p>
 </blockquote>
 <p>循环队列的入队:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">EnQueue</span><span class="params">(SqQueue Q,<span class="keyword">int</span> e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((Q.rear+<span class="number">1</span>)*Maxsize==Q.front)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">//队满</span></span><br><span class="line">    <span class="comment">//Q.rear始终指向循环队列的空间以内</span></span><br><span class="line">    Q.data[Q.rear]=e;</span><br><span class="line">    Q.rear=(Q.rear+<span class="number">1</span>)%Maxsize;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token class-name">EnQueue</span><span class="token punctuation">(</span><span class="token class-name">SqQueue</span> <span class="token class-name">Q</span><span class="token punctuation">,</span><span class="token keyword">int</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token class-name">Maxsize</span><span class="token operator">==</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">//队满</span>
+    <span class="token comment">//Q.rear始终指向循环队列的空间以内</span>
+    <span class="token class-name">Q</span><span class="token punctuation">.</span>data<span class="token punctuation">[</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token punctuation">]</span><span class="token operator">=</span>e<span class="token punctuation">;</span>
+    <span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">=</span><span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token class-name">Maxsize</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>循环队列的出队:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">DeQueue</span><span class="params">(SqQueue Q)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Q.front==Q.rear)</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    Q.front=(Q.front+<span class="number">1</span>)%Maxsize;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//有需要的话可以保存出队元素</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token class-name">DeQueue</span><span class="token punctuation">(</span><span class="token class-name">SqQueue</span> <span class="token class-name">Q</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">==</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">=</span><span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token class-name">Maxsize</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    <span class="token comment">//有需要的话可以保存出队元素</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>计算队列的有效长度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QueueLength</span><span class="params">(SqQueue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (Q.rear-Q.front+Maxsize)%Maxsize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">int</span> <span class="token class-name">QueueLength</span><span class="token punctuation">(</span><span class="token class-name">SqQueue</span> <span class="token class-name">Q</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">-</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">+</span><span class="token class-name">Maxsize</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token class-name">Maxsize</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="链队列"><a href="#链队列" class="headerlink" title="链队列"></a>链队列</h3><p>ps:链队需要有一个头节点,借助单链表的定义很容易实现相关代码<img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328155620826.png" alt="image-20210328155620826" style="zoom:50%;" /></p>
 <p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328160711802.png" alt="image-20210328160711802"></p>
 <p>链队定义:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Qnode</span></span>&#123;</span><br><span class="line">	Type data;</span><br><span class="line">	Qnode next;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkQueue</span></span>&#123;</span><br><span class="line">	Qnode front;</span><br><span class="line">	Qnode rear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Qnode</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Type</span> data<span class="token punctuation">;</span>
+	<span class="token class-name">Qnode</span> next<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">class</span> <span class="token class-name">LinkQueue</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Qnode</span> front<span class="token punctuation">;</span>
+	<span class="token class-name">Qnode</span> rear<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>链队入队:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> Init <span class="title">Queue</span><span class="params">(LinkQueue Q)</span></span>&#123;</span><br><span class="line">	Q.front=Q.rear=<span class="keyword">new</span> Qnode;  <span class="comment">//创建头节点,头指针和尾指针指向头节点</span></span><br><span class="line">	Q.front-&gt;next=<span class="keyword">null</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">EnQueue</span><span class="params">(LinkQueue Q,Type e)</span></span>&#123;</span><br><span class="line">	Qnode node=<span class="keyword">new</span> Qnode(e);</span><br><span class="line">	node-&gt;next=<span class="keyword">null</span>;</span><br><span class="line">	Q.rear-&gt;next=node;</span><br><span class="line">	Q.rear=node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java"><span class="token keyword">void</span> <span class="token class-name">Init</span> <span class="token class-name">Queue</span><span class="token punctuation">(</span><span class="token class-name">LinkQueue</span> <span class="token class-name">Q</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">=</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Qnode</span><span class="token punctuation">;</span>  <span class="token comment">//创建头节点,头指针和尾指针指向头节点</span>
+	<span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">-></span>next<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">void</span> <span class="token class-name">EnQueue</span><span class="token punctuation">(</span><span class="token class-name">LinkQueue</span> <span class="token class-name">Q</span><span class="token punctuation">,</span><span class="token class-name">Type</span> e<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+	<span class="token class-name">Qnode</span> node<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">Qnode</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	node<span class="token operator">-></span>next<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
+	<span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">-></span>next<span class="token operator">=</span>node<span class="token punctuation">;</span>
+	<span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">=</span>node<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>链队出队:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">bool <span class="title">Dequeue</span><span class="params">(LinkQueue Q)</span></span>&#123;<span class="comment">//删除队头元素</span></span><br><span class="line">	<span class="keyword">if</span>(Q.rear==Q.front)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">false</span></span><br><span class="line">	Qnode p=Q.front-&gt;next;  <span class="comment">//记录队头节点</span></span><br><span class="line">	Q.front-&gt;next=p-&gt;next; <span class="comment">//头节点不变,队头后移</span></span><br><span class="line">	<span class="keyword">if</span>(Q.rear==p&#123; <span class="comment">//如果队列中只有一个元素,删除后需要修改队尾指针,即回到初始状态,Q.front和Q.rear均指向头节点</span></span><br><span class="line">		Q.rear=Q.front;    </span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-java" data-language="java"><code class="language-java">bool <span class="token class-name">Dequeue</span><span class="token punctuation">(</span><span class="token class-name">LinkQueue</span> <span class="token class-name">Q</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token comment">//删除队头元素</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">==</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token punctuation">)</span>
+		<span class="token keyword">return</span> <span class="token boolean">false</span>
+	<span class="token class-name">Qnode</span> p<span class="token operator">=</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">-></span>next<span class="token punctuation">;</span>  <span class="token comment">//记录队头节点</span>
+	<span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token operator">-></span>next<span class="token operator">=</span>p<span class="token operator">-></span>next<span class="token punctuation">;</span> <span class="token comment">//头节点不变,队头后移</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">==</span>p<span class="token punctuation">&#123;</span> <span class="token comment">//如果队列中只有一个元素,删除后需要修改队尾指针,即回到初始状态,Q.front和Q.rear均指向头节点</span>
+		<span class="token class-name">Q</span><span class="token punctuation">.</span>rear<span class="token operator">=</span><span class="token class-name">Q</span><span class="token punctuation">.</span>front<span class="token punctuation">;</span>    
+	<span class="token punctuation">&#125;</span>
+	
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="双端队列"><a href="#双端队列" class="headerlink" title="*双端队列"></a>*双端队列</h3><h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><h3 id="关于树的一些基本概念"><a href="#关于树的一些基本概念" class="headerlink" title="关于树的一些基本概念()"></a>关于树的一些基本概念()</h3><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328163013167.png" alt="image-20210328163013167"  />
 
@@ -1326,7 +1502,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.7k</span>&nbsp;字
+                class="white-color">16.4k</span>&nbsp;字
             
             
             

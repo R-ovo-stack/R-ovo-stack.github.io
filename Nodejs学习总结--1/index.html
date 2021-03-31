@@ -487,7 +487,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    4 分
                 </div>
                 
 
@@ -501,6 +501,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -521,10 +524,10 @@
 <h2 id="学习Node-js需要掌握哪些知识"><a href="#学习Node-js需要掌握哪些知识" class="headerlink" title="学习Node.js需要掌握哪些知识?"></a>学习Node.js需要掌握哪些知识?</h2><hr>
 <p>我认为在学习这个之前应该至少要会javascript语言，并且html,css要有一定的了解，不然很容易不懂得前后端的配合运作机制，学到后面的http模块以后可能会摸不清楚头脑</p>
 <h1 id="Node-js-–Base"><a href="#Node-js-–Base" class="headerlink" title="Node.js –Base"></a>Node.js –Base</h1><h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><hr>
-<h3 id="filename-注意是两个"><a href="#filename-注意是两个" class="headerlink" title="__filename  (注意是两个)"></a>__<em>filename  (注意是两个</em>)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;该命令输出当前文件名&#x27;</span>,__filename);  <span class="comment">//Node.js和Js一样，尾巴可以不写&quot;;&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="filename-注意是两个"><a href="#filename-注意是两个" class="headerlink" title="__filename  (注意是两个)"></a>__<em>filename  (注意是两个</em>)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'该命令输出当前文件名'</span><span class="token punctuation">,</span>__filename<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//Node.js和Js一样，尾巴可以不写";"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
-<h3 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;该命令输出当前文件夹&#x27;</span>,__dirname);</span><br></pre></td></tr></table></figure>
+<h3 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'该命令输出当前文件夹'</span><span class="token punctuation">,</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><hr>
 <h3 id="console对象"><a href="#console对象" class="headerlink" title="console对象"></a>console对象</h3><h4 id="常见方法"><a href="#常见方法" class="headerlink" title="常见方法"></a>常见方法</h4><table>
@@ -548,11 +551,14 @@
 </tr>
 </tbody></table>
 <h4 id="console-log-中的转义符号"><a href="#console-log-中的转义符号" class="headerlink" title="console.log()中的转义符号"></a>console.log()中的转义符号</h4><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%d   输出数字变量</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;%d+%d=%d&#x27;</span>,<span class="number">200</span>,<span class="number">200</span>,<span class="number">100</span>+<span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>d   输出数字变量
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'%d+%d=%d'</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token operator">+</span><span class="token number">300</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%s   输出字符串变量</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;字符串string %s&#x27;</span>,<span class="string">&#x27;Rulvbobin&#x27;</span>,<span class="string">&#x27;Node.js&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>s   输出字符串变量
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'字符串string %s'</span><span class="token punctuation">,</span><span class="token string">'Rulvbobin'</span><span class="token punctuation">,</span><span class="token string">'Node.js'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">%j   输出Json变量</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;JSON %j&#x27;</span>,&#123;<span class="attr">name</span>:<span class="string">&#x27;node.js&#x27;</span>&#125;);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>j   输出Json变量
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'JSON %j'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span><span class="token string">'node.js'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h3 id="process对象-只存在于Node-js中，javascript中没有这个对象"><a href="#process对象-只存在于Node-js中，javascript中没有这个对象" class="headerlink" title="process对象(只存在于Node.js中，javascript中没有这个对象)"></a>process对象(只存在于Node.js中，javascript中没有这个对象)</h3><p>该对象用于描述当前程序的状态,process对象最重要的它的方法,相当于java里面的多线程的概念,但js本身又是单线程的</p>
 <hr>
@@ -588,24 +594,73 @@
 <td align="center">return  当前程序所在平台系统</td>
 </tr>
 </tbody></table>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">process.argv.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">item, index</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//输出内容,程序结束之前所有的状态</span></span><br><span class="line">    <span class="built_in">console</span>.log(index + <span class="string">&#x27;:&#x27;</span> + <span class="keyword">typeof</span> (item) + <span class="string">&#x27;: &#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (item == <span class="string">&#x27;--exit&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">//获得下一个数组中的参数</span></span><br><span class="line">        <span class="keyword">var</span> exitTime = <span class="built_in">Number</span>(process.argv[index + <span class="number">1</span>]);</span><br><span class="line">        <span class="comment">//setTImeout(),指定时长以后结束程序</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            process.exit();</span><br><span class="line">        &#125;, exitTime);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">//输出内容,程序结束之前所有的状态</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">': '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">==</span> <span class="token string">'--exit'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//获得下一个数组中的参数</span>
+        <span class="token keyword">var</span> exitTime <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//setTImeout(),指定时长以后结束程序</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> exitTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上述程序执行结果:</p>
 <p><img src="https://r-ovo-stack.gitee.io/res/res1.png"></p>
 <h2 id="全局函数–在任何位置都可以调用"><a href="#全局函数–在任何位置都可以调用" class="headerlink" title="全局函数–在任何位置都可以调用"></a>全局函数–在任何位置都可以调用</h2><p>函数和方法还是有一定的区别的哦</p>
 <hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">全局函数.js</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(cb,ms);   在指定ms后执行指定函数cb,只执行一次</span><br><span class="line"><span class="built_in">clearTimeout</span>(t); 停止一个之前调用<span class="built_in">setTimeout</span>()创建的定时器</span><br><span class="line"><span class="built_in">setInterval</span>(cb,ms); 与<span class="built_in">setTimeout</span>()近乎一致，但其是周期循环执行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">
+全局函数<span class="token punctuation">.</span>js
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span>   在指定ms后执行指定函数cb<span class="token punctuation">,</span>只执行一次
+<span class="token function">clearTimeout</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">停止一个之前调用setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>创建的定时器
+<span class="token function">setInterval</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">与setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>近乎一致，但其是周期循环执行
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h1 id="Node-js里面的模块化编程-module-exports"><a href="#Node-js里面的模块化编程-module-exports" class="headerlink" title="Node.js里面的模块化编程 module/exports"></a>Node.js里面的模块化编程 module/exports</h1><p>Node.js中的每个模块都是一个.js文件,module.js文件是创建的模块f,在执行.js中调用module.js模块内容的代码</p>
 <h2 id="exports对象创建模块的方法"><a href="#exports对象创建模块的方法" class="headerlink" title="exports对象创建模块的方法"></a>exports对象创建模块的方法</h2><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.js</span><br><span class="line"><span class="comment">//定义一个求和方法add  || 匿名函数</span></span><br><span class="line"><span class="built_in">exports</span>.add=<span class="function"><span class="keyword">function</span> (<span class="params">num1,num2</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> num1+num2;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义计算圆周的方法</span></span><br><span class="line"><span class="built_in">exports</span>.circleArea=<span class="function"><span class="keyword">function</span>(<span class="params">R</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> R*R*<span class="built_in">Math</span>.PI;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>js
+<span class="token comment">//定义一个求和方法add  || 匿名函数</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">add</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span>num2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> num1<span class="token operator">+</span>num2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">main.js</span><br><span class="line"><span class="comment">//加载module.js文件，用require(path)方法，通常使用相对路径</span></span><br><span class="line"><span class="keyword">var</span> <span class="built_in">module</span>=<span class="built_in">require</span>(<span class="string">&#x27;./module.js&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.add(<span class="number">1</span>+<span class="number">2</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.circleArea(<span class="number">100</span>));</span><br></pre></td></tr></table></figure>
+<span class="token comment">//定义计算圆周的方法</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">circleArea</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token constant">R</span></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token constant">R</span><span class="token operator">*</span><span class="token constant">R</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">main<span class="token punctuation">.</span>js
+<span class="token comment">//加载module.js文件，用require(path)方法，通常使用相对路径</span>
+<span class="token keyword">var</span> module<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span><span class="token function">circleArea</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="module对象创建模块的方法"><a href="#module对象创建模块的方法" class="headerlink" title="module对象创建模块的方法"></a>module对象创建模块的方法</h2><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.js</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">class</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name;</span><br><span class="line">    <span class="built_in">this</span>.setName=<span class="function"><span class="keyword">function</span>(<span class="params">tName</span>)</span>&#123;</span><br><span class="line">        name=tName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.sayHello()=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;Hello!&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>js
+<span class="token keyword">function</span> <span class="token keyword">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">setName</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">tName</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        name<span class="token operator">=</span>tName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">main.js</span><br><span class="line"><span class="keyword">var</span> temp=<span class="built_in">require</span>(<span class="string">&#x27;./module.js&#x27;</span>);</span><br><span class="line">hi=<span class="keyword">new</span> <span class="class"><span class="keyword">class</span>()</span>;</span><br><span class="line">hi.setName(<span class="string">&#x27;haha&#x27;</span>);</span><br><span class="line">hi.sayHello();</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">main<span class="token punctuation">.</span>js
+<span class="token keyword">var</span> temp<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hi<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hi<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">'haha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hi<span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="常见内置模块"><a href="#常见内置模块" class="headerlink" title="常见内置模块"></a>常见内置模块</h2><hr>
 <h3 id="os模块-const-os-require-‘os’"><a href="#os模块-const-os-require-‘os’" class="headerlink" title="os模块      const os=require(‘os’);"></a>os模块      const os=require(‘os’);</h3><hr>
@@ -700,10 +755,23 @@
 </tr>
 </tbody></table>
 <h3 id="util-模块-const-util-require-‘util’"><a href="#util-模块-const-util-require-‘util’" class="headerlink" title="util 模块    const util=require(‘util’);"></a>util 模块    const util=require(‘util’);</h3><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//util.format()其实就是printf(&quot;&quot;,  );</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> util=<span class="built_in">require</span>(<span class="string">&#x27;util&#x27;</span>);</span><br><span class="line"><span class="comment">//var util也可以</span></span><br><span class="line"><span class="keyword">var</span> data=util.format(<span class="string">&#x27;%d+%d=%d&#x27;</span>,<span class="number">100</span>,<span class="number">100</span>,<span class="number">200</span>);</span><br><span class="line"><span class="built_in">console</span>.log(data);</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//util.format()其实就是printf("",  );</span>
+
+<span class="token keyword">const</span> util<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'util'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//var util也可以</span>
+<span class="token keyword">var</span> data<span class="token operator">=</span>util<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'%d+%d=%d'</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="crypto-模块-哈希模块-const-crypto-require-‘crypto’"><a href="#crypto-模块-哈希模块-const-crypto-require-‘crypto’" class="headerlink" title="crypto 模块(哈希模块)     const crypto=require(‘crypto’);"></a>crypto 模块(哈希模块)     const crypto=require(‘crypto’);</h3><hr>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cry=<span class="built_in">require</span>(<span class="string">&#x27;crypto&#x27;</span>)</span><br><span class="line"><span class="comment">//生成hash</span></span><br><span class="line"><span class="keyword">var</span> temp=cry.createHash(<span class="string">&#x27;sha256&#x27;</span>)</span><br><span class="line">temp.update(<span class="string">&#x27;pwd&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> output=temp.digest(<span class="string">&#x27;hex&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//output</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;pwd&#x27;</span>,output);  <span class="comment">//输出哈希(密码)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> cry<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span>
+<span class="token comment">//生成hash</span>
+<span class="token keyword">var</span> temp<span class="token operator">=</span>cry<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'sha256'</span><span class="token punctuation">)</span>
+temp<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> output<span class="token operator">=</span>temp<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//output</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//输出哈希(密码)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1364,7 +1432,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.7k</span>&nbsp;字
+                class="white-color">16.4k</span>&nbsp;字
             
             
             

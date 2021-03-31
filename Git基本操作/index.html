@@ -488,7 +488,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    709
+                    706
                 </div>
                 
 
@@ -510,6 +510,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
         <!-- 代码块折行 -->
@@ -526,9 +529,13 @@
 <p><u><em><strong>我喜欢在github和gitee的用户名和个人邮箱都是同一个,看着舒服…</strong></em></u></p>
 <p><u><em><strong>连通本地和远程存储库的一个重要操作是ssh连接,建立了这个连接以后后续很多操作都会变得便捷，包括github pages也需要它</strong></em></u></p>
 <p><u><em><strong>再安装好了git后，设置git 用户名和密码以及联系邮箱</strong></em></u></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxxx   //这里我一般和github一致</span><br><span class="line"></span><br><span class="line">git config --global user.email xxx@xxx.com </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name xxxx   //这里我一般和github一致
 
-<h2 id="如何建立ssh链接"><a href="#如何建立ssh链接" class="headerlink" title="如何建立ssh链接?"></a>如何建立ssh链接?</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 首先生成ssh公钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;邮箱地址&quot;</span>   //此处的引号不可省略</span><br></pre></td></tr></table></figure>
+<span class="token function">git</span> config --global user.email xxx@xxx.com 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="如何建立ssh链接"><a href="#如何建立ssh链接" class="headerlink" title="如何建立ssh链接?"></a>如何建立ssh链接?</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 首先生成ssh公钥</span>
+ssh-keygen -t rsa -C <span class="token string">"邮箱地址"</span>   //此处的引号不可省略<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <p><u><em><strong>一直点回车</strong></em></u><br><u><em><strong>点到不能点为止</strong></em></u><br><u><em><strong>公钥自动生成在如下位置</u></strong></em></p>
 <p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(5).png"></p>
@@ -537,39 +544,42 @@
 <h2 id="基本项目操作"><a href="#基本项目操作" class="headerlink" title="基本项目操作"></a>基本项目操作</h2><p><em><strong><u>首先需要在项目文件夹目录下打开bash (我的项目文件夹是PhotoStack)</u></strong></em></p>
 <hr>
 <p><img src="https://r-ovo-stack.github.io/PhotoStack-2/gitres/r%20(2).png"></p>
-<h3 id="初始化存储库"><a href="#初始化存储库" class="headerlink" title="初始化存储库"></a>初始化存储库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init  //初始化一个.git隐藏文件</span><br></pre></td></tr></table></figure>
+<h3 id="初始化存储库"><a href="#初始化存储库" class="headerlink" title="初始化存储库"></a>初始化存储库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init  //初始化一个.git隐藏文件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="显示当前项目目录和暂存区的状态"><a href="#显示当前项目目录和暂存区的状态" class="headerlink" title="显示当前项目目录和暂存区的状态"></a>显示当前项目目录和暂存区的状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h3 id="显示当前项目目录和暂存区的状态"><a href="#显示当前项目目录和暂存区的状态" class="headerlink" title="显示当前项目目录和暂存区的状态"></a>显示当前项目目录和暂存区的状态</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="暂存当前工作区所有更改"><a href="#暂存当前工作区所有更改" class="headerlink" title="暂存当前工作区所有更改"></a>暂存当前工作区所有更改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .    //相当于git add -A(git add --all)</span><br></pre></td></tr></table></figure>
+<h3 id="暂存当前工作区所有更改"><a href="#暂存当前工作区所有更改" class="headerlink" title="暂存当前工作区所有更改"></a>暂存当前工作区所有更改</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>    //相当于git <span class="token function">add</span> -A<span class="token punctuation">(</span>git <span class="token function">add</span> --all<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="将暂存区的代码提交到本地仓库"><a href="#将暂存区的代码提交到本地仓库" class="headerlink" title="将暂存区的代码提交到本地仓库"></a>将暂存区的代码提交到本地仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&#x27;注释消息&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="将暂存区的代码提交到本地仓库"><a href="#将暂存区的代码提交到本地仓库" class="headerlink" title="将暂存区的代码提交到本地仓库"></a>将暂存区的代码提交到本地仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'注释消息'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="链接远程仓库"><a href="#链接远程仓库" class="headerlink" title="链接远程仓库"></a>链接远程仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin 远程仓库地址   //链接远程仓库，往远程仓库add</span><br><span class="line">eg: git remote add origin https://gitee.com/r-ovo-stack/photo-stack</span><br></pre></td></tr></table></figure>
+<h3 id="链接远程仓库"><a href="#链接远程仓库" class="headerlink" title="链接远程仓库"></a>链接远程仓库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin 远程仓库地址   //链接远程仓库，往远程仓库add
+eg: <span class="token function">git</span> remote <span class="token function">add</span> origin https://gitee.com/r-ovo-stack/photo-stack<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="同步本地与远程仓库–sync"><a href="#同步本地与远程仓库–sync" class="headerlink" title="同步本地与远程仓库–sync"></a>同步本地与远程仓库–sync</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br><span class="line">强制推送--当github对应仓库为空时可进行</span><br><span class="line">git push -u -f origin master  //将master分支安排上</span><br></pre></td></tr></table></figure>
+<h3 id="同步本地与远程仓库–sync"><a href="#同步本地与远程仓库–sync" class="headerlink" title="同步本地与远程仓库–sync"></a>同步本地与远程仓库–sync</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master
+强制推送--当github对应仓库为空时可进行
+<span class="token function">git</span> push -u -f origin master  //将master分支安排上<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="查看本地git信息"><a href="#查看本地git信息" class="headerlink" title="查看本地git信息"></a>查看本地git信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --config</span><br></pre></td></tr></table></figure>
+<h3 id="查看本地git信息"><a href="#查看本地git信息" class="headerlink" title="查看本地git信息"></a>查看本地git信息</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> --config<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h1 id="利用Github创建免费图床"><a href="#利用Github创建免费图床" class="headerlink" title="利用Github创建免费图床"></a>利用Github创建免费图床</h1><h2 id="远程建库"><a href="#远程建库" class="headerlink" title="远程建库"></a>远程建库</h2><p><em><strong>直接New一个仓库即可,其他啥文件以后再说</strong></em></p>
 <h2 id="本地创建图床文件夹-最好同名"><a href="#本地创建图床文件夹-最好同名" class="headerlink" title="本地创建图床文件夹(最好同名)"></a>本地创建图床文件夹(最好同名)</h2><p>此处我的图床文件夹为: PhotoStack-2</p>
-<h2 id="利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去"><a href="#利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去" class="headerlink" title="利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去"></a>利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h2 id="利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去"><a href="#利用上面的基本命令就可以将该目录下所有文件-picture-code-file-push上去" class="headerlink" title="利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去"></a>利用上面的基本命令就可以将该目录下所有文件(picture/code file)push上去</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h3 id="暂存更改"><a href="#暂存更改" class="headerlink" title="暂存更改"></a>暂存更改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add.</span><br></pre></td></tr></table></figure>
+<h3 id="暂存更改"><a href="#暂存更改" class="headerlink" title="暂存更改"></a>暂存更改</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> add.<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h3 id="本地提交"><a href="#本地提交" class="headerlink" title="本地提交"></a>本地提交</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&#x27;commit-forst&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="本地提交"><a href="#本地提交" class="headerlink" title="本地提交"></a>本地提交</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> commit -m <span class="token string">'commit-forst'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin https:/github.com/UserName/ReposityName</span><br></pre></td></tr></table></figure>
+<h3 id="远程连接"><a href="#远程连接" class="headerlink" title="远程连接"></a>远程连接</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin https:/github.com/UserName/ReposityName<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
-<h3 id="SYNC-push"><a href="#SYNC-push" class="headerlink" title="SYNC-push"></a>SYNC-push</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<h3 id="SYNC-push"><a href="#SYNC-push" class="headerlink" title="SYNC-push"></a>SYNC-push</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
@@ -1254,7 +1264,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.7k</span>&nbsp;字
+                class="white-color">16.4k</span>&nbsp;字
             
             
             

@@ -484,7 +484,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    434
+                    428
                 </div>
                 
 
@@ -505,6 +505,9 @@
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
         
 
         
@@ -535,15 +538,26 @@
 <blockquote>
 <p>只适合存储较为简单的数据,不适合持久存储海量数据</p>
 </blockquote>
-<h2 id="MongoDB基本语句"><a href="#MongoDB基本语句" class="headerlink" title="MongoDB基本语句"></a>MongoDB基本语句</h2><h3 id="创建-使用数据库—use"><a href="#创建-使用数据库—use" class="headerlink" title="创建 | 使用数据库—use"></a>创建 | 使用数据库—use</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use DbName  <span class="operator">/</span><span class="operator">/</span>创建eb对象</span><br></pre></td></tr></table></figure>
+<h2 id="MongoDB基本语句"><a href="#MongoDB基本语句" class="headerlink" title="MongoDB基本语句"></a>MongoDB基本语句</h2><h3 id="创建-使用数据库—use"><a href="#创建-使用数据库—use" class="headerlink" title="创建 | 使用数据库—use"></a>创建 | 使用数据库—use</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">use</span> DbName  <span class="token comment">//创建eb对象</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="创建集合-表—createCollection"><a href="#创建集合-表—createCollection" class="headerlink" title="创建集合 | 表—createCollection()"></a>创建集合 | 表—createCollection()</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;TableName&quot;)   </span><br></pre></td></tr></table></figure>
+<h3 id="创建集合-表—createCollection"><a href="#创建集合-表—createCollection" class="headerlink" title="创建集合 | 表—createCollection()"></a>创建集合 | 表—createCollection()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>createCollection<span class="token punctuation">(</span><span class="token string">"TableName"</span><span class="token punctuation">)</span>   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="集合中添加数据—save"><a href="#集合中添加数据—save" class="headerlink" title="集合中添加数据—save()"></a>集合中添加数据—save()</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.TableName.save(&#123;name1:&#x27;&#x27;,name2:&#x27;&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="集合中添加数据—save"><a href="#集合中添加数据—save" class="headerlink" title="集合中添加数据—save()"></a>集合中添加数据—save()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span><span class="token keyword">save</span><span class="token punctuation">(</span>&#123;name1:<span class="token string">''</span><span class="token punctuation">,</span>name2:<span class="token string">''</span>&#125;<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h3 id="集合的查询–find"><a href="#集合的查询–find" class="headerlink" title="集合的查询–find()"></a>集合的查询–find()</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">db.TableName.find()  <span class="operator">/</span><span class="operator">/</span>查询表所有数据</span><br><span class="line">db.TableName.find(&#123;&#125;,&#123;_id:false&#125;)  //不显示id字段</span><br><span class="line">db.TableName.find(&#123;price:400&#125;,&#123;_id:false&#125;) // 查询price字段为400的结果集</span><br><span class="line">db.TableName.findOne()  <span class="operator">/</span><span class="operator">/</span> 仅显示查询结果的第一条记录</span><br></pre></td></tr></table></figure>
+<h3 id="集合的查询–find"><a href="#集合的查询–find" class="headerlink" title="集合的查询–find()"></a>集合的查询–find()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">//查询表所有数据</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span>&#123;&#125;<span class="token punctuation">,</span>&#123;_id:<span class="token boolean">false</span>&#125;<span class="token punctuation">)</span>  <span class="token comment">//不显示id字段</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>find<span class="token punctuation">(</span>&#123;price:<span class="token number">400</span>&#125;<span class="token punctuation">,</span>&#123;_id:<span class="token boolean">false</span>&#125;<span class="token punctuation">)</span> <span class="token comment">// 查询price字段为400的结果集</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>findOne<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment">// 仅显示查询结果的第一条记录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="集合数据的修改-删除-—remove"><a href="#集合数据的修改-删除-—remove" class="headerlink" title="集合数据的修改 | 删除  —remove()"></a>集合数据的修改 | 删除  —remove()</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="operator">/</span><span class="operator">/</span>将name属性值为knife的数据行的price属性修改为<span class="number">700</span></span><br><span class="line">var temp=db.TableName.findONe(&#123;name:&#x27;knife&#x27;&#125;)  //先把查询结果引用给temp</span><br><span class="line">temp.price<span class="operator">=</span><span class="number">700</span> <span class="operator">/</span><span class="operator">/</span>修改</span><br><span class="line">db.TableName.save(temp) <span class="operator">/</span><span class="operator">/</span>存回去</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>删除</span><br><span class="line">#删除name<span class="operator">=</span>pro的数据</span><br><span class="line">db.TableName.remove(&#123;name:&#x27;pro&#x27;&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="集合数据的修改-删除-—remove"><a href="#集合数据的修改-删除-—remove" class="headerlink" title="集合数据的修改 | 删除  —remove()"></a>集合数据的修改 | 删除  —remove()</h3><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token comment">//将name属性值为knife的数据行的price属性修改为700</span>
+var <span class="token keyword">temp</span><span class="token operator">=</span>db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>findONe<span class="token punctuation">(</span>&#123;name:<span class="token string">'knife'</span>&#125;<span class="token punctuation">)</span>  <span class="token comment">//先把查询结果引用给temp</span>
+<span class="token keyword">temp</span><span class="token punctuation">.</span>price<span class="token operator">=</span><span class="token number">700</span> <span class="token comment">//修改</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span><span class="token keyword">save</span><span class="token punctuation">(</span><span class="token keyword">temp</span><span class="token punctuation">)</span> <span class="token comment">//存回去</span>
+
+
+<span class="token comment">//删除</span>
+<span class="token comment">#删除name=pro的数据</span>
+db<span class="token punctuation">.</span>TableName<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>&#123;name:<span class="token string">'pro'</span>&#125;<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -1206,7 +1220,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.7k</span>&nbsp;字
+                class="white-color">16.4k</span>&nbsp;字
             
             
             
