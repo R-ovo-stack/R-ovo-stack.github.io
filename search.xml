@@ -32,18 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>DOM编程       -----BASE</title>
     <url>/DOM/</url>
     <content><![CDATA[<h1 id="文档对象模型DOM"><a href="#文档对象模型DOM" class="headerlink" title="文档对象模型DOM"></a>文档对象模型DOM</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p><strong>分层结构</strong><br><strong>与平台无关</strong><br><strong>与浏览器无关</strong><br><strong>与语言无关</strong><br><strong>在DOM中，每个对象都可以成为一个节点Node</strong></p>
@@ -146,6 +134,18 @@
       <tags>
         <tag>JS</tag>
         <tag>DOM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Servelt       -----BASE</title>
+    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
