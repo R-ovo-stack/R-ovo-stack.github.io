@@ -2,6 +2,8 @@
 <html lang="zh-CN">
 
 
+
+
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="关于, Java JS">
@@ -32,6 +34,141 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 
+    <style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+    .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+        .loading-text{
+            font-size: 1.5rem;
+        }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+</style>
+<script>
+    (function () {
+        const loaded = function(){
+            setTimeout(function(){
+                const loader = document.getElementById("loading-container");
+                loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+                // document.getElementById("body-wrap").style.display="flex";
+                setTimeout(function(){
+                    loader.style.display="none";
+                },2500);
+            },1000);//强制显示loading page 1s
+        };
+        loaded();
+    })()
+</script>
+
+
+
+
 
    <style>
     body{
@@ -44,7 +181,25 @@
 
 
 
+
+
+
 <body>
+
+
+    <div id="loading-container">
+        <p class="loading-text">嘘~  正在从服务器偷取页面 . . . </p>
+        <div class="loading-image">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -133,7 +288,18 @@
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
-      <span>友情链接</span>
+      <span>薄彬友人帐</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/navigate" class="waves-effect waves-light">
+      
+      <i class="fas fa-location-arrow" style="zoom: 0.6;"></i>
+      
+      <span>常用网站</span>
     </a>
     
   </li>
@@ -236,7 +402,18 @@
 			
 			    <i class="fa-fw fas fa-address-book"></i>
 			
-			友情链接
+			薄彬友人帐
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/navigate" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-location-arrow"></i>
+			
+			常用网站
 		</a>
           
         </li>
@@ -328,15 +505,32 @@
     <div class="row">
     <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
         <div class="brand">
-<!--            <div class="title center-align">-->
-<!--                -->
-<!--                    subtitle-->
-<!--                -->
-<!--            </div>-->
+            <div class="title center-align">
+                
+                    学海无涯苦作舟
+                
+            </div>
 
             <div class="description center-align">
                 
-                    迟迟钟鼓初长夜，耿耿星河欲曙天
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: [ 
+                            
+                                "从来没有真正的绝境, 只有心灵的迷途",
+                            
+                                "Never really desperate, only the lost of the soul",
+                            
+                        ],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
                 
             </div>
         </div>
@@ -444,6 +638,13 @@
 
 
 
+
+    <a href="https://space.bilibili.com/385279448" class="tooltipped" target="_blank" data-tooltip="关注我的B站呀" " data-position="top" data-delay="50">
+    <i class="fas fa-play-circle"></i>
+    </a>
+
+
+
                                 </div>
                             </div>
                         </div>
@@ -475,6 +676,13 @@
 
 
 
+
+
+
+
+    <a href="https://space.bilibili.com/385279448" class="tooltipped" target="_blank" data-tooltip="关注我的B站呀" " data-position="top" data-delay="50">
+    <i class="fas fa-play-circle"></i>
+    </a>
 
 
 
@@ -533,7 +741,7 @@
         },
         xAxis: {
             type: 'category',
-            data: ["2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03"]
+            data: ["2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04"]
         },
         yAxis: {
             type: 'value',
@@ -543,7 +751,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,12,0,4],
+                data: [0,0,0,0,0,0,0,0,0,12,0,4,0],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -585,7 +793,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"安卓开发","value":1},{"name":"前端","value":4},{"name":"后端","value":4},{"name":"程序员基本功","value":1},{"name":"前/后端","value":2},{"name":"后端框架","value":2},{"name":"基本功","value":1},{"name":"便签","value":1}],
+                data: [{"name":"前端","value":4},{"name":"后端","value":4},{"name":"安卓开发","value":1},{"name":"程序员基本功","value":1},{"name":"前/后端","value":2},{"name":"后端框架","value":2},{"name":"基本功","value":1},{"name":"便签","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -609,7 +817,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["JS","servelt","Tomcat","SQL","Node.js","Android","DOM","Git","Github","Gitee"]
+                data: ["JS","servelt","Tomcat","SQL","Node.js","DOM","Android","Git","Github","Gitee"]
             }
         ],
         yAxis: [
@@ -740,12 +948,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Android/">
-                <span class="chip center-align waves-effect waves-light chip-default">Android</span>
-            </a>
-            
-            
-            
             <a href="/tags/JS/">
                 <span class="chip center-align waves-effect waves-light chip-default">JS</span>
             </a>
@@ -766,6 +968,12 @@
             
             <a href="/tags/Tomcat/">
                 <span class="chip center-align waves-effect waves-light chip-default">Tomcat</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Android/">
+                <span class="chip center-align waves-effect waves-light chip-default">Android</span>
             </a>
             
             
@@ -796,12 +1004,6 @@
             
             
             
-            <a href="/tags/Mysql/">
-                <span class="chip center-align waves-effect waves-light chip-default">Mysql</span>
-            </a>
-            
-            
-            
             <a href="/tags/Node-js/">
                 <span class="chip center-align waves-effect waves-light chip-default">Node.js</span>
             </a>
@@ -810,6 +1012,12 @@
             
             <a href="/tags/Spring/">
                 <span class="chip center-align waves-effect waves-light chip-default">Spring</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Mysql/">
+                <span class="chip center-align waves-effect waves-light chip-default">Mysql</span>
             </a>
             
             
@@ -838,18 +1046,6 @@
             
             
             
-            <a href="/tags/Ajax/">
-                <span class="chip center-align waves-effect waves-light chip-default">Ajax</span>
-            </a>
-            
-            
-            
-            <a href="/tags/XmlHttpRequest/">
-                <span class="chip center-align waves-effect waves-light chip-default">XmlHttpRequest</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E7%AE%97%E6%B3%95/">
                 <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
@@ -864,6 +1060,18 @@
             
             <a href="/tags/%E9%87%91%E5%8F%A5/">
                 <span class="chip center-align waves-effect waves-light chip-default">金句</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Ajax/">
+                <span class="chip center-align waves-effect waves-light chip-default">Ajax</span>
+            </a>
+            
+            
+            
+            <a href="/tags/XmlHttpRequest/">
+                <span class="chip center-align waves-effect waves-light chip-default">XmlHttpRequest</span>
             </a>
             
             
@@ -885,8 +1093,8 @@
         
         
         <div class="photo col s12 m6 l4" data-aos="fade-up">
-            <div class="img-item" data-src="/medias/featureimages/0.jpg">
-                <img src="/medias/featureimages/0.jpg" class="responsive-img">
+            <div class="img-item" data-src="/medias/featureimages/3.jpg">
+                <img src="/medias/featureimages/3.jpg" class="responsive-img">
             </div>
         </div>
         
@@ -899,6 +1107,24 @@
         <div class="photo col s12 m6 l4" data-aos="fade-up">
             <div class="img-item" data-src="/medias/featureimages/2.jpg">
                 <img src="/medias/featureimages/2.jpg" class="responsive-img">
+            </div>
+        </div>
+        
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="/medias/featureimages/4.jpg">
+                <img src="/medias/featureimages/4.jpg" class="responsive-img">
+            </div>
+        </div>
+        
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="/medias/featureimages/5.jpg">
+                <img src="/medias/featureimages/5.jpg" class="responsive-img">
+            </div>
+        </div>
+        
+        <div class="photo col s12 m6 l4" data-aos="fade-up">
+            <div class="img-item" data-src="/medias/featureimages/6.jpg">
+                <img src="/medias/featureimages/6.jpg" class="responsive-img">
             </div>
         </div>
         
@@ -920,9 +1146,26 @@
                 
                 
                 
-                
+
+
             </div>
         </div>
+
+
+        <!--                个人简历-->
+        <div class="card">
+            <div class="card-content">
+                <div class="card-content article-card-content">
+                    <div class="title center-align" data-aos="zoom-in-up">
+                        <i class="fa fa-address-book"></i>&nbsp;&nbsp;个人简历
+                    </div>
+                    <div id="articleContent" data-aos="fade-up">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </main>
 
@@ -1035,6 +1278,13 @@
 
 
 
+
+
+
+
+    <a href="https://space.bilibili.com/385279448" class="tooltipped" target="_blank" data-tooltip="关注我的B站呀" " data-position="top" data-delay="50">
+    <i class="fas fa-play-circle"></i>
+    </a>
 
 
 </div>
@@ -1155,7 +1405,8 @@ $(function () {
     </a>
 </div>
 
-
+    <script type="text/javascript" src="/js/FunnyTitle.js"></script>
+    <script type="text/javascript" src="/js/sakura.js"></script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>
@@ -1188,6 +1439,11 @@ $(function () {
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
+
+
+
+
+
     
 
     
@@ -1205,6 +1461,7 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+
 
 </body>
 
