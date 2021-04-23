@@ -1,61 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Android开发笔记</title>
-    <url>/Android%E5%BC%80%E5%8F%91/</url>
-    <content><![CDATA[<p>Android项目的一般结构:</p>
-<pre class="line-numbers language-none"><code class="language-none">一般项目结构图:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<span id="more"></span>
-
-<p>Android主配置文件 AndroidManifest.xml</p>
-<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
-    <span class="token attr-name">package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.example.myapplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span>
-        <span class="token attr-name"><span class="token namespace">android:</span>allowBackup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/ic_launcher_background<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>roundIcon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@mipmap/ic_launcher_round<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>supportsRtl</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
-        <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span>
-            <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>.MainActivity<span class="token punctuation">"</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
-            <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2.NoActionBar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-            <span class="token comment">&lt;!--  绑定程序入口主事件--></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intent-filter</span><span class="token punctuation">></span></span>
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.MAIN<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-
-                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.LAUNCHER<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
-            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intent-filter</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activity</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>manifest</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>java文件树</p>
-<p>存放java代码(如果该android项目是由java语言编写)<br>android studio 在生成项目时会自动生成相应的包,在java文件目录下,又细分未java程序代码以及相应的测试,使用了junit测试工具测试功能模块是否达到预期效果</p>
-<p>res文件树</p>
-<p>res文件树下又细分为layout,drawable,menu,mipmap,values等等文件夹<br>layout:存放每个activity的界面布局文件<br>drawable:存放项目中图片的在各种不同分辨率下的显示的对应的形式图片,为了保证程序在不同设备之间可以相互兼容<br>menu: 如果你的项目使用了菜单控件,则会通过menu文件夹绑定相应的菜单控件。</p>
-<h3 id="以上：-指的是在app，即android-studio自动生成的一种项目文件形式"><a href="#以上：-指的是在app，即android-studio自动生成的一种项目文件形式" class="headerlink" title="以上： 指的是在app，即android studio自动生成的一种项目文件形式"></a>以上： 指的是在app，即android studio自动生成的一种项目文件形式</h3><h3 id="以下：-是在windows文件资源管理器下的Project结构"><a href="#以下：-是在windows文件资源管理器下的Project结构" class="headerlink" title="以下： 是在windows文件资源管理器下的Project结构"></a>以下： 是在windows文件资源管理器下的Project结构</h3><!-- //插入图片 -->
-
-<p>在该形式下：我们可以明显看出,这个android项目,其实就是一个java se小项目引入了android SDK,以及Gradle工具包,与此同时还有一些其他的External Libraries 工具包</p>
-<p>可以理解就是一个java项目集成了一套android现有的开发框架</p>
-<p>具体一些其他的细节操作，可以在后续内容中得以体现</p>
-<h2 id="一些奇奇怪怪又特别常见的名词"><a href="#一些奇奇怪怪又特别常见的名词" class="headerlink" title="一些奇奇怪怪又特别常见的名词"></a>一些奇奇怪怪又特别常见的名词</h2><p>wrap_content: 使控件恰好可以包住里面的东西，比如文字<br>match_content: 使控件的width或者height和父控件一致</p>
-]]></content>
-      <categories>
-        <category>安卓开发</category>
-      </categories>
-      <tags>
-        <tag>Android</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git基本操作 -----BASE</title>
     <url>/Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -132,18 +77,6 @@ eg: <span class="token function">git</span> remote <span class="token function">
         <tag>Git</tag>
         <tag>Github</tag>
         <tag>Gitee</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -297,6 +230,61 @@ document<span class="token punctuation">.</span><span class="token function">get
       <tags>
         <tag>JS</tag>
         <tag>DOM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Android开发笔记</title>
+    <url>/Android%E5%BC%80%E5%8F%91/</url>
+    <content><![CDATA[<p>Android项目的一般结构:</p>
+<pre class="line-numbers language-none"><code class="language-none">一般项目结构图:<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<span id="more"></span>
+
+<p>Android主配置文件 AndroidManifest.xml</p>
+<pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
+    <span class="token attr-name">package</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>com.example.myapplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span>
+        <span class="token attr-name"><span class="token namespace">android:</span>allowBackup</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>icon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@drawable/ic_launcher_background<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>roundIcon</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@mipmap/ic_launcher_round<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>supportsRtl</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>activity</span>
+            <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>.MainActivity<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@string/app_name<span class="token punctuation">"</span></span>
+            <span class="token attr-name"><span class="token namespace">android:</span>theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>@style/Theme.MyApplication2.NoActionBar<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token comment">&lt;!--  绑定程序入口主事件--></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>intent-filter</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.action.MAIN<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>category</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>android.intent.category.LAUNCHER<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>intent-filter</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>activity</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>application</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>manifest</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>java文件树</p>
+<p>存放java代码(如果该android项目是由java语言编写)<br>android studio 在生成项目时会自动生成相应的包,在java文件目录下,又细分未java程序代码以及相应的测试,使用了junit测试工具测试功能模块是否达到预期效果</p>
+<p>res文件树</p>
+<p>res文件树下又细分为layout,drawable,menu,mipmap,values等等文件夹<br>layout:存放每个activity的界面布局文件<br>drawable:存放项目中图片的在各种不同分辨率下的显示的对应的形式图片,为了保证程序在不同设备之间可以相互兼容<br>menu: 如果你的项目使用了菜单控件,则会通过menu文件夹绑定相应的菜单控件。</p>
+<h3 id="以上：-指的是在app，即android-studio自动生成的一种项目文件形式"><a href="#以上：-指的是在app，即android-studio自动生成的一种项目文件形式" class="headerlink" title="以上： 指的是在app，即android studio自动生成的一种项目文件形式"></a>以上： 指的是在app，即android studio自动生成的一种项目文件形式</h3><h3 id="以下：-是在windows文件资源管理器下的Project结构"><a href="#以下：-是在windows文件资源管理器下的Project结构" class="headerlink" title="以下： 是在windows文件资源管理器下的Project结构"></a>以下： 是在windows文件资源管理器下的Project结构</h3><!-- //插入图片 -->
+
+<p>在该形式下：我们可以明显看出,这个android项目,其实就是一个java se小项目引入了android SDK,以及Gradle工具包,与此同时还有一些其他的External Libraries 工具包</p>
+<p>可以理解就是一个java项目集成了一套android现有的开发框架</p>
+<p>具体一些其他的细节操作，可以在后续内容中得以体现</p>
+<h2 id="一些奇奇怪怪又特别常见的名词"><a href="#一些奇奇怪怪又特别常见的名词" class="headerlink" title="一些奇奇怪怪又特别常见的名词"></a>一些奇奇怪怪又特别常见的名词</h2><p>wrap_content: 使控件恰好可以包住里面的东西，比如文字<br>match_content: 使控件的width或者height和父控件一致</p>
+]]></content>
+      <categories>
+        <category>安卓开发</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
       </tags>
   </entry>
   <entry>
@@ -1027,6 +1015,18 @@ demoP <span class="token operator">=</span> document<span class="token punctuati
       </tags>
   </entry>
   <entry>
+    <title>Servelt       -----BASE</title>
+    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mysql常识记录       -----BASE</title>
     <url>/Mysql/</url>
     <content><![CDATA[<h2 id="Mysql–简介"><a href="#Mysql–简介" class="headerlink" title="Mysql–简介"></a>Mysql–简介</h2><blockquote>
@@ -1602,63 +1602,6 @@ console<span class="token punctuation">.</span><span class="token function">log<
       </tags>
   </entry>
   <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/Servelt/</url>
-    <content><![CDATA[<h2 id="什么是Servelt"><a href="#什么是Servelt" class="headerlink" title="什么是Servelt?"></a>什么是Servelt?</h2><blockquote>
-<p>Servelt是一个服务端的组件,用来处理response和request的java程序。</p>
-</blockquote>
-<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
-<p>协议：多方相互约定需要遵守的规则<br>http协议: 客户端和服务器之间通信时发送的数据需要遵守的协议<br>http协议中的数据也叫报文<br>客户端叫请求，服务器叫响应</p>
-</blockquote>
-<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
-<p>请求方式<br>请求资源路径<br>协议版本号</p>
-</blockquote>
-<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
-<p>Accept:告诉服务器客户端能够接受的类型<br>User-Agent:浏览器的信息<br>Accept-Encoding:接收的编码<br>Host:表示请求的服务器ip和Port<br>Accept-Language:接受语言类型<br>Connection:告诉服务器链接如何如何处理<br>closet:马上关闭</p>
-</blockquote>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><h4 id="请求行-1"><a href="#请求行-1" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
-<p>请求方式:post<br>请求资源路径  /工程路径/文件<br>请求协议版本号</p>
-</blockquote>
-<h4 id="请求头-1"><a href="#请求头-1" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
-<p>空行</p>
-</blockquote>
-<h4 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h4><blockquote>
-<p>发送给服务器的数据:action=xxxxx,username=xxxxxx,pwd=xxxxx<br>即表单信息<br>Referer:表示浏览器的地址(请求的发起者)<br>Content-Type:发送数据的类型(1.application/x-www-form-urlencoded:格式为…之后对其进行url编码)(2.multipart/form-data:白哦是多段形式提交数据)<br>Content-Length:发送的数据长度<br>Cache-Control:表示如何控制缓存</p>
-</blockquote>
-<h2 id="有哪些GET请求"><a href="#有哪些GET请求" class="headerlink" title="有哪些GET请求"></a>有哪些GET请求</h2><blockquote>
-<p>form标签method=GET<br><a>标签<br>link标签引入CSS<br>scriopt引入js<br>img引入图片<br>iframe引入html<br>浏览器中输入地址回车</p>
-</blockquote>
-<h2 id="响应的HTTP协议格式"><a href="#响应的HTTP协议格式" class="headerlink" title="响应的HTTP协议格式"></a>响应的HTTP协议格式</h2><h4 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h4><blockquote>
-<p>1.协议版本号<br>2.响应状态码<br>3.响应状态描述符</p>
-</blockquote>
-<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><blockquote>
-<p>key:value   不同的响应头有区别的<br>Date:请求响应的时间(格林时间)<br>空行</p>
-</blockquote>
-<h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><blockquote>
-<p>Cache缓存<br>服务器回传给客户端的数据:比如页面的html文件</p>
-</blockquote>
-<h2 id="MIME类型说明"><a href="#MIME类型说明" class="headerlink" title="MIME类型说明"></a>MIME类型说明</h2><blockquote>
-<p>没啥用</p>
-</blockquote>
-<h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h3><blockquote>
-<p>Tomcat服务器会把请求过来的http协议信息解析好封装到Req对象中,传递到Service方法(doGet和doPost中)给我们使用，通过HttpServletRequest对象获取所有请求信息</p>
-</blockquote>
-<h2 id="请求转发-转发请求–几个Severlt之间转发请求"><a href="#请求转发-转发请求–几个Severlt之间转发请求" class="headerlink" title="请求转发(转发请求–几个Severlt之间转发请求)"></a>请求转发(转发请求–几个Severlt之间转发请求)</h2><blockquote>
-<p>服务器收到请求之后，从一次资源跳转到另一个资源的操作叫请求转发</p>
-</blockquote>
-<h2 id="web中的-不同意义"><a href="#web中的-不同意义" class="headerlink" title="web中的/不同意义"></a>web中的/不同意义</h2><h2 id="Servlet往客户端回传字符串"><a href="#Servlet往客户端回传字符串" class="headerlink" title="Servlet往客户端回传字符串"></a>Servlet往客户端回传字符串</h2><h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><blockquote>
-<p>指的是客户端给服务器发送请求时，然后服务器告诉客户端访问新的地址(之前的地址被废弃的情况需要)</p>
-</blockquote>
-<h2 id="jsp其实就是servelt"><a href="#jsp其实就是servelt" class="headerlink" title="jsp其实就是servelt"></a>jsp其实就是servelt</h2>]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Spring MVC</title>
     <url>/SpringMVC/</url>
     <content><![CDATA[<h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325083919380.png" alt="image-20210325083919380">Web层围绕</p>
@@ -1924,6 +1867,63 @@ $&#123;msg&#125;
       </categories>
       <tags>
         <tag>Spring MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Servelt       -----BASE</title>
+    <url>/Servelt/</url>
+    <content><![CDATA[<h2 id="什么是Servelt"><a href="#什么是Servelt" class="headerlink" title="什么是Servelt?"></a>什么是Servelt?</h2><blockquote>
+<p>Servelt是一个服务端的组件,用来处理response和request的java程序。</p>
+</blockquote>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
+<p>协议：多方相互约定需要遵守的规则<br>http协议: 客户端和服务器之间通信时发送的数据需要遵守的协议<br>http协议中的数据也叫报文<br>客户端叫请求，服务器叫响应</p>
+</blockquote>
+<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
+<p>请求方式<br>请求资源路径<br>协议版本号</p>
+</blockquote>
+<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
+<p>Accept:告诉服务器客户端能够接受的类型<br>User-Agent:浏览器的信息<br>Accept-Encoding:接收的编码<br>Host:表示请求的服务器ip和Port<br>Accept-Language:接受语言类型<br>Connection:告诉服务器链接如何如何处理<br>closet:马上关闭</p>
+</blockquote>
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><h4 id="请求行-1"><a href="#请求行-1" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
+<p>请求方式:post<br>请求资源路径  /工程路径/文件<br>请求协议版本号</p>
+</blockquote>
+<h4 id="请求头-1"><a href="#请求头-1" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
+<p>空行</p>
+</blockquote>
+<h4 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h4><blockquote>
+<p>发送给服务器的数据:action=xxxxx,username=xxxxxx,pwd=xxxxx<br>即表单信息<br>Referer:表示浏览器的地址(请求的发起者)<br>Content-Type:发送数据的类型(1.application/x-www-form-urlencoded:格式为…之后对其进行url编码)(2.multipart/form-data:白哦是多段形式提交数据)<br>Content-Length:发送的数据长度<br>Cache-Control:表示如何控制缓存</p>
+</blockquote>
+<h2 id="有哪些GET请求"><a href="#有哪些GET请求" class="headerlink" title="有哪些GET请求"></a>有哪些GET请求</h2><blockquote>
+<p>form标签method=GET<br><a>标签<br>link标签引入CSS<br>scriopt引入js<br>img引入图片<br>iframe引入html<br>浏览器中输入地址回车</p>
+</blockquote>
+<h2 id="响应的HTTP协议格式"><a href="#响应的HTTP协议格式" class="headerlink" title="响应的HTTP协议格式"></a>响应的HTTP协议格式</h2><h4 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h4><blockquote>
+<p>1.协议版本号<br>2.响应状态码<br>3.响应状态描述符</p>
+</blockquote>
+<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><blockquote>
+<p>key:value   不同的响应头有区别的<br>Date:请求响应的时间(格林时间)<br>空行</p>
+</blockquote>
+<h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><blockquote>
+<p>Cache缓存<br>服务器回传给客户端的数据:比如页面的html文件</p>
+</blockquote>
+<h2 id="MIME类型说明"><a href="#MIME类型说明" class="headerlink" title="MIME类型说明"></a>MIME类型说明</h2><blockquote>
+<p>没啥用</p>
+</blockquote>
+<h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h3><blockquote>
+<p>Tomcat服务器会把请求过来的http协议信息解析好封装到Req对象中,传递到Service方法(doGet和doPost中)给我们使用，通过HttpServletRequest对象获取所有请求信息</p>
+</blockquote>
+<h2 id="请求转发-转发请求–几个Severlt之间转发请求"><a href="#请求转发-转发请求–几个Severlt之间转发请求" class="headerlink" title="请求转发(转发请求–几个Severlt之间转发请求)"></a>请求转发(转发请求–几个Severlt之间转发请求)</h2><blockquote>
+<p>服务器收到请求之后，从一次资源跳转到另一个资源的操作叫请求转发</p>
+</blockquote>
+<h2 id="web中的-不同意义"><a href="#web中的-不同意义" class="headerlink" title="web中的/不同意义"></a>web中的/不同意义</h2><h2 id="Servlet往客户端回传字符串"><a href="#Servlet往客户端回传字符串" class="headerlink" title="Servlet往客户端回传字符串"></a>Servlet往客户端回传字符串</h2><h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><blockquote>
+<p>指的是客户端给服务器发送请求时，然后服务器告诉客户端访问新的地址(之前的地址被废弃的情况需要)</p>
+</blockquote>
+<h2 id="jsp其实就是servelt"><a href="#jsp其实就是servelt" class="headerlink" title="jsp其实就是servelt"></a>jsp其实就是servelt</h2>]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -2405,17 +2405,190 @@ explain<span class="token operator">:</span>给定一个目标状态<span class=
       </tags>
   </entry>
   <entry>
-    <title>锦句</title>
-    <url>/%E9%94%A6/</url>
-    <content><![CDATA[<blockquote>
-<p>一块钱的打火机也能点着1万块的香烟，几万块钱一桌的菜，他还是离不开几块钱一包的盐</p>
-</blockquote>
-]]></content>
+    <title>XmlHttpRequest -----BASE</title>
+    <url>/xmlhttprequest/</url>
+    <content><![CDATA[<p><em><strong><u>以下简称XmlHttpRequest为XHR</u></strong></em></p>
+<h2 id="XHR-如何获取数据"><a href="#XHR-如何获取数据" class="headerlink" title="XHR 如何获取数据"></a>XHR 如何获取数据</h2><h3 id="获取服务器的字符串响应的属性"><a href="#获取服务器的字符串响应的属性" class="headerlink" title="获取服务器的字符串响应的属性"></a>获取服务器的字符串响应的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> text<span class="token operator">=</span>XHRObject<span class="token punctuation">.</span>responseText<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="获取XML响应的属性"><a href="#获取XML响应的属性" class="headerlink" title="获取XML响应的属性"></a>获取XML响应的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> XMLdoc<span class="token operator">=</span>XHRObject<span class="token punctuation">.</span>responseXML<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="返回HTTP、状态码的属性"><a href="#返回HTTP、状态码的属性" class="headerlink" title="返回HTTP、状态码的属性"></a>返回HTTP、状态码的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> status<span class="token operator">=</span>XMLObject<span class="token punctuation">.</span>status<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="返回请求状态的属性"><a href="#返回请求状态的属性" class="headerlink" title="返回请求状态的属性"></a>返回请求状态的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> state <span class="token operator">=</span> XMLObject<span class="token punctuation">.</span>readyState<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="指定状态改变时触发的时间处理器的属性"><a href="#指定状态改变时触发的时间处理器的属性" class="headerlink" title="指定状态改变时触发的时间处理器的属性"></a>指定状态改变时触发的时间处理器的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//PS: 这个有点重要</span>
+<span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+XHRObject<span class="token punctuation">.</span>onreadystatechange<span class="token operator">=</span>fun<span class="token punctuation">;</span>  <span class="token comment">//当状态改变时执行的函数fun</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="请求状态的属性"><a href="#请求状态的属性" class="headerlink" title="请求状态的属性"></a>请求状态的属性</h3><table>
+<thead>
+<tr>
+<th>值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td align="center">未初始化</td>
+</tr>
+<tr>
+<td>1</td>
+<td align="center">正在家子啊</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center">已经加载</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center">交互中</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center">完成</td>
+</tr>
+</tbody></table>
+<h3 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h3><table>
+<thead>
+<tr>
+<th>值</th>
+<th align="center">意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>100</td>
+<td align="center">继续发送请求</td>
+</tr>
+<tr>
+<td>200</td>
+<td align="center">请求已经成功</td>
+</tr>
+<tr>
+<td>202</td>
+<td align="center">请求被接受，但是还没有成功</td>
+</tr>
+<tr>
+<td>400</td>
+<td align="center">错误的请求</td>
+</tr>
+<tr>
+<td>404</td>
+<td align="center">文件未找到</td>
+</tr>
+<tr>
+<td>408</td>
+<td align="center">请求超时</td>
+</tr>
+<tr>
+<td>500</td>
+<td align="center">内部服务器错误</td>
+</tr>
+<tr>
+<td>501</td>
+<td align="center">服务器不支持当前请求所需要的某个功能</td>
+</tr>
+</tbody></table>
+<h2 id="XHR-的一些基本操作–open-send-…"><a href="#XHR-的一些基本操作–open-send-…" class="headerlink" title="XHR 的一些基本操作–open(),send()…"></a>XHR 的一些基本操作–open(),send()…</h2><h3 id="open-—-创建新请求"><a href="#open-—-创建新请求" class="headerlink" title="open()  — 创建新请求"></a>open()  — 创建新请求</h3><p><em><strong><u>open()用于设置进行异步请求目标的URL，(URL可以是各种类型文件),请求方法以及其他参数信息</u></strong></em></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"method"</span><span class="token punctuation">,</span><span class="token string">"URL"</span><span class="token punctuation">[</span><span class="token punctuation">,</span>asyncFlag<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token string">"UserName"</span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token string">"PassWord"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="open-方法的一些常用参数"><a href="#open-方法的一些常用参数" class="headerlink" title="open()方法的一些常用参数"></a>open()方法的一些常用参数</h3><table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">method</td>
+<td align="center">用于指定请求类型,GET　or  POST</td>
+</tr>
+<tr>
+<td align="center">URL</td>
+<td align="center">用于指定请求地址,可以是绝对也可以是相对地址，可以传递查询字符串</td>
+</tr>
+<tr>
+<td align="center">asyncFlag</td>
+<td align="center">可选参数，用于指定请求方式，异步为true,同步为false,默认为true</td>
+</tr>
+<tr>
+<td align="center">userName</td>
+<td align="center">可选，用于指定用户名，可以忽略</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">可选，用于指定前请求密码，没有可以忽略</td>
+</tr>
+</tbody></table>
+<h5 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h5><pre class="line-numbers language-js" data-language="js"><code class="language-js">
+XMRObject<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span><span class="token string">"index.html"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="send-—-向服务器发送请求"><a href="#send-—-向服务器发送请求" class="headerlink" title="send()  — 向服务器发送请求"></a>send()  — 向服务器发送请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">send</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><em><strong><u>content用于指定发送的数据,类型多样,包括”DOM”,输入流，字符串,可以为null</u></strong></em></p>
+<h3 id="设置请求的http头的方法"><a href="#设置请求的http头的方法" class="headerlink" title="设置请求的http头的方法"></a>设置请求的http头的方法</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">setRequestHeader</span><span class="token punctuation">(</span><span class="token string">"header"</span><span class="token punctuation">,</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="停止或这放弃当前异步请求的方法"><a href="#停止或这放弃当前异步请求的方法" class="headerlink" title="停止或这放弃当前异步请求的方法"></a>停止或这放弃当前异步请求的方法</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">XHRObject<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="返回HTTP头信息"><a href="#返回HTTP头信息" class="headerlink" title="返回HTTP头信息"></a>返回HTTP头信息</h3><h4 id="指定属性"><a href="#指定属性" class="headerlink" title="指定属性"></a>指定属性</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js">XHRObject<span class="token punctuation">.</span><span class="token function">getResponseHeader</span><span class="token punctuation">(</span><span class="token string">"headerLabel"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="所有信息"><a href="#所有信息" class="headerlink" title="所有信息"></a>所有信息</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js">XHRObject<span class="token punctuation">.</span><span class="token function">getAllResponseHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="如何创建一个XHR对象–-XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的"><a href="#如何创建一个XHR对象–-XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的" class="headerlink" title="如何创建一个XHR对象–(XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的)"></a>如何创建一个XHR对象–(XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的)</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> xmlHttp<span class="token punctuation">;</span>				           		<span class="token comment">//定义XMLHttpRequest对象</span>
+<span class="token keyword">function</span> <span class="token function">createXmlHttpRequestObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>ActiveXObject<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            xmlHttp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ActiveXObject</span><span class="token punctuation">(</span><span class="token string">"Microsoft.XMLHTTP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            xmlHttp <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>			               		<span class="token comment">//如果在Mozilla或其他的浏览器下运行</span>
+        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
+            xmlHttp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            xmlHttp <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>xmlHttp<span class="token punctuation">)</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"返回创建的对象或显示错误信息"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span>
+        <span class="token keyword">return</span> xmlHttp<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="XMR对象获取XML文件内容"><a href="#XMR对象获取XML文件内容" class="headerlink" title="XMR对象获取XML文件内容"></a>XMR对象获取XML文件内容</h2><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="gb2312"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>nameTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">></span></span>numberTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>number</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tel</span><span class="token punctuation">></span></span>telTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tel</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>item</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">xmlHttp<span class="token punctuation">.</span>onreadystatechange <span class="token operator">=</span> StatHandler<span class="token punctuation">;</span>		<span class="token comment">//指定回调函数</span>
+xmlHttp<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"index.xml"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	     	<span class="token comment">//调用index.xml文件</span>
+xmlHttp<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>xmlHttp<span class="token punctuation">.</span>readyState <span class="token operator">==</span> <span class="token number">4</span> <span class="token operator">&amp;&amp;</span> xmlHttp<span class="token punctuation">.</span>status <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> xmlRoot <span class="token operator">=</span> xmlHttp<span class="token punctuation">.</span>responseXML<span class="token punctuation">.</span>documentElement<span class="token punctuation">;</span>  <span class="token comment">//获取XML的DOM对象</span>
+    <span class="token keyword">var</span> xmlItem <span class="token operator">=</span> xmlRoot<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"item"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> xmlName <span class="token operator">=</span> xmlItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> xmlNumber <span class="token operator">=</span> xmlItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"number"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> xmlTel <span class="token operator">=</span> xmlItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"tel"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> txt <span class="token operator">=</span> <span class="token string">"INFO:"</span><span class="token punctuation">;</span>
+    txt <span class="token operator">+=</span> xmlName<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>nodeValue<span class="token punctuation">;</span>
+    txt <span class="token operator">+=</span> xmlNumber<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>nodeValue<span class="token punctuation">;</span>
+    txt <span class="token operator">+=</span> xmlTel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>nodeValue<span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"webpage"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> txt<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       <categories>
-        <category>便签</category>
+        <category>前端</category>
       </categories>
       <tags>
-        <tag>金句</tag>
+        <tag>JS</tag>
+        <tag>Ajax</tag>
+        <tag>XmlHttpRequest</tag>
       </tags>
   </entry>
   <entry>
@@ -2645,193 +2818,6 @@ io<span class="token punctuation">.</span>sockets<span class="token punctuation"
         <tag>Node.js</tag>
         <tag>Socket.io</tag>
         <tag>socket</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>XmlHttpRequest -----BASE</title>
-    <url>/xmlhttprequest/</url>
-    <content><![CDATA[<p><em><strong><u>以下简称XmlHttpRequest为XHR</u></strong></em></p>
-<h2 id="XHR-如何获取数据"><a href="#XHR-如何获取数据" class="headerlink" title="XHR 如何获取数据"></a>XHR 如何获取数据</h2><h3 id="获取服务器的字符串响应的属性"><a href="#获取服务器的字符串响应的属性" class="headerlink" title="获取服务器的字符串响应的属性"></a>获取服务器的字符串响应的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> text<span class="token operator">=</span>XHRObject<span class="token punctuation">.</span>responseText<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="获取XML响应的属性"><a href="#获取XML响应的属性" class="headerlink" title="获取XML响应的属性"></a>获取XML响应的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> XMLdoc<span class="token operator">=</span>XHRObject<span class="token punctuation">.</span>responseXML<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="返回HTTP、状态码的属性"><a href="#返回HTTP、状态码的属性" class="headerlink" title="返回HTTP、状态码的属性"></a>返回HTTP、状态码的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> status<span class="token operator">=</span>XMLObject<span class="token punctuation">.</span>status<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="返回请求状态的属性"><a href="#返回请求状态的属性" class="headerlink" title="返回请求状态的属性"></a>返回请求状态的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> state <span class="token operator">=</span> XMLObject<span class="token punctuation">.</span>readyState<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h3 id="指定状态改变时触发的时间处理器的属性"><a href="#指定状态改变时触发的时间处理器的属性" class="headerlink" title="指定状态改变时触发的时间处理器的属性"></a>指定状态改变时触发的时间处理器的属性</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//PS: 这个有点重要</span>
-<span class="token keyword">function</span> <span class="token function">fun</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
-XHRObject<span class="token punctuation">.</span>onreadystatechange<span class="token operator">=</span>fun<span class="token punctuation">;</span>  <span class="token comment">//当状态改变时执行的函数fun</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="请求状态的属性"><a href="#请求状态的属性" class="headerlink" title="请求状态的属性"></a>请求状态的属性</h3><table>
-<thead>
-<tr>
-<th>值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>0</td>
-<td align="center">未初始化</td>
-</tr>
-<tr>
-<td>1</td>
-<td align="center">正在家子啊</td>
-</tr>
-<tr>
-<td>2</td>
-<td align="center">已经加载</td>
-</tr>
-<tr>
-<td>3</td>
-<td align="center">交互中</td>
-</tr>
-<tr>
-<td>4</td>
-<td align="center">完成</td>
-</tr>
-</tbody></table>
-<h3 id="HTTP-状态码"><a href="#HTTP-状态码" class="headerlink" title="HTTP 状态码"></a>HTTP 状态码</h3><table>
-<thead>
-<tr>
-<th>值</th>
-<th align="center">意义</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>100</td>
-<td align="center">继续发送请求</td>
-</tr>
-<tr>
-<td>200</td>
-<td align="center">请求已经成功</td>
-</tr>
-<tr>
-<td>202</td>
-<td align="center">请求被接受，但是还没有成功</td>
-</tr>
-<tr>
-<td>400</td>
-<td align="center">错误的请求</td>
-</tr>
-<tr>
-<td>404</td>
-<td align="center">文件未找到</td>
-</tr>
-<tr>
-<td>408</td>
-<td align="center">请求超时</td>
-</tr>
-<tr>
-<td>500</td>
-<td align="center">内部服务器错误</td>
-</tr>
-<tr>
-<td>501</td>
-<td align="center">服务器不支持当前请求所需要的某个功能</td>
-</tr>
-</tbody></table>
-<h2 id="XHR-的一些基本操作–open-send-…"><a href="#XHR-的一些基本操作–open-send-…" class="headerlink" title="XHR 的一些基本操作–open(),send()…"></a>XHR 的一些基本操作–open(),send()…</h2><h3 id="open-—-创建新请求"><a href="#open-—-创建新请求" class="headerlink" title="open()  — 创建新请求"></a>open()  — 创建新请求</h3><p><em><strong><u>open()用于设置进行异步请求目标的URL，(URL可以是各种类型文件),请求方法以及其他参数信息</u></strong></em></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"method"</span><span class="token punctuation">,</span><span class="token string">"URL"</span><span class="token punctuation">[</span><span class="token punctuation">,</span>asyncFlag<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token string">"UserName"</span><span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token string">"PassWord"</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="open-方法的一些常用参数"><a href="#open-方法的一些常用参数" class="headerlink" title="open()方法的一些常用参数"></a>open()方法的一些常用参数</h3><table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">method</td>
-<td align="center">用于指定请求类型,GET　or  POST</td>
-</tr>
-<tr>
-<td align="center">URL</td>
-<td align="center">用于指定请求地址,可以是绝对也可以是相对地址，可以传递查询字符串</td>
-</tr>
-<tr>
-<td align="center">asyncFlag</td>
-<td align="center">可选参数，用于指定请求方式，异步为true,同步为false,默认为true</td>
-</tr>
-<tr>
-<td align="center">userName</td>
-<td align="center">可选，用于指定用户名，可以忽略</td>
-</tr>
-<tr>
-<td align="center">password</td>
-<td align="center">可选，用于指定前请求密码，没有可以忽略</td>
-</tr>
-</tbody></table>
-<h5 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h5><pre class="line-numbers language-js" data-language="js"><code class="language-js">
-XMRObject<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span><span class="token string">"index.html"</span><span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="send-—-向服务器发送请求"><a href="#send-—-向服务器发送请求" class="headerlink" title="send()  — 向服务器发送请求"></a>send()  — 向服务器发送请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">send</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p><em><strong><u>content用于指定发送的数据,类型多样,包括”DOM”,输入流，字符串,可以为null</u></strong></em></p>
-<h3 id="设置请求的http头的方法"><a href="#设置请求的http头的方法" class="headerlink" title="设置请求的http头的方法"></a>设置请求的http头的方法</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">setRequestHeader</span><span class="token punctuation">(</span><span class="token string">"header"</span><span class="token punctuation">,</span><span class="token string">"value"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="停止或这放弃当前异步请求的方法"><a href="#停止或这放弃当前异步请求的方法" class="headerlink" title="停止或这放弃当前异步请求的方法"></a>停止或这放弃当前异步请求的方法</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">XHRObject<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="返回HTTP头信息"><a href="#返回HTTP头信息" class="headerlink" title="返回HTTP头信息"></a>返回HTTP头信息</h3><h4 id="指定属性"><a href="#指定属性" class="headerlink" title="指定属性"></a>指定属性</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js">XHRObject<span class="token punctuation">.</span><span class="token function">getResponseHeader</span><span class="token punctuation">(</span><span class="token string">"headerLabel"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="所有信息"><a href="#所有信息" class="headerlink" title="所有信息"></a>所有信息</h4><pre class="line-numbers language-js" data-language="js"><code class="language-js">XHRObject<span class="token punctuation">.</span><span class="token function">getAllResponseHeaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h2 id="如何创建一个XHR对象–-XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的"><a href="#如何创建一个XHR对象–-XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的" class="headerlink" title="如何创建一个XHR对象–(XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的)"></a>如何创建一个XHR对象–(XHR不是一个W3C标准，针对不同浏览的的初始化仿佛是不同的)</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> xmlHttp<span class="token punctuation">;</span>				           		<span class="token comment">//定义XMLHttpRequest对象</span>
-<span class="token keyword">function</span> <span class="token function">createXmlHttpRequestObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>window<span class="token punctuation">.</span>ActiveXObject<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-            xmlHttp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ActiveXObject</span><span class="token punctuation">(</span><span class="token string">"Microsoft.XMLHTTP"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            xmlHttp <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>			               		<span class="token comment">//如果在Mozilla或其他的浏览器下运行</span>
-        <span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-            xmlHttp <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">XMLHttpRequest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            xmlHttp <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>xmlHttp<span class="token punctuation">)</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"返回创建的对象或显示错误信息"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">else</span>
-        <span class="token keyword">return</span> xmlHttp<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="XMR对象获取XML文件内容"><a href="#XMR对象获取XML文件内容" class="headerlink" title="XMR对象获取XML文件内容"></a>XMR对象获取XML文件内容</h2><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="gb2312"?></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>root</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>item</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">></span></span>nameTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>number</span><span class="token punctuation">></span></span>numberTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>number</span><span class="token punctuation">></span></span>
-        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tel</span><span class="token punctuation">></span></span>telTag<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tel</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>item</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>root</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">xmlHttp<span class="token punctuation">.</span>onreadystatechange <span class="token operator">=</span> StatHandler<span class="token punctuation">;</span>		<span class="token comment">//指定回调函数</span>
-xmlHttp<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token string">"GET"</span><span class="token punctuation">,</span> <span class="token string">"index.xml"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	     	<span class="token comment">//调用index.xml文件</span>
-xmlHttp<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>xmlHttp<span class="token punctuation">.</span>readyState <span class="token operator">==</span> <span class="token number">4</span> <span class="token operator">&amp;&amp;</span> xmlHttp<span class="token punctuation">.</span>status <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> xmlRoot <span class="token operator">=</span> xmlHttp<span class="token punctuation">.</span>responseXML<span class="token punctuation">.</span>documentElement<span class="token punctuation">;</span>  <span class="token comment">//获取XML的DOM对象</span>
-    <span class="token keyword">var</span> xmlItem <span class="token operator">=</span> xmlRoot<span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"item"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> xmlName <span class="token operator">=</span> xmlItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"name"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> xmlNumber <span class="token operator">=</span> xmlItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"number"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> xmlTel <span class="token operator">=</span> xmlItem<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">getElementsByTagName</span><span class="token punctuation">(</span><span class="token string">"tel"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> txt <span class="token operator">=</span> <span class="token string">"INFO:"</span><span class="token punctuation">;</span>
-    txt <span class="token operator">+=</span> xmlName<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>nodeValue<span class="token punctuation">;</span>
-    txt <span class="token operator">+=</span> xmlNumber<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>nodeValue<span class="token punctuation">;</span>
-    txt <span class="token operator">+=</span> xmlTel<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>firstChild<span class="token punctuation">.</span>nodeValue<span class="token punctuation">;</span>
-    document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"webpage"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> txt<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>JS</tag>
-        <tag>Ajax</tag>
-        <tag>XmlHttpRequest</tag>
       </tags>
   </entry>
   <entry>
@@ -3168,6 +3154,20 @@ bool <span class="token class-name">InitStack</span><span class="token punctuati
       <tags>
         <tag>算法</tag>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>锦句</title>
+    <url>/%E9%94%A6/</url>
+    <content><![CDATA[<blockquote>
+<p>一块钱的打火机也能点着1万块的香烟，几万块钱一桌的菜，他还是离不开几块钱一包的盐</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>便签</category>
+      </categories>
+      <tags>
+        <tag>金句</tag>
       </tags>
   </entry>
 </search>
