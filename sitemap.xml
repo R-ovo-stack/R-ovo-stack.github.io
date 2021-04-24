@@ -256,13 +256,6 @@
   </url>
   
   <url>
-    <loc>http://rbin.top/tags/Mysql/</loc>
-    <lastmod>2021-04-24</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://rbin.top/tags/Node-js/</loc>
     <lastmod>2021-04-24</lastmod>
     <changefreq>daily</changefreq>
@@ -270,14 +263,14 @@
   </url>
   
   <url>
-    <loc>http://rbin.top/tags/Spring/</loc>
+    <loc>http://rbin.top/tags/Mysql/</loc>
     <lastmod>2021-04-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://rbin.top/tags/Spring-MVC/</loc>
+    <loc>http://rbin.top/tags/Spring/</loc>
     <lastmod>2021-04-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -306,6 +299,13 @@
   
   <url>
     <loc>http://rbin.top/tags/XmlHttpRequest/</loc>
+    <lastmod>2021-04-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://rbin.top/tags/Spring-MVC/</loc>
     <lastmod>2021-04-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
