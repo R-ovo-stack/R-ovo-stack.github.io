@@ -6,3 +6,62 @@
     alignment: center;
     text-align-all: center;
 }
+
+/* autour-one-regular - latin */
+@font-face {
+    font-family: 'Autour One';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/autour-one-v12-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+    url('../fonts/autour-one-v12-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/autour-one-v12-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/autour-one-v12-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/autour-one-v12-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/autour-one-v12-latin-regular.svg#AutourOne') format('svg'); /* Legacy iOS */
+}
+
+/* sancreek-regular - latin */
+@font-face {
+    font-family: 'Sancreek';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/sancreek-v13-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+    url('../fonts/sancreek-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/sancreek-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../fonts/sancreek-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/sancreek-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/sancreek-v13-latin-regular.svg#Sancreek') format('svg'); /* Legacy iOS */
+}
+body{
+    font-family: 'Sancreek';
+}
+/*鼠标样式*/
+body,
+html {
+    cursor: url('../Fandom/Arrow.ani'),
+    auto !important;
+}
+
+/* a, */
+img {
+    cursor: url('../Fandom/NO.ani'),
+    auto !important;
+}
+
+/*a标签*/
+a:hover {
+    cursor: url('../Fandom/UpArrow.ani'),
+    auto;
+}
+
+input:hover{
+    cursor: url('../Fandom/IBeam.ani'),
+    auto;
+}
+/*按钮*/
+button:hover {
+    cursor: url('../Fandom/Cross.ani'),
+    auto;
+}
