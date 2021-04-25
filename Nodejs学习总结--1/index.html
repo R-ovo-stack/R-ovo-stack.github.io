@@ -888,7 +888,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>上述程序执行结果:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res/res1.png"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://r-ovo-stack.gitee.io/res/res1.png"></p>
 <h2 id="全局函数–在任何位置都可以调用"><a href="#全局函数–在任何位置都可以调用" class="headerlink" title="全局函数–在任何位置都可以调用"></a>全局函数–在任何位置都可以调用</h2><p>函数和方法还是有一定的区别的哦</p>
 <hr>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">
@@ -2008,6 +2008,12 @@ $(function () {
     
 
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

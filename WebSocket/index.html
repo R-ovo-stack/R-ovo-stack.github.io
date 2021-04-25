@@ -801,7 +801,7 @@
                 <p>[TOC]</p>
 <h1 id="Node-js中的Socket–应用一"><a href="#Node-js中的Socket–应用一" class="headerlink" title="Node.js中的Socket–应用一"></a>Node.js中的Socket–应用一</h1><p>Node.js中的socket主要是由第三方模块socket.io实现的<br>所以本节重点分析socket的作用以及在node中如何使用socket.io</p>
 <h2 id="安装socket-io"><a href="#安装socket-io" class="headerlink" title="安装socket.io"></a>安装socket.io</h2><p>ps:socket.io模块是一个特殊的模块，当你在项目文件夹npm安装了它，会发现在Module文件中找不到，实际上，当使用它的时候，socket.io.js会自动下载到项目中,我的理解是，npm只是安装了一个下载索引……</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/sockettree.png"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://r-ovo-stack.gitee.io/res2/sockettree.png"></p>
 <pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">npm install socket<span class="token punctuation">.</span>io@1  <span class="token operator">/</span><span class="token operator">/</span>@1指的是版本<span class="token punctuation">,</span>如果没有@1<span class="token punctuation">,</span>则默认安装最新版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> socket<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -980,11 +980,11 @@ io<span class="token punctuation">.</span>sockets<span class="token punctuation"
 
 
 <p>服务器端:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/server1.png"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://r-ovo-stack.gitee.io/res2/server1.png"></p>
 <p>客户A:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/cliA.png"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://r-ovo-stack.gitee.io/res2/cliA.png"></p>
 <p>客户B:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/cliB.png"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://r-ovo-stack.gitee.io/res2/cliB.png"></p>
 <h2 id="socket通信类型"><a href="#socket通信类型" class="headerlink" title="socket通信类型"></a>socket通信类型</h2><h3 id="Node-js中的socket-io通信类型"><a href="#Node-js中的socket-io通信类型" class="headerlink" title="Node.js中的socket.io通信类型"></a>Node.js中的socket.io通信类型</h3><table>
 <thead>
 <tr>
@@ -1981,6 +1981,12 @@ $(function () {
     
 
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

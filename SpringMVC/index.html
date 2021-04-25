@@ -790,21 +790,21 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325083919380.png" alt="image-20210325083919380">Web层围绕</p>
+                <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325083919380.png" alt="image-20210325083919380">Web层围绕</p>
 <h2 id="启动Tomcat以后碰到的问题"><a href="#启动Tomcat以后碰到的问题" class="headerlink" title="启动Tomcat以后碰到的问题"></a>启动Tomcat以后碰到的问题</h2><h4 id="1-控制台输出乱码"><a href="#1-控制台输出乱码" class="headerlink" title="1.控制台输出乱码:"></a>1.控制台输出乱码:</h4><ul>
 <li>通过修改tomcat的conf下的logging.properties配置文件将ConsoleHandler.encoding=UTF-8改成GBK即可</li>
 </ul>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325094614507.png" alt="image-20210325094614507"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325094614507.png" alt="image-20210325094614507"></p>
 <h4 id="2-出现-–运行-‘Tomcat-9-0-41’-出错-port-out-of-range-1"><a href="#2-出现-–运行-‘Tomcat-9-0-41’-出错-port-out-of-range-1" class="headerlink" title="2.出现 –运行 ‘Tomcat 9.0.41’ 出错: port out of range:-1"></a>2.出现 –运行 ‘Tomcat 9.0.41’ 出错: port out of range:-1</h4><ul>
 <li>修改tomcat的conf下的serve.xml(如图所示),将改Port改为&gt;1024的任意数值皆可。1024以内的端口主要被计算机本身占用</li>
 </ul>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325094538788.png" alt="image-20210325094538788"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325094538788.png" alt="image-20210325094538788"></p>
 <h4 id="3-启动Tomcat总是出现404页面"><a href="#3-启动Tomcat总是出现404页面" class="headerlink" title="3.启动Tomcat总是出现404页面"></a>3.启动Tomcat总是出现404页面</h4><p>首先看Tomcat的配置：</p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325094814817.png" alt="image-20210325094814817"></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325095406053.png" alt="image-20210325095406053"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325094814817.png" alt="image-20210325094814817"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325095406053.png" alt="image-20210325095406053"></p>
 <p><u>我是如何处理的：将Application context（项目发布名）清空，则启动服务会自动跳到localhost:8080,也就是打开index.jsp页面。之后的页面跟随你的WEB-INF文件夹的路径树进行串接即可</u></p>
 <h4 id="4-所有的文件都已经写好了，并且maven也导入成功，spring配置也没问题，启动主页以后总是显示404的解决办法之一"><a href="#4-所有的文件都已经写好了，并且maven也导入成功，spring配置也没问题，启动主页以后总是显示404的解决办法之一" class="headerlink" title="4.所有的文件都已经写好了，并且maven也导入成功，spring配置也没问题，启动主页以后总是显示404的解决办法之一"></a>4.所有的文件都已经写好了，并且maven也导入成功，spring配置也没问题，启动主页以后总是显示404的解决办法之一</h4><p>点击相应项目或者模块</p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325095924555.png" alt="image-20210325095924555"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325095924555.png" alt="image-20210325095924555"></p>
 <h2 id="Spring的web依赖的正确打开方式-配置以XML形式"><a href="#Spring的web依赖的正确打开方式-配置以XML形式" class="headerlink" title="Spring的web依赖的正确打开方式(配置以XML形式)"></a>Spring的web依赖的正确打开方式(配置以XML形式)</h2><h4 id="1-导入maven依赖"><a href="#1-导入maven依赖" class="headerlink" title="1.导入maven依赖"></a>1.导入maven依赖</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>junit<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
@@ -829,7 +829,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325102133691.png" alt="image-20210325102133691"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325102133691.png" alt="image-20210325102133691"></p>
 <h4 id="2-配置web-xml"><a href="#2-配置web-xml" class="headerlink" title="2.配置web.xml"></a>2.配置web.xml</h4><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml">    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>context-param</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-name</span><span class="token punctuation">></span></span>contextConfigLocation<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-name</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>param-value</span><span class="token punctuation">></span></span>/WEB-INF/web.xml<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>param-value</span><span class="token punctuation">></span></span>
@@ -893,13 +893,13 @@ $&#123;msg&#125;
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="6-配置项目的Tomcat"><a href="#6-配置项目的Tomcat" class="headerlink" title="6.配置项目的Tomcat"></a>6.配置项目的Tomcat</h4><h4 id="7-启动服务即可"><a href="#7-启动服务即可" class="headerlink" title="7.启动服务即可"></a>7.启动服务即可</h4><h2 id="MVC执行原理-深究一下"><a href="#MVC执行原理-深究一下" class="headerlink" title="MVC执行原理(深究一下):"></a>MVC执行原理(深究一下):</h2><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325083919380.png" alt="image-20210325083919380"></p>
+<h4 id="6-配置项目的Tomcat"><a href="#6-配置项目的Tomcat" class="headerlink" title="6.配置项目的Tomcat"></a>6.配置项目的Tomcat</h4><h4 id="7-启动服务即可"><a href="#7-启动服务即可" class="headerlink" title="7.启动服务即可"></a>7.启动服务即可</h4><h2 id="MVC执行原理-深究一下"><a href="#MVC执行原理-深究一下" class="headerlink" title="MVC执行原理(深究一下):"></a>MVC执行原理(深究一下):</h2><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325083919380.png" alt="image-20210325083919380"></p>
 <p><em>模型装数据，视图封装跳转页面,返回给前端控制器</em></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325103941359.png" alt="image-20210325103941359"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210325103941359.png" alt="image-20210325103941359"></p>
 <p><u>我们需要做的，只需要编写Controller,编写Spring配置，web.xml</u></p>
 <h2 id="一个很恶心的地方"><a href="#一个很恶心的地方" class="headerlink" title="一个很恶心的地方"></a>一个很恶心的地方</h2><p><strong>就是当我第一次使用注解开发的时候，Tomcat总是找不到        <a target="_blank" rel="noopener" href="http://www.springframework.org/schema/mvc">http://www.springframework.org/schema/mvc</a></strong><br>        <strong><a target="_blank" rel="noopener" href="http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%EF%BC%8C">http://www.springframework.org/schema/mvc/spring-mvc.xsd&quot;这个文件，</a></strong><br><strong>然后这个坑大概卡了1天都没有解决，百度试了个遍都没有解决。</strong><br><strong>第二天我在spring的配置文件加上了<!DOCTYPE beans>,然后Tomcat告诉我另一个错误，它说识别不了beans.xml文件，</strong></p>
-<p><strong><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326191337490.png" alt="image-20210326191337490"></strong></p>
-<p><strong><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326191408615.png" alt="image-20210326191408615">再然后我把刚刚加的<!DOCTYPE beans>给注释起来，发现可以了。</strong></p>
+<p><strong><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326191337490.png" alt="image-20210326191337490"></strong></p>
+<p><strong><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326191408615.png" alt="image-20210326191408615">再然后我把刚刚加的<!DOCTYPE beans>给注释起来，发现可以了。</strong></p>
 <p>配置代码：</p>
 <pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
 <span class="token comment">&lt;!--&lt;!DOCTYPE beans>--></span>
@@ -1030,12 +1030,12 @@ $&#123;msg&#125;
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="类似的还有其他的几个关于mapping的注解"><a href="#类似的还有其他的几个关于mapping的注解" class="headerlink" title="类似的还有其他的几个关于mapping的注解"></a>类似的还有其他的几个关于mapping的注解</h2><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210327230214845.png" alt="image-20210327230214845"></p>
+<h2 id="类似的还有其他的几个关于mapping的注解"><a href="#类似的还有其他的几个关于mapping的注解" class="headerlink" title="类似的还有其他的几个关于mapping的注解"></a>类似的还有其他的几个关于mapping的注解</h2><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210327230214845.png" alt="image-20210327230214845"></p>
 <h3 id="关于Mapping注解代码的位置"><a href="#关于Mapping注解代码的位置" class="headerlink" title="关于Mapping注解代码的位置"></a>关于Mapping注解代码的位置</h3><blockquote>
 <p>如果类上面注明了该注解,则该类的所有跳转界面URI都要有该注解的跳转页面名，例如以下的URI应为localhost:port/ProjectName/head/demo1即可跳转到Demo.jsp文件</p>
 </blockquote>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210327230423881.png" alt="image-20210327230423881"></p>
-<h2 id="转发与重定向"><a href="#转发与重定向" class="headerlink" title="转发与重定向"></a>转发与重定向</h2><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328225236362.png" alt="image-20210328225236362"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210327230423881.png" alt="image-20210327230423881"></p>
+<h2 id="转发与重定向"><a href="#转发与重定向" class="headerlink" title="转发与重定向"></a>转发与重定向</h2><p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210328225236362.png" alt="image-20210328225236362"></p>
 <blockquote>
 <p>视图解析器的作用:在转发/重定向的时候自动拼接解析器里面给的主路径</p>
 </blockquote>
@@ -1997,6 +1997,12 @@ $(function () {
     
 
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

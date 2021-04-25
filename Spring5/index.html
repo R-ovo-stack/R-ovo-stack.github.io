@@ -842,7 +842,7 @@
 </code></pre>
 <p></beans>```</p>
 <p>id属性是识别单个bean定义的字符串。<br>class属性定义bean类的类型，并使用完全合格的类名。</p>
-<h2 id="Spring-工作原理的高层视图"><a href="#Spring-工作原理的高层视图" class="headerlink" title="Spring 工作原理的高层视图"></a>Spring 工作原理的高层视图<img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326193306931.png" alt="image-20210326193306931"></h2><h2 id="需要的maven配置"><a href="#需要的maven配置" class="headerlink" title="需要的maven配置"></a>需要的maven配置</h2><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
+<h2 id="Spring-工作原理的高层视图"><a href="#Spring-工作原理的高层视图" class="headerlink" title="Spring 工作原理的高层视图"></a>Spring 工作原理的高层视图<img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326193306931.png" alt="image-20210326193306931"></h2><h2 id="需要的maven配置"><a href="#需要的maven配置" class="headerlink" title="需要的maven配置"></a>需要的maven配置</h2><pre class="line-numbers language-xml" data-language="xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependencies</span><span class="token punctuation">></span></span>
     <span class="token comment">&lt;!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc --></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
@@ -967,7 +967,7 @@
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>name<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>TOMCAT<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>bean</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
-<p>可以看到,byType方式的特点为:一个类只能有一个bean实例,否则会出错,但是id可以任意取<br>byName方式的特点为: 取决于id,并且能否装配取决于JavaBean中的set方法参数<img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326202114156.png" alt="image-20210326202114156"></p>
+<p>可以看到,byType方式的特点为:一个类只能有一个bean实例,否则会出错,但是id可以任意取<br>byName方式的特点为: 取决于id,并且能否装配取决于JavaBean中的set方法参数<img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326202114156.png" alt="image-20210326202114156"></p>
 </blockquote>
 <h2 id="spring注解实现自动装配-Using-Annotation-Autowire-通过byType"><a href="#spring注解实现自动装配-Using-Annotation-Autowire-通过byType" class="headerlink" title="spring注解实现自动装配-Using Annotation Autowire(通过byType)"></a>spring注解实现自动装配-Using Annotation Autowire(通过byType)</h2><blockquote>
 <p>需要的约束</p>
@@ -989,23 +989,23 @@
 <blockquote>
 <p>使用注意:当<bean>中出现多个同类型,会出现如下</p>
 </blockquote>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326203440699.png" alt="image-20210326203440699"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326203440699.png" alt="image-20210326203440699"></p>
 <blockquote>
 <p>Source</p>
 </blockquote>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326203554168.png" alt="image-20210326203554168"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326203554168.png" alt="image-20210326203554168"></p>
 <p><em><strong><u>如何解决: 增加限定符@Qualifier</u></strong></em></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326204359369.png" alt="image-20210326204359369"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326204359369.png" alt="image-20210326204359369"></p>
 <p>Tip:@Autowire(required = false)中的required属性为false 表示该对象可以为null,否则不可以为空 || 该效果与@Nullable一致</p>
 <h2 id="resource注解实现自动装配-该注解属于java不属于spring"><a href="#resource注解实现自动装配-该注解属于java不属于spring" class="headerlink" title="@resource注解实现自动装配 (该注解属于java不属于spring)"></a>@resource注解实现自动装配 (该注解属于java不属于spring)</h2><blockquote>
 <p>@resource先通过Name(id)寻找,找不到再使用类型(type)去找，更加智能</p>
 </blockquote>
 <p><u>当同一个class只注册了一个bean时直接添加该注解即可</u></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205419014.png" alt="image-20210326205419014"></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205445497.png" alt="image-20210326205445497"></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205432069.png" alt="image-20210326205432069"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205419014.png" alt="image-20210326205419014"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205445497.png" alt="image-20210326205445497"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205432069.png" alt="image-20210326205432069"></p>
 <p><u>/</u></p>
-<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205848671.png" alt="image-20210326205848671"><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205908439.png" alt="image-20210326205908439"></p>
+<p><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205848671.png" alt="image-20210326205848671"><img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/1619345257740.gif" data-original="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/image-20210326205908439.png" alt="image-20210326205908439"></p>
 
                 
             </div>
@@ -1960,6 +1960,12 @@ $(function () {
     
 
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
