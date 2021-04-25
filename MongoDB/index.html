@@ -206,7 +206,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/wenwen.jpg" data-original="/medias/logo.gif" class="logo-img" alt="LOGO">
+                    <img src="/medias/logo.gif" class="logo-img" alt="LOGO">
                     
                     <span class="logo-span">如履薄彬</span>
                 </a>
@@ -262,7 +262,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/Gallery">
+        <a href="http://rbin.top/categories/love/">
           
           <i class="fas fa-images" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -357,7 +357,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/wenwen.jpg" data-original="/medias/logo.gif" class="logo-img circle responsive-img">
+        <img src="/medias/logo.gif" class="logo-img circle responsive-img">
         
         <div class="logo-name">如履薄彬</div>
         <div class="logo-desc">
@@ -417,7 +417,7 @@
               
                 <li>
 
-                  <a href="/Gallery " style="margin-left:75px">
+                  <a href="http://rbin.top/categories/love/ " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-images" style="position: absolute;left:50px" ></i>
 			      
@@ -579,6 +579,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('密码老婆生日')).toString(CryptoJS.enc.Hex)) {
+                alert('崽,你又调皮了??');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -1216,7 +1229,7 @@ db<span class="token punctuation">.</span>TableName<span class="token punctuatio
                 <a href="/Mysql/">
                     <div class="card-image">
                         
-                        <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/wenwen.jpg" data-original="https://r-ovo-stack.gitee.io/photo-stack-1/colorback/2.jpg" class="responsive-img" alt="Mysql常识记录       -----BASE">
+                        <img src="https://r-ovo-stack.gitee.io/photo-stack-1/colorback/2.jpg" class="responsive-img" alt="Mysql常识记录       -----BASE">
                         
                         <span class="card-title">Mysql常识记录       -----BASE</span>
                     </div>
@@ -1269,7 +1282,7 @@ db<span class="token punctuation">.</span>TableName<span class="token punctuatio
                     <div class="card-image">
                         
                         
-                        <img src="https://blogbin.oss-cn-beijing.aliyuncs.com/blog/wenwen.jpg" data-original="/medias/featureimages/11.jpg" class="responsive-img" alt="DOM编程       -----BASE">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="DOM编程       -----BASE">
                         
                         <span class="card-title">DOM编程       -----BASE</span>
                     </div>
@@ -1490,7 +1503,7 @@ db<span class="token punctuation">.</span>TableName<span class="token punctuatio
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.9k</span>&nbsp;字
+                class="white-color">17k</span>&nbsp;字
             
             
             
@@ -1726,6 +1739,16 @@ $(function () {
 
     <!-- Baidu Analytics -->
 
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?aafedf4d48fb3f257a3334768527fdef";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
     <!-- Baidu Push -->
 
 <script>
@@ -1773,12 +1796,6 @@ $(function () {
     
 
 
-<script>
-            window.imageLazyLoadSetting = {
-                isSPA: false,
-                preloadRatio: 1,
-                processImages: null,
-            };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=(n.imageLazyLoadSetting.preloadRatio,Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight+240||document.documentElement.clientHeight+240)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+</body>
 
 </html>
