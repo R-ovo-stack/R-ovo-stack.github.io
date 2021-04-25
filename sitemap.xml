@@ -200,13 +200,6 @@
 
   
   <url>
-    <loc>http://rbin.top/tags/Android/</loc>
-    <lastmod>2021-04-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://rbin.top/tags/JS/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
@@ -215,6 +208,13 @@
   
   <url>
     <loc>http://rbin.top/tags/DOM/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://rbin.top/tags/Android/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -291,13 +291,6 @@
   </url>
   
   <url>
-    <loc>http://rbin.top/tags/Spring-MVC/</loc>
-    <lastmod>2021-04-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://rbin.top/tags/Socket-io/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
@@ -306,6 +299,13 @@
   
   <url>
     <loc>http://rbin.top/tags/socket/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://rbin.top/tags/Spring-MVC/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -347,6 +347,13 @@
   </url>
   
   <url>
+    <loc>http://rbin.top/tags/%E9%87%91%E5%8F%A5/</loc>
+    <lastmod>2021-04-25</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://rbin.top/tags/%E6%97%85%E8%A1%8C/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
@@ -360,24 +367,17 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://rbin.top/tags/%E9%87%91%E5%8F%A5/</loc>
-    <lastmod>2021-04-25</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   
   <url>
-    <loc>http://rbin.top/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/</loc>
+    <loc>http://rbin.top/categories/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://rbin.top/categories/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>http://rbin.top/categories/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -426,14 +426,14 @@
   </url>
   
   <url>
-    <loc>http://rbin.top/categories/tourism/</loc>
+    <loc>http://rbin.top/categories/%E4%BE%BF%E7%AD%BE/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://rbin.top/categories/%E4%BE%BF%E7%AD%BE/</loc>
+    <loc>http://rbin.top/categories/tourism/</loc>
     <lastmod>2021-04-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
