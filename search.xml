@@ -209,6 +209,18 @@ document<span class="token punctuation">.</span><span class="token function">get
       </tags>
   </entry>
   <entry>
+    <title>Servelt       -----BASE</title>
+    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git基本操作 -----BASE</title>
     <url>/Git%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>[TOC]</p>
@@ -285,286 +297,6 @@ eg: <span class="token function">git</span> remote <span class="token function">
         <tag>Git</tag>
         <tag>Github</tag>
         <tag>Gitee</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/EL%E8%A1%A8%E8%BE%BE%E5%BC%8F-JAVAWEB/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>后端</category>
-      </categories>
-      <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Node.js V14.0 学习水滴记录-BASE</title>
-    <url>/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/</url>
-    <content><![CDATA[<hr>
-<p>本博文以及之后的Node.js-Tags记录了从2021年1月12号到1月17号的node技术总结，虽然只是会了点皮毛，但是个人认为，学习一样新的东西，应该养成良好的笔记习惯，昨天花了几个小时搭建的博客，今天就给他派上用场哈哈</p>
-<hr>
-<h1 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js??"></a>什么是Node.js??</h1><p>学了这么多天，我理解的Nodejs就是一个Js运行框架，它拥有让javascript运行在Web服务器中的能力，就和大三上学期学的Php的思想类似</p>
-<h2 id="V8-引擎"><a href="#V8-引擎" class="headerlink" title="V8 引擎"></a>V8 引擎</h2><hr>
-<p>V8是一个Js引擎，由C++开发而来，使用了内联缓存以提高性能。</p>
-<h2 id="学习Node-js需要掌握哪些知识"><a href="#学习Node-js需要掌握哪些知识" class="headerlink" title="学习Node.js需要掌握哪些知识?"></a>学习Node.js需要掌握哪些知识?</h2><hr>
-<p>我认为在学习这个之前应该至少要会javascript语言，并且html,css要有一定的了解，不然很容易不懂得前后端的配合运作机制，学到后面的http模块以后可能会摸不清楚头脑</p>
-<h1 id="Node-js-–Base"><a href="#Node-js-–Base" class="headerlink" title="Node.js –Base"></a>Node.js –Base</h1><h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><hr>
-<h3 id="filename-注意是两个"><a href="#filename-注意是两个" class="headerlink" title="__filename  (注意是两个)"></a>__<em>filename  (注意是两个</em>)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'该命令输出当前文件名'</span><span class="token punctuation">,</span>__filename<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//Node.js和Js一样，尾巴可以不写";"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h3 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'该命令输出当前文件夹'</span><span class="token punctuation">,</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><hr>
-<h3 id="console对象"><a href="#console对象" class="headerlink" title="console对象"></a>console对象</h3><h4 id="常见方法"><a href="#常见方法" class="headerlink" title="常见方法"></a>常见方法</h4><table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>log()</td>
-<td align="center">打印—标准输出流</td>
-</tr>
-<tr>
-<td>time()</td>
-<td align="center">输出时间，表示计时开始</td>
-</tr>
-<tr>
-<td>timeEnd()</td>
-<td align="center">结束时间，表示计时结束</td>
-</tr>
-</tbody></table>
-<h4 id="console-log-中的转义符号"><a href="#console-log-中的转义符号" class="headerlink" title="console.log()中的转义符号"></a>console.log()中的转义符号</h4><hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>d   输出数字变量
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'%d+%d=%d'</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token operator">+</span><span class="token number">300</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>s   输出字符串变量
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'字符串string %s'</span><span class="token punctuation">,</span><span class="token string">'Rulvbobin'</span><span class="token punctuation">,</span><span class="token string">'Node.js'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>j   输出Json变量
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'JSON %j'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span><span class="token string">'node.js'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="process对象-只存在于Node-js中，javascript中没有这个对象"><a href="#process对象-只存在于Node-js中，javascript中没有这个对象" class="headerlink" title="process对象(只存在于Node.js中，javascript中没有这个对象)"></a>process对象(只存在于Node.js中，javascript中没有这个对象)</h3><p>该对象用于描述当前程序的状态,process对象最重要的它的方法,相当于java里面的多线程的概念,但js本身又是单线程的</p>
-<hr>
-<table>
-<thead>
-<tr>
-<th>属性名</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>argv</td>
-<td align="center">return 一个数组，由命令行执行脚本时的各参数组成</td>
-</tr>
-<tr>
-<td>env</td>
-<td align="center">return 当前系统环境变量</td>
-</tr>
-<tr>
-<td>version</td>
-<td align="center">return node.js版本</td>
-</tr>
-<tr>
-<td>versions</td>
-<td align="center">return 当前node.js的版本号以及依赖包dependency</td>
-</tr>
-<tr>
-<td>arch</td>
-<td align="center">return 当前CPU架构</td>
-</tr>
-<tr>
-<td>platform</td>
-<td align="center">return  当前程序所在平台系统</td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#123;</span>
-    <span class="token comment">//输出内容,程序结束之前所有的状态</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">': '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">==</span> <span class="token string">'--exit'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//获得下一个数组中的参数</span>
-        <span class="token keyword">var</span> exitTime <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//setTImeout(),指定时长以后结束程序</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> exitTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>上述程序执行结果:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res/res1.png"></p>
-<h2 id="全局函数–在任何位置都可以调用"><a href="#全局函数–在任何位置都可以调用" class="headerlink" title="全局函数–在任何位置都可以调用"></a>全局函数–在任何位置都可以调用</h2><p>函数和方法还是有一定的区别的哦</p>
-<hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">
-全局函数<span class="token punctuation">.</span>js
-
-<span class="token function">setTimeout</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span>   在指定ms后执行指定函数cb<span class="token punctuation">,</span>只执行一次
-<span class="token function">clearTimeout</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">停止一个之前调用setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>创建的定时器
-<span class="token function">setInterval</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">与setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>近乎一致，但其是周期循环执行
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="Node-js里面的模块化编程-module-exports"><a href="#Node-js里面的模块化编程-module-exports" class="headerlink" title="Node.js里面的模块化编程 module/exports"></a>Node.js里面的模块化编程 module/exports</h1><p>Node.js中的每个模块都是一个.js文件,module.js文件是创建的模块f,在执行.js中调用module.js模块内容的代码</p>
-<h2 id="exports对象创建模块的方法"><a href="#exports对象创建模块的方法" class="headerlink" title="exports对象创建模块的方法"></a>exports对象创建模块的方法</h2><hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>js
-<span class="token comment">//定义一个求和方法add  || 匿名函数</span>
-exports<span class="token punctuation">.</span><span class="token function-variable function">add</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span>num2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> num1<span class="token operator">+</span>num2<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">//定义计算圆周的方法</span>
-exports<span class="token punctuation">.</span><span class="token function-variable function">circleArea</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token constant">R</span></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token constant">R</span><span class="token operator">*</span><span class="token constant">R</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">main<span class="token punctuation">.</span>js
-<span class="token comment">//加载module.js文件，用require(path)方法，通常使用相对路径</span>
-<span class="token keyword">var</span> module<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span><span class="token function">circleArea</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="module对象创建模块的方法"><a href="#module对象创建模块的方法" class="headerlink" title="module对象创建模块的方法"></a>module对象创建模块的方法</h2><hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>js
-<span class="token keyword">function</span> <span class="token keyword">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> name<span class="token punctuation">;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">setName</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">tName</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        name<span class="token operator">=</span>tName<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">main<span class="token punctuation">.</span>js
-<span class="token keyword">var</span> temp<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-hi<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-hi<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">'haha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-hi<span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="常见内置模块"><a href="#常见内置模块" class="headerlink" title="常见内置模块"></a>常见内置模块</h2><hr>
-<h3 id="os模块-const-os-require-‘os’"><a href="#os模块-const-os-require-‘os’" class="headerlink" title="os模块      const os=require(‘os’);"></a>os模块      const os=require(‘os’);</h3><hr>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>hostname</td>
-<td align="center">return 主机名</td>
-</tr>
-<tr>
-<td>type()</td>
-<td align="center">return 操作系统名</td>
-</tr>
-<tr>
-<td>platform()</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td>arch()</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td>release()</td>
-<td align="center">return 系统发行版本</td>
-</tr>
-<tr>
-<td>uptime()</td>
-<td align="center">return 操作系统运行时间，单位/s</td>
-</tr>
-<tr>
-<td>loadavg()</td>
-<td align="center">return 一个包含1min,5min,15min平均负载的数组</td>
-</tr>
-<tr>
-<td>totalmem()</td>
-<td align="center">return 系统内存总量，单位/字节</td>
-</tr>
-<tr>
-<td>freemem()</td>
-<td align="center">return 系统空闲内存总量，单位/字节</td>
-</tr>
-<tr>
-<td>cpus()</td>
-<td align="center">return 一个对象数组，包含所安装的每个CPU内核的信息</td>
-</tr>
-<tr>
-<td>networkInterfaces()</td>
-<td align="center">获得网路借口列表</td>
-</tr>
-</tbody></table>
-<h3 id="url-模块-const-url-require-‘url’"><a href="#url-模块-const-url-require-‘url’" class="headerlink" title="url 模块    const url=require(‘url’);"></a>url 模块    const url=require(‘url’);</h3><hr>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>parse()</td>
-<td align="center">将url字符串转为url对象</td>
-</tr>
-<tr>
-<td>format(urlObj)</td>
-<td align="center">将url对象转为url字符串</td>
-</tr>
-<tr>
-<td>resolve(from,to)</td>
-<td align="center">组合变数,构造url字符串</td>
-</tr>
-</tbody></table>
-<h3 id="Query-String-模块-const-Query-require-‘-querystring’"><a href="#Query-String-模块-const-Query-require-‘-querystring’" class="headerlink" title="Query String 模块       const Query=require(‘ querystring’);"></a>Query String 模块       const Query=require(‘ querystring’);</h3><hr>
-<table>
-<thead>
-<tr>
-<th>方法名</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>stringify(queryObj)</td>
-<td align="center">将query对象，转换为query字符串</td>
-</tr>
-<tr>
-<td>parse(quetyString)</td>
-<td align="center">将quety字符串转为query对象</td>
-</tr>
-</tbody></table>
-<h3 id="util-模块-const-util-require-‘util’"><a href="#util-模块-const-util-require-‘util’" class="headerlink" title="util 模块    const util=require(‘util’);"></a>util 模块    const util=require(‘util’);</h3><hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//util.format()其实就是printf("",  );</span>
-
-<span class="token keyword">const</span> util<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'util'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//var util也可以</span>
-<span class="token keyword">var</span> data<span class="token operator">=</span>util<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'%d+%d=%d'</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="crypto-模块-哈希模块-const-crypto-require-‘crypto’"><a href="#crypto-模块-哈希模块-const-crypto-require-‘crypto’" class="headerlink" title="crypto 模块(哈希模块)     const crypto=require(‘crypto’);"></a>crypto 模块(哈希模块)     const crypto=require(‘crypto’);</h3><hr>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> cry<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span>
-<span class="token comment">//生成hash</span>
-<span class="token keyword">var</span> temp<span class="token operator">=</span>cry<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'sha256'</span><span class="token punctuation">)</span>
-temp<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">)</span>
-<span class="token keyword">var</span> output<span class="token operator">=</span>temp<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">//output</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//输出哈希(密码)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-]]></content>
-      <categories>
-        <category>前/后端</category>
-      </categories>
-      <tags>
-        <tag>Node.js</tag>
       </tags>
   </entry>
   <entry>
@@ -1375,60 +1107,271 @@ db<span class="token punctuation">.</span>TableName<span class="token punctuatio
       </tags>
   </entry>
   <entry>
-    <title>Servelt       -----BASE</title>
-    <url>/Servelt/</url>
-    <content><![CDATA[<h2 id="什么是Servelt"><a href="#什么是Servelt" class="headerlink" title="什么是Servelt?"></a>什么是Servelt?</h2><blockquote>
-<p>Servelt是一个服务端的组件,用来处理response和request的java程序。</p>
-</blockquote>
-<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
-<p>协议：多方相互约定需要遵守的规则<br>http协议: 客户端和服务器之间通信时发送的数据需要遵守的协议<br>http协议中的数据也叫报文<br>客户端叫请求，服务器叫响应</p>
-</blockquote>
-<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
-<p>请求方式<br>请求资源路径<br>协议版本号</p>
-</blockquote>
-<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
-<p>Accept:告诉服务器客户端能够接受的类型<br>User-Agent:浏览器的信息<br>Accept-Encoding:接收的编码<br>Host:表示请求的服务器ip和Port<br>Accept-Language:接受语言类型<br>Connection:告诉服务器链接如何如何处理<br>closet:马上关闭</p>
-</blockquote>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><h4 id="请求行-1"><a href="#请求行-1" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
-<p>请求方式:post<br>请求资源路径  /工程路径/文件<br>请求协议版本号</p>
-</blockquote>
-<h4 id="请求头-1"><a href="#请求头-1" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
-<p>空行</p>
-</blockquote>
-<h4 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h4><blockquote>
-<p>发送给服务器的数据:action=xxxxx,username=xxxxxx,pwd=xxxxx<br>即表单信息<br>Referer:表示浏览器的地址(请求的发起者)<br>Content-Type:发送数据的类型(1.application/x-www-form-urlencoded:格式为…之后对其进行url编码)(2.multipart/form-data:白哦是多段形式提交数据)<br>Content-Length:发送的数据长度<br>Cache-Control:表示如何控制缓存</p>
-</blockquote>
-<h2 id="有哪些GET请求"><a href="#有哪些GET请求" class="headerlink" title="有哪些GET请求"></a>有哪些GET请求</h2><blockquote>
-<p>form标签method=GET<br><a>标签<br>link标签引入CSS<br>scriopt引入js<br>img引入图片<br>iframe引入html<br>浏览器中输入地址回车</p>
-</blockquote>
-<h2 id="响应的HTTP协议格式"><a href="#响应的HTTP协议格式" class="headerlink" title="响应的HTTP协议格式"></a>响应的HTTP协议格式</h2><h4 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h4><blockquote>
-<p>1.协议版本号<br>2.响应状态码<br>3.响应状态描述符</p>
-</blockquote>
-<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><blockquote>
-<p>key:value   不同的响应头有区别的<br>Date:请求响应的时间(格林时间)<br>空行</p>
-</blockquote>
-<h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><blockquote>
-<p>Cache缓存<br>服务器回传给客户端的数据:比如页面的html文件</p>
-</blockquote>
-<h2 id="MIME类型说明"><a href="#MIME类型说明" class="headerlink" title="MIME类型说明"></a>MIME类型说明</h2><blockquote>
-<p>没啥用</p>
-</blockquote>
-<h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h3><blockquote>
-<p>Tomcat服务器会把请求过来的http协议信息解析好封装到Req对象中,传递到Service方法(doGet和doPost中)给我们使用，通过HttpServletRequest对象获取所有请求信息</p>
-</blockquote>
-<h2 id="请求转发-转发请求–几个Severlt之间转发请求"><a href="#请求转发-转发请求–几个Severlt之间转发请求" class="headerlink" title="请求转发(转发请求–几个Severlt之间转发请求)"></a>请求转发(转发请求–几个Severlt之间转发请求)</h2><blockquote>
-<p>服务器收到请求之后，从一次资源跳转到另一个资源的操作叫请求转发</p>
-</blockquote>
-<h2 id="web中的-不同意义"><a href="#web中的-不同意义" class="headerlink" title="web中的/不同意义"></a>web中的/不同意义</h2><h2 id="Servlet往客户端回传字符串"><a href="#Servlet往客户端回传字符串" class="headerlink" title="Servlet往客户端回传字符串"></a>Servlet往客户端回传字符串</h2><h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><blockquote>
-<p>指的是客户端给服务器发送请求时，然后服务器告诉客户端访问新的地址(之前的地址被废弃的情况需要)</p>
-</blockquote>
-<h2 id="jsp其实就是servelt"><a href="#jsp其实就是servelt" class="headerlink" title="jsp其实就是servelt"></a>jsp其实就是servelt</h2>]]></content>
+    <title>Node.js V14.0 学习水滴记录-BASE</title>
+    <url>/Nodejs%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93--1/</url>
+    <content><![CDATA[<hr>
+<p>本博文以及之后的Node.js-Tags记录了从2021年1月12号到1月17号的node技术总结，虽然只是会了点皮毛，但是个人认为，学习一样新的东西，应该养成良好的笔记习惯，昨天花了几个小时搭建的博客，今天就给他派上用场哈哈</p>
+<hr>
+<h1 id="什么是Node-js"><a href="#什么是Node-js" class="headerlink" title="什么是Node.js??"></a>什么是Node.js??</h1><p>学了这么多天，我理解的Nodejs就是一个Js运行框架，它拥有让javascript运行在Web服务器中的能力，就和大三上学期学的Php的思想类似</p>
+<h2 id="V8-引擎"><a href="#V8-引擎" class="headerlink" title="V8 引擎"></a>V8 引擎</h2><hr>
+<p>V8是一个Js引擎，由C++开发而来，使用了内联缓存以提高性能。</p>
+<h2 id="学习Node-js需要掌握哪些知识"><a href="#学习Node-js需要掌握哪些知识" class="headerlink" title="学习Node.js需要掌握哪些知识?"></a>学习Node.js需要掌握哪些知识?</h2><hr>
+<p>我认为在学习这个之前应该至少要会javascript语言，并且html,css要有一定的了解，不然很容易不懂得前后端的配合运作机制，学到后面的http模块以后可能会摸不清楚头脑</p>
+<h1 id="Node-js-–Base"><a href="#Node-js-–Base" class="headerlink" title="Node.js –Base"></a>Node.js –Base</h1><h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><hr>
+<h3 id="filename-注意是两个"><a href="#filename-注意是两个" class="headerlink" title="__filename  (注意是两个)"></a>__<em>filename  (注意是两个</em>)</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'该命令输出当前文件名'</span><span class="token punctuation">,</span>__filename<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//Node.js和Js一样，尾巴可以不写";"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="dirname"><a href="#dirname" class="headerlink" title="__dirname"></a>__dirname</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'该命令输出当前文件夹'</span><span class="token punctuation">,</span>__dirname<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="全局对象"><a href="#全局对象" class="headerlink" title="全局对象"></a>全局对象</h2><hr>
+<h3 id="console对象"><a href="#console对象" class="headerlink" title="console对象"></a>console对象</h3><h4 id="常见方法"><a href="#常见方法" class="headerlink" title="常见方法"></a>常见方法</h4><table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>log()</td>
+<td align="center">打印—标准输出流</td>
+</tr>
+<tr>
+<td>time()</td>
+<td align="center">输出时间，表示计时开始</td>
+</tr>
+<tr>
+<td>timeEnd()</td>
+<td align="center">结束时间，表示计时结束</td>
+</tr>
+</tbody></table>
+<h4 id="console-log-中的转义符号"><a href="#console-log-中的转义符号" class="headerlink" title="console.log()中的转义符号"></a>console.log()中的转义符号</h4><hr>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>d   输出数字变量
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'%d+%d=%d'</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token operator">+</span><span class="token number">300</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>s   输出字符串变量
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'字符串string %s'</span><span class="token punctuation">,</span><span class="token string">'Rulvbobin'</span><span class="token punctuation">,</span><span class="token string">'Node.js'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">%</span>j   输出Json变量
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'JSON %j'</span><span class="token punctuation">,</span><span class="token punctuation">&#123;</span>name<span class="token operator">:</span><span class="token string">'node.js'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="process对象-只存在于Node-js中，javascript中没有这个对象"><a href="#process对象-只存在于Node-js中，javascript中没有这个对象" class="headerlink" title="process对象(只存在于Node.js中，javascript中没有这个对象)"></a>process对象(只存在于Node.js中，javascript中没有这个对象)</h3><p>该对象用于描述当前程序的状态,process对象最重要的它的方法,相当于java里面的多线程的概念,但js本身又是单线程的</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>argv</td>
+<td align="center">return 一个数组，由命令行执行脚本时的各参数组成</td>
+</tr>
+<tr>
+<td>env</td>
+<td align="center">return 当前系统环境变量</td>
+</tr>
+<tr>
+<td>version</td>
+<td align="center">return node.js版本</td>
+</tr>
+<tr>
+<td>versions</td>
+<td align="center">return 当前node.js的版本号以及依赖包dependency</td>
+</tr>
+<tr>
+<td>arch</td>
+<td align="center">return 当前CPU架构</td>
+</tr>
+<tr>
+<td>platform</td>
+<td align="center">return  当前程序所在平台系统</td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">item<span class="token punctuation">,</span> index</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    <span class="token comment">//输出内容,程序结束之前所有的状态</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>index <span class="token operator">+</span> <span class="token string">':'</span> <span class="token operator">+</span> <span class="token keyword">typeof</span> <span class="token punctuation">(</span>item<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">': '</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>item <span class="token operator">==</span> <span class="token string">'--exit'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//获得下一个数组中的参数</span>
+        <span class="token keyword">var</span> exitTime <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">[</span>index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//setTImeout(),指定时长以后结束程序</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            process<span class="token punctuation">.</span><span class="token function">exit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> exitTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>上述程序执行结果:</p>
+<p><img src="https://r-ovo-stack.gitee.io/res/res1.png"></p>
+<h2 id="全局函数–在任何位置都可以调用"><a href="#全局函数–在任何位置都可以调用" class="headerlink" title="全局函数–在任何位置都可以调用"></a>全局函数–在任何位置都可以调用</h2><p>函数和方法还是有一定的区别的哦</p>
+<hr>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">
+全局函数<span class="token punctuation">.</span>js
+
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span>   在指定ms后执行指定函数cb<span class="token punctuation">,</span>只执行一次
+<span class="token function">clearTimeout</span><span class="token punctuation">(</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">停止一个之前调用setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>创建的定时器
+<span class="token function">setInterval</span><span class="token punctuation">(</span>cb<span class="token punctuation">,</span>ms<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">与setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span>近乎一致，但其是周期循环执行
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="Node-js里面的模块化编程-module-exports"><a href="#Node-js里面的模块化编程-module-exports" class="headerlink" title="Node.js里面的模块化编程 module/exports"></a>Node.js里面的模块化编程 module/exports</h1><p>Node.js中的每个模块都是一个.js文件,module.js文件是创建的模块f,在执行.js中调用module.js模块内容的代码</p>
+<h2 id="exports对象创建模块的方法"><a href="#exports对象创建模块的方法" class="headerlink" title="exports对象创建模块的方法"></a>exports对象创建模块的方法</h2><hr>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>js
+<span class="token comment">//定义一个求和方法add  || 匿名函数</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">add</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">num1<span class="token punctuation">,</span>num2</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> num1<span class="token operator">+</span>num2<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">//定义计算圆周的方法</span>
+exports<span class="token punctuation">.</span><span class="token function-variable function">circleArea</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter"><span class="token constant">R</span></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token constant">R</span><span class="token operator">*</span><span class="token constant">R</span><span class="token operator">*</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">main<span class="token punctuation">.</span>js
+<span class="token comment">//加载module.js文件，用require(path)方法，通常使用相对路径</span>
+<span class="token keyword">var</span> module<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">+</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>module<span class="token punctuation">.</span><span class="token function">circleArea</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="module对象创建模块的方法"><a href="#module对象创建模块的方法" class="headerlink" title="module对象创建模块的方法"></a>module对象创建模块的方法</h2><hr>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">module<span class="token punctuation">.</span>js
+<span class="token keyword">function</span> <span class="token keyword">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">setName</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">tName</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        name<span class="token operator">=</span>tName<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">main<span class="token punctuation">.</span>js
+<span class="token keyword">var</span> temp<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./module.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hi<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">class</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hi<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">'haha'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+hi<span class="token punctuation">.</span><span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="常见内置模块"><a href="#常见内置模块" class="headerlink" title="常见内置模块"></a>常见内置模块</h2><hr>
+<h3 id="os模块-const-os-require-‘os’"><a href="#os模块-const-os-require-‘os’" class="headerlink" title="os模块      const os=require(‘os’);"></a>os模块      const os=require(‘os’);</h3><hr>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hostname</td>
+<td align="center">return 主机名</td>
+</tr>
+<tr>
+<td>type()</td>
+<td align="center">return 操作系统名</td>
+</tr>
+<tr>
+<td>platform()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>arch()</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>release()</td>
+<td align="center">return 系统发行版本</td>
+</tr>
+<tr>
+<td>uptime()</td>
+<td align="center">return 操作系统运行时间，单位/s</td>
+</tr>
+<tr>
+<td>loadavg()</td>
+<td align="center">return 一个包含1min,5min,15min平均负载的数组</td>
+</tr>
+<tr>
+<td>totalmem()</td>
+<td align="center">return 系统内存总量，单位/字节</td>
+</tr>
+<tr>
+<td>freemem()</td>
+<td align="center">return 系统空闲内存总量，单位/字节</td>
+</tr>
+<tr>
+<td>cpus()</td>
+<td align="center">return 一个对象数组，包含所安装的每个CPU内核的信息</td>
+</tr>
+<tr>
+<td>networkInterfaces()</td>
+<td align="center">获得网路借口列表</td>
+</tr>
+</tbody></table>
+<h3 id="url-模块-const-url-require-‘url’"><a href="#url-模块-const-url-require-‘url’" class="headerlink" title="url 模块    const url=require(‘url’);"></a>url 模块    const url=require(‘url’);</h3><hr>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>parse()</td>
+<td align="center">将url字符串转为url对象</td>
+</tr>
+<tr>
+<td>format(urlObj)</td>
+<td align="center">将url对象转为url字符串</td>
+</tr>
+<tr>
+<td>resolve(from,to)</td>
+<td align="center">组合变数,构造url字符串</td>
+</tr>
+</tbody></table>
+<h3 id="Query-String-模块-const-Query-require-‘-querystring’"><a href="#Query-String-模块-const-Query-require-‘-querystring’" class="headerlink" title="Query String 模块       const Query=require(‘ querystring’);"></a>Query String 模块       const Query=require(‘ querystring’);</h3><hr>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>stringify(queryObj)</td>
+<td align="center">将query对象，转换为query字符串</td>
+</tr>
+<tr>
+<td>parse(quetyString)</td>
+<td align="center">将quety字符串转为query对象</td>
+</tr>
+</tbody></table>
+<h3 id="util-模块-const-util-require-‘util’"><a href="#util-模块-const-util-require-‘util’" class="headerlink" title="util 模块    const util=require(‘util’);"></a>util 模块    const util=require(‘util’);</h3><hr>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//util.format()其实就是printf("",  );</span>
+
+<span class="token keyword">const</span> util<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'util'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//var util也可以</span>
+<span class="token keyword">var</span> data<span class="token operator">=</span>util<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">'%d+%d=%d'</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="crypto-模块-哈希模块-const-crypto-require-‘crypto’"><a href="#crypto-模块-哈希模块-const-crypto-require-‘crypto’" class="headerlink" title="crypto 模块(哈希模块)     const crypto=require(‘crypto’);"></a>crypto 模块(哈希模块)     const crypto=require(‘crypto’);</h3><hr>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> cry<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span>
+<span class="token comment">//生成hash</span>
+<span class="token keyword">var</span> temp<span class="token operator">=</span>cry<span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'sha256'</span><span class="token punctuation">)</span>
+temp<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> output<span class="token operator">=</span>temp<span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//output</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'pwd'</span><span class="token punctuation">,</span>output<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//输出哈希(密码)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+]]></content>
       <categories>
-        <category>后端</category>
+        <category>前/后端</category>
       </categories>
       <tags>
-        <tag>servelt</tag>
-        <tag>Tomcat</tag>
+        <tag>Node.js</tag>
       </tags>
   </entry>
   <entry>
@@ -1660,6 +1603,63 @@ db<span class="token punctuation">.</span>TableName<span class="token punctuatio
       </categories>
       <tags>
         <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Servelt       -----BASE</title>
+    <url>/Servelt/</url>
+    <content><![CDATA[<h2 id="什么是Servelt"><a href="#什么是Servelt" class="headerlink" title="什么是Servelt?"></a>什么是Servelt?</h2><blockquote>
+<p>Servelt是一个服务端的组件,用来处理response和request的java程序。</p>
+</blockquote>
+<h3 id="http协议"><a href="#http协议" class="headerlink" title="http协议"></a>http协议</h3><blockquote>
+<p>协议：多方相互约定需要遵守的规则<br>http协议: 客户端和服务器之间通信时发送的数据需要遵守的协议<br>http协议中的数据也叫报文<br>客户端叫请求，服务器叫响应</p>
+</blockquote>
+<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><h4 id="请求行"><a href="#请求行" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
+<p>请求方式<br>请求资源路径<br>协议版本号</p>
+</blockquote>
+<h4 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
+<p>Accept:告诉服务器客户端能够接受的类型<br>User-Agent:浏览器的信息<br>Accept-Encoding:接收的编码<br>Host:表示请求的服务器ip和Port<br>Accept-Language:接受语言类型<br>Connection:告诉服务器链接如何如何处理<br>closet:马上关闭</p>
+</blockquote>
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><h4 id="请求行-1"><a href="#请求行-1" class="headerlink" title="请求行"></a>请求行</h4><blockquote>
+<p>请求方式:post<br>请求资源路径  /工程路径/文件<br>请求协议版本号</p>
+</blockquote>
+<h4 id="请求头-1"><a href="#请求头-1" class="headerlink" title="请求头"></a>请求头</h4><blockquote>
+<p>空行</p>
+</blockquote>
+<h4 id="请求体"><a href="#请求体" class="headerlink" title="请求体"></a>请求体</h4><blockquote>
+<p>发送给服务器的数据:action=xxxxx,username=xxxxxx,pwd=xxxxx<br>即表单信息<br>Referer:表示浏览器的地址(请求的发起者)<br>Content-Type:发送数据的类型(1.application/x-www-form-urlencoded:格式为…之后对其进行url编码)(2.multipart/form-data:白哦是多段形式提交数据)<br>Content-Length:发送的数据长度<br>Cache-Control:表示如何控制缓存</p>
+</blockquote>
+<h2 id="有哪些GET请求"><a href="#有哪些GET请求" class="headerlink" title="有哪些GET请求"></a>有哪些GET请求</h2><blockquote>
+<p>form标签method=GET<br><a>标签<br>link标签引入CSS<br>scriopt引入js<br>img引入图片<br>iframe引入html<br>浏览器中输入地址回车</p>
+</blockquote>
+<h2 id="响应的HTTP协议格式"><a href="#响应的HTTP协议格式" class="headerlink" title="响应的HTTP协议格式"></a>响应的HTTP协议格式</h2><h4 id="响应行"><a href="#响应行" class="headerlink" title="响应行"></a>响应行</h4><blockquote>
+<p>1.协议版本号<br>2.响应状态码<br>3.响应状态描述符</p>
+</blockquote>
+<h4 id="响应头"><a href="#响应头" class="headerlink" title="响应头"></a>响应头</h4><blockquote>
+<p>key:value   不同的响应头有区别的<br>Date:请求响应的时间(格林时间)<br>空行</p>
+</blockquote>
+<h4 id="响应体"><a href="#响应体" class="headerlink" title="响应体"></a>响应体</h4><blockquote>
+<p>Cache缓存<br>服务器回传给客户端的数据:比如页面的html文件</p>
+</blockquote>
+<h2 id="MIME类型说明"><a href="#MIME类型说明" class="headerlink" title="MIME类型说明"></a>MIME类型说明</h2><blockquote>
+<p>没啥用</p>
+</blockquote>
+<h2 id="HttpServletRequest类"><a href="#HttpServletRequest类" class="headerlink" title="HttpServletRequest类"></a>HttpServletRequest类</h2><h3 id="有啥用"><a href="#有啥用" class="headerlink" title="有啥用"></a>有啥用</h3><blockquote>
+<p>Tomcat服务器会把请求过来的http协议信息解析好封装到Req对象中,传递到Service方法(doGet和doPost中)给我们使用，通过HttpServletRequest对象获取所有请求信息</p>
+</blockquote>
+<h2 id="请求转发-转发请求–几个Severlt之间转发请求"><a href="#请求转发-转发请求–几个Severlt之间转发请求" class="headerlink" title="请求转发(转发请求–几个Severlt之间转发请求)"></a>请求转发(转发请求–几个Severlt之间转发请求)</h2><blockquote>
+<p>服务器收到请求之后，从一次资源跳转到另一个资源的操作叫请求转发</p>
+</blockquote>
+<h2 id="web中的-不同意义"><a href="#web中的-不同意义" class="headerlink" title="web中的/不同意义"></a>web中的/不同意义</h2><h2 id="Servlet往客户端回传字符串"><a href="#Servlet往客户端回传字符串" class="headerlink" title="Servlet往客户端回传字符串"></a>Servlet往客户端回传字符串</h2><h2 id="请求重定向"><a href="#请求重定向" class="headerlink" title="请求重定向"></a>请求重定向</h2><blockquote>
+<p>指的是客户端给服务器发送请求时，然后服务器告诉客户端访问新的地址(之前的地址被废弃的情况需要)</p>
+</blockquote>
+<h2 id="jsp其实就是servelt"><a href="#jsp其实就是servelt" class="headerlink" title="jsp其实就是servelt"></a>jsp其实就是servelt</h2>]]></content>
+      <categories>
+        <category>后端</category>
+      </categories>
+      <tags>
+        <tag>servelt</tag>
+        <tag>Tomcat</tag>
       </tags>
   </entry>
   <entry>
@@ -1928,6 +1928,235 @@ $&#123;msg&#125;
       </categories>
       <tags>
         <tag>Spring MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Socket到底是怎么一回事? -----MIDDLE</title>
+    <url>/WebSocket/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<h1 id="Node-js中的Socket–应用一"><a href="#Node-js中的Socket–应用一" class="headerlink" title="Node.js中的Socket–应用一"></a>Node.js中的Socket–应用一</h1><p>Node.js中的socket主要是由第三方模块socket.io实现的<br>所以本节重点分析socket的作用以及在node中如何使用socket.io</p>
+<h2 id="安装socket-io"><a href="#安装socket-io" class="headerlink" title="安装socket.io"></a>安装socket.io</h2><p>ps:socket.io模块是一个特殊的模块，当你在项目文件夹npm安装了它，会发现在Module文件中找不到，实际上，当使用它的时候，socket.io.js会自动下载到项目中,我的理解是，npm只是安装了一个下载索引……</p>
+<p><img src="https://r-ovo-stack.gitee.io/res2/sockettree.png"></p>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">npm install socket<span class="token punctuation">.</span>io@1  <span class="token operator">/</span><span class="token operator">/</span>@1指的是版本<span class="token punctuation">,</span>如果没有@1<span class="token punctuation">,</span>则默认安装最新版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> socket<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="如何创建WebSocket服务器"><a href="#如何创建WebSocket服务器" class="headerlink" title="如何创建WebSocket服务器"></a>如何创建WebSocket服务器</h2><p><strong>以下每个步骤的注释纯属个人理解(–有更好的理解请纠正一下，谢谢–)</strong></p>
+<h3 id="首先建立Web服务器"><a href="#首先建立Web服务器" class="headerlink" title="首先建立Web服务器"></a>首先建立Web服务器</h3><p>不懂http模块的可以看看我另一篇博客</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">
+<span class="token comment">//以下代码我都写上了个人理解,所以你大可不必担心自己的node.js语法学得怎么怎么样</span>
+<span class="token comment">//本博文重在思想</span>
+
+
+<span class="token comment">//此处使用http模块</span>
+<span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
+<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>  <span class="token comment">//导入文件系统file system</span>
+<span class="token keyword">var</span> socket <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span>
+
+<span class="token comment">//创建web服务器</span>
+<span class="token keyword">var</span> app <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">//这里的res,req相信大家懂得都懂</span>
+    <span class="token comment">//读取html页面</span>
+    fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'xxx.html'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'text/html'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//这里我解释一下writeHead():200指代读取状态码，content-type可以理解为是对data的一种文档声明</span>
+        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//data则是fs在html页面中读取的所有内容</span>
+        <span class="token comment">//以上两句相当于加载了整个xxx.html页面</span>
+
+        <span class="token comment">//注意，以上两层回调函数，应该理解为从里面开始回调，与递归嵌套的执行顺序一致</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>然后我们需要创建一个socket监听这个Web服务器app，故名思意，这便是创建Websocket服务器的一般流程</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> io<span class="token operator">=</span>socket<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>
+io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">socket</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//我解释一下:</span>
+<span class="token comment">//io便是Websocket服务器,然后后面的connection指的是监听事件</span>
+<span class="token comment">//sockets是io的一个属性</span>
+<span class="token comment">//.on()便是建立的意思,当用户在客户端发起socket请求（connection）,便会触发该function</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>那么，我们的WebSocket服务器便创建好了,接下来我说一下如何连接socket<br>这里我使用html随意写一个客户端,注意前后端的io要一致</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//关键代码</span>
+<span class="token comment">//在html页面中首先需要导入刚才的js脚本,注意这里我并没有刻意使用exports创建模块</span>
+<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"xxx.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+    <span class="token comment">//此处的window.onload事件为页面加载完成再运行的意思，自动触发</span>
+    window<span class="token punctuation">.</span><span class="token function-variable function">onload</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> socket <span class="token operator">=</span> io<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//连接socket</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>那么一个简单的socket会话系统就编写完成了<br>接下来我们来看一下Websocket事件有哪些</p>
+<p>Socket.io模块中的事件<br>connection : 连接客户端时，触发该事件<br>disconnect : 断开客户端连接，触发该事件<br><em>//可以想象我们使用qq的时候是不是也是类似的体验</em></p>
+<table>
+<thead>
+<tr>
+<th>事件名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>connection</td>
+<td align="center">连接客户端时，触发该事件</td>
+</tr>
+<tr>
+<td>disconnect</td>
+<td align="center">断开客户端连接，触发该事件</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">socket<span class="token punctuation">.</span>io中的方法 <span class="token operator">||</span> 事件和方法是不一样的哦<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>on()</td>
+<td align="center">监听socket事件</td>
+</tr>
+<tr>
+<td>emit()</td>
+<td align="center">发送socket事件</td>
+</tr>
+<tr>
+<td></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p><em><strong><u>哎，还是来个实例吧</u></strong></em></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//socketServer.js</span>
+
+<span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> socketio <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//创建Web服务器</span>
+
+<span class="token keyword">var</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'HTMLPage.html'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'Content'</span><span class="token operator">:</span> <span class="token string">'text/html'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">52273</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'http://127.0.0.1:52273'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//创建WebSocket服务器   socket服务器监听serverWeb服务器</span>
+<span class="token keyword">var</span> io <span class="token operator">=</span> socketio<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>server<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//连接的同时，监听clientData事件</span>
+io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">socket</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'客户端已连接!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//相当于在监听的同时进行数据接收发送</span>
+    socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'clientData'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token comment">//输出客户端发来的信息</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'客户端发来信息: '</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">//向客户端发送serverData事件和数据</span>
+        <span class="token comment">// socket.emit('serverData',data);</span>
+        io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'serverData'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//客户端代码</span>
+<span class="token comment">//HTMLPage.html</span>
+
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
+<span class="token operator">&lt;</span>head<span class="token operator">></span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>title<span class="token operator">></span>Title<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"/socket.io/socket.io.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+    <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        window<span class="token punctuation">.</span><span class="token function-variable function">onload</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">//连接socket</span>
+            <span class="token keyword">var</span> socket<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token comment">//监听服务器事件与数据</span>
+            socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'serverData'</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务端回馈信息: '</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">//表单单击也属于实时监听</span>
+            <span class="token comment">//创建表单单击事件</span>
+            document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token comment">//获取表单数据</span>
+                <span class="token keyword">var</span> text<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+                <span class="token comment">//向服务器发送clientData事件和数据</span>
+                socket<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'clientData'</span><span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> id<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">/</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"button"</span> id<span class="token operator">=</span><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"send"</span><span class="token operator">/</span><span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">默认通信方式<span class="token punctuation">,</span>广播<span class="token operator">--</span>io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span>emit<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token keyword">data</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><em><strong><u>演示一下过程吧:</u></strong></em> </p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token number">1.</span>启动服务器
+<span class="token number">2.</span>浏览器开两个窗口都进入 http<span class="token operator">:</span><span class="token operator">/</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">127.0.0.1:52273</span><span class="token regex-delimiter">/</span></span>
+<span class="token number">3.</span>windowA 发送消息<span class="token constant">A</span>
+<span class="token number">4.</span>windowB 发送消息<span class="token constant">B</span>
+<span class="token number">5.</span>windowA 发送消息<span class="token constant">C</span>
+我们看看最后的结果<span class="token operator">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>服务器端:</p>
+<p><img src="https://r-ovo-stack.gitee.io/res2/server1.png"></p>
+<p>客户A:</p>
+<p><img src="https://r-ovo-stack.gitee.io/res2/cliA.png"></p>
+<p>客户B:</p>
+<p><img src="https://r-ovo-stack.gitee.io/res2/cliB.png"></p>
+<h2 id="socket通信类型"><a href="#socket通信类型" class="headerlink" title="socket通信类型"></a>socket通信类型</h2><h3 id="Node-js中的socket-io通信类型"><a href="#Node-js中的socket-io通信类型" class="headerlink" title="Node.js中的socket.io通信类型"></a>Node.js中的socket.io通信类型</h3><table>
+<thead>
+<tr>
+<th align="left">方法名称</th>
+<th>说明</th>
+<th align="left">codeeg</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">public</td>
+<td>向所有客户端传递数据(包括自己)</td>
+<td align="left">io.sockets.emit(‘’, data)</td>
+</tr>
+<tr>
+<td align="left">broadcast</td>
+<td>向所有客户端传递数据(不包括自己)</td>
+<td align="left">socket.broadcast.emit(‘’, data)</td>
+</tr>
+<tr>
+<td align="left">private</td>
+<td>向特定客户端传递数据</td>
+<td align="left">io.sockets.to(id).emit(‘’, data)</td>
+</tr>
+<tr>
+<td align="left">ps: private方式会随机选择客户端发送事件</td>
+<td></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<h1 id="java网络编程中的socket–应用二"><a href="#java网络编程中的socket–应用二" class="headerlink" title="java网络编程中的socket–应用二"></a>java网络编程中的socket–应用二</h1><h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2><h1 id="计算机网络中的socket–原理"><a href="#计算机网络中的socket–原理" class="headerlink" title="计算机网络中的socket–原理"></a>计算机网络中的socket–原理</h1><h2 id="未完待续-1"><a href="#未完待续-1" class="headerlink" title="未完待续"></a>未完待续</h2>]]></content>
+      <categories>
+        <category>前/后端</category>
+      </categories>
+      <tags>
+        <tag>Node.js</tag>
+        <tag>Socket.io</tag>
+        <tag>socket</tag>
       </tags>
   </entry>
   <entry>
@@ -2406,235 +2635,6 @@ explain<span class="token operator">:</span>给定一个目标状态<span class=
       <tags>
         <tag>JS</tag>
         <tag>jQuery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Socket到底是怎么一回事? -----MIDDLE</title>
-    <url>/WebSocket/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<h1 id="Node-js中的Socket–应用一"><a href="#Node-js中的Socket–应用一" class="headerlink" title="Node.js中的Socket–应用一"></a>Node.js中的Socket–应用一</h1><p>Node.js中的socket主要是由第三方模块socket.io实现的<br>所以本节重点分析socket的作用以及在node中如何使用socket.io</p>
-<h2 id="安装socket-io"><a href="#安装socket-io" class="headerlink" title="安装socket.io"></a>安装socket.io</h2><p>ps:socket.io模块是一个特殊的模块，当你在项目文件夹npm安装了它，会发现在Module文件中找不到，实际上，当使用它的时候，socket.io.js会自动下载到项目中,我的理解是，npm只是安装了一个下载索引……</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/sockettree.png"></p>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">npm install socket<span class="token punctuation">.</span>io@1  <span class="token operator">/</span><span class="token operator">/</span>@1指的是版本<span class="token punctuation">,</span>如果没有@1<span class="token punctuation">,</span>则默认安装最新版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> socket<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="如何创建WebSocket服务器"><a href="#如何创建WebSocket服务器" class="headerlink" title="如何创建WebSocket服务器"></a>如何创建WebSocket服务器</h2><p><strong>以下每个步骤的注释纯属个人理解(–有更好的理解请纠正一下，谢谢–)</strong></p>
-<h3 id="首先建立Web服务器"><a href="#首先建立Web服务器" class="headerlink" title="首先建立Web服务器"></a>首先建立Web服务器</h3><p>不懂http模块的可以看看我另一篇博客</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">
-<span class="token comment">//以下代码我都写上了个人理解,所以你大可不必担心自己的node.js语法学得怎么怎么样</span>
-<span class="token comment">//本博文重在思想</span>
-
-
-<span class="token comment">//此处使用http模块</span>
-<span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span>
-<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span>  <span class="token comment">//导入文件系统file system</span>
-<span class="token keyword">var</span> socket <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span>
-
-<span class="token comment">//创建web服务器</span>
-<span class="token keyword">var</span> app <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">//这里的res,req相信大家懂得都懂</span>
-    <span class="token comment">//读取html页面</span>
-    fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'xxx.html'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'text/html'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token comment">//这里我解释一下writeHead():200指代读取状态码，content-type可以理解为是对data的一种文档声明</span>
-        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//data则是fs在html页面中读取的所有内容</span>
-        <span class="token comment">//以上两句相当于加载了整个xxx.html页面</span>
-
-        <span class="token comment">//注意，以上两层回调函数，应该理解为从里面开始回调，与递归嵌套的执行顺序一致</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>port<span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>然后我们需要创建一个socket监听这个Web服务器app，故名思意，这便是创建Websocket服务器的一般流程</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> io<span class="token operator">=</span>socket<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>app<span class="token punctuation">)</span><span class="token punctuation">;</span>
-io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">socket</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//我解释一下:</span>
-<span class="token comment">//io便是Websocket服务器,然后后面的connection指的是监听事件</span>
-<span class="token comment">//sockets是io的一个属性</span>
-<span class="token comment">//.on()便是建立的意思,当用户在客户端发起socket请求（connection）,便会触发该function</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>那么，我们的WebSocket服务器便创建好了,接下来我说一下如何连接socket<br>这里我使用html随意写一个客户端,注意前后端的io要一致</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//关键代码</span>
-<span class="token comment">//在html页面中首先需要导入刚才的js脚本,注意这里我并没有刻意使用exports创建模块</span>
-<span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"xxx.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-    <span class="token comment">//此处的window.onload事件为页面加载完成再运行的意思，自动触发</span>
-    window<span class="token punctuation">.</span><span class="token function-variable function">onload</span><span class="token operator">=</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">var</span> socket <span class="token operator">=</span> io<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//连接socket</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>那么一个简单的socket会话系统就编写完成了<br>接下来我们来看一下Websocket事件有哪些</p>
-<p>Socket.io模块中的事件<br>connection : 连接客户端时，触发该事件<br>disconnect : 断开客户端连接，触发该事件<br><em>//可以想象我们使用qq的时候是不是也是类似的体验</em></p>
-<table>
-<thead>
-<tr>
-<th>事件名称</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>connection</td>
-<td align="center">连接客户端时，触发该事件</td>
-</tr>
-<tr>
-<td>disconnect</td>
-<td align="center">断开客户端连接，触发该事件</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">socket<span class="token punctuation">.</span>io中的方法 <span class="token operator">||</span> 事件和方法是不一样的哦<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>on()</td>
-<td align="center">监听socket事件</td>
-</tr>
-<tr>
-<td>emit()</td>
-<td align="center">发送socket事件</td>
-</tr>
-<tr>
-<td></td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<p><em><strong><u>哎，还是来个实例吧</u></strong></em></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//socketServer.js</span>
-
-<span class="token keyword">var</span> http <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'http'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> fs <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'fs'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> socketio <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">//创建Web服务器</span>
-
-<span class="token keyword">var</span> server <span class="token operator">=</span> http<span class="token punctuation">.</span><span class="token function">createServer</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    fs<span class="token punctuation">.</span><span class="token function">readFile</span><span class="token punctuation">(</span><span class="token string">'HTMLPage.html'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">error<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        res<span class="token punctuation">.</span><span class="token function">writeHead</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'Content'</span><span class="token operator">:</span> <span class="token string">'text/html'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">52273</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'http://127.0.0.1:52273'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">//创建WebSocket服务器   socket服务器监听serverWeb服务器</span>
-<span class="token keyword">var</span> io <span class="token operator">=</span> socketio<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>server<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">//连接的同时，监听clientData事件</span>
-io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'connection'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">socket</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'客户端已连接!'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//相当于在监听的同时进行数据接收发送</span>
-    socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'clientData'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token comment">//输出客户端发来的信息</span>
-        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'客户端发来信息: '</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token comment">//向客户端发送serverData事件和数据</span>
-        <span class="token comment">// socket.emit('serverData',data);</span>
-        io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'serverData'</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//客户端代码</span>
-<span class="token comment">//HTMLPage.html</span>
-
-<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token constant">DOCTYPE</span> html<span class="token operator">></span>
-<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">></span>
-<span class="token operator">&lt;</span>head<span class="token operator">></span>
-    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>title<span class="token operator">></span>Title<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span>
-    <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"/socket.io/socket.io.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-    <span class="token operator">&lt;</span>script<span class="token operator">></span>
-        window<span class="token punctuation">.</span><span class="token function-variable function">onload</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token comment">//连接socket</span>
-            <span class="token keyword">var</span> socket<span class="token operator">=</span>io<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-            <span class="token comment">//监听服务器事件与数据</span>
-            socket<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'serverData'</span><span class="token punctuation">,</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'服务端回馈信息: '</span><span class="token punctuation">,</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token comment">//表单单击也属于实时监听</span>
-            <span class="token comment">//创建表单单击事件</span>
-            document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'button'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function-variable function">onclick</span><span class="token operator">=</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                <span class="token comment">//获取表单数据</span>
-                <span class="token keyword">var</span> text<span class="token operator">=</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'text'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-                <span class="token comment">//向服务器发送clientData事件和数据</span>
-                socket<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span><span class="token string">'clientData'</span><span class="token punctuation">,</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
-<span class="token operator">&lt;</span>body<span class="token operator">></span>
-    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"text"</span> id<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">/</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"button"</span> id<span class="token operator">=</span><span class="token string">"button"</span> value<span class="token operator">=</span><span class="token string">"send"</span><span class="token operator">/</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">默认通信方式<span class="token punctuation">,</span>广播<span class="token operator">--</span>io<span class="token punctuation">.</span>sockets<span class="token punctuation">.</span>emit<span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">,</span> <span class="token keyword">data</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><em><strong><u>演示一下过程吧:</u></strong></em> </p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token number">1.</span>启动服务器
-<span class="token number">2.</span>浏览器开两个窗口都进入 http<span class="token operator">:</span><span class="token operator">/</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">127.0.0.1:52273</span><span class="token regex-delimiter">/</span></span>
-<span class="token number">3.</span>windowA 发送消息<span class="token constant">A</span>
-<span class="token number">4.</span>windowB 发送消息<span class="token constant">B</span>
-<span class="token number">5.</span>windowA 发送消息<span class="token constant">C</span>
-我们看看最后的结果<span class="token operator">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<p>服务器端:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/server1.png"></p>
-<p>客户A:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/cliA.png"></p>
-<p>客户B:</p>
-<p><img src="https://r-ovo-stack.gitee.io/res2/cliB.png"></p>
-<h2 id="socket通信类型"><a href="#socket通信类型" class="headerlink" title="socket通信类型"></a>socket通信类型</h2><h3 id="Node-js中的socket-io通信类型"><a href="#Node-js中的socket-io通信类型" class="headerlink" title="Node.js中的socket.io通信类型"></a>Node.js中的socket.io通信类型</h3><table>
-<thead>
-<tr>
-<th align="left">方法名称</th>
-<th>说明</th>
-<th align="left">codeeg</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">public</td>
-<td>向所有客户端传递数据(包括自己)</td>
-<td align="left">io.sockets.emit(‘’, data)</td>
-</tr>
-<tr>
-<td align="left">broadcast</td>
-<td>向所有客户端传递数据(不包括自己)</td>
-<td align="left">socket.broadcast.emit(‘’, data)</td>
-</tr>
-<tr>
-<td align="left">private</td>
-<td>向特定客户端传递数据</td>
-<td align="left">io.sockets.to(id).emit(‘’, data)</td>
-</tr>
-<tr>
-<td align="left">ps: private方式会随机选择客户端发送事件</td>
-<td></td>
-<td align="left"></td>
-</tr>
-</tbody></table>
-<h1 id="java网络编程中的socket–应用二"><a href="#java网络编程中的socket–应用二" class="headerlink" title="java网络编程中的socket–应用二"></a>java网络编程中的socket–应用二</h1><h2 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h2><h1 id="计算机网络中的socket–原理"><a href="#计算机网络中的socket–原理" class="headerlink" title="计算机网络中的socket–原理"></a>计算机网络中的socket–原理</h1><h2 id="未完待续-1"><a href="#未完待续-1" class="headerlink" title="未完待续"></a>未完待续</h2>]]></content>
-      <categories>
-        <category>前/后端</category>
-      </categories>
-      <tags>
-        <tag>Node.js</tag>
-        <tag>Socket.io</tag>
-        <tag>socket</tag>
       </tags>
   </entry>
   <entry>
